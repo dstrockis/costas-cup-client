@@ -7,7 +7,10 @@ namespace CostasCup
 {
 	public class ScoreEntryPage : ContentPage
 	{
+		Label _score;
+		Label _thru;
 		Team _team;
+		List<Team> _teams;
 		Picker _scorePicker;
 		Picker _playerPicker;
 		Label _hole;
@@ -49,6 +52,14 @@ namespace CostasCup
 				//				Android: () => pageTitle.FontFamily = Globals.TitleFontAndroid
 			);
 
+			// Refresh Data
+			try {
+				_teams = Team.GetAllTeams();
+				_team = _teams.Where(t => t.teamId.Equals(_team.teamId)).FirstOrDefault();
+			} catch (Exception e) {
+				return;
+			}
+
 			var teamName = new Label
 			{
 				Text = _team.teamName + "  |  ",
@@ -57,24 +68,13 @@ namespace CostasCup
 				TextColor = Color.Black
 			};
 
-			var score = new Label
+			_score = new Label
 			{
 				Font = Font.SystemFontOfSize (16),
 				HorizontalOptions = LayoutOptions.Center,
 			};
-
-			if (_team.ScoreToPar < 0) {
-				score.Text = _team.ScoreToPar.ToString ();
-				score.TextColor = Color.Green;
-			} else if (_team.ScoreToPar > 0) {
-				score.Text = "+" + _team.ScoreToPar.ToString ();
-				score.TextColor = Color.Red;
-			} else {
-				score.Text = "E";
-				score.TextColor = Color.Black;
-			}
-
-			var thru = new Label
+				
+			_thru = new Label
 			{
 				Text = "thru " + _team.GetNumHolesComplete(),
 				Font = Font.SystemFontOfSize (16),
@@ -82,9 +82,11 @@ namespace CostasCup
 				TextColor = Color.Black
 			};
 
+			RefreshScore ();
+
 			var statusBar = new StackLayout { 
 				Orientation = StackOrientation.Horizontal,
-				Children = {teamName, score, thru},
+				Children = {teamName, _score, _thru},
 				HorizontalOptions = LayoutOptions.Center
 			};
 
@@ -256,16 +258,48 @@ namespace CostasCup
 
 			await _body.FadeTo (0, 500);
 
-			DateTime timestamp = DateTime.Now;
+			int teamIndex = 0;
+			for (int i = 0; i < _teams.Count; i++) {
+				if (_teams[i].teamId.Equals(_team.teamId)) {
+					teamIndex = i;
+					break;
+				}
+			}
 
-			// Actually Submit the score
+			try {
+				_team.SubmitScore(score, player, teamIndex);
+				_teams = Team.GetAllTeams();
+				_team = _teams.Where(t => t.teamId.Equals(_team.teamId)).FirstOrDefault();
+			} catch (Exception ex) {
+				await DisplayAlert ("Error Occurred", "Please Try Again.", "OK");
+				await _body.FadeTo (1, 1000);
+				return;
+			}
 
 			_playerPicker.SelectedIndex = -1;
 			_scorePicker.SelectedIndex = -1;
-			_hole.Text = "Hole " + (_team.GetCurrentHole ().number + 1) + " - Par " + _team.GetCurrentHole ().par;
+			_hole.Text = "Hole " + (_team.GetCurrentHole ().number) + " - Par " + _team.GetCurrentHole ().par;
+			RefreshScore ();
 
 			await _body.FadeTo (1, 1000);
 
+
+		}
+
+		public void RefreshScore() {
+			
+			if (_team.ScoreToPar < 0) {
+				_score.Text = _team.ScoreToPar.ToString ();
+				_score.TextColor = Color.Green;
+			} else if (_team.ScoreToPar > 0) {
+				_score.Text = "+" + _team.ScoreToPar.ToString ();
+				_score.TextColor = Color.Red;
+			} else {
+				_score.Text = "E";
+				_score.TextColor = Color.Black;
+			}
+
+			_thru.Text = "thru " + _team.GetNumHolesComplete ();
 
 		}
 	}

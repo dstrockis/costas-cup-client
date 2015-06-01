@@ -7,6 +7,7 @@ namespace CostasCup
 {
 	public class LeaderboardPage : ContentPage
 	{
+		Grid _grid;
 		Team _team;
 		List<Team> _teams;
 
@@ -78,47 +79,7 @@ namespace CostasCup
 			gridHeader.Children.Add(scoreHeader, 2, 0);
 			gridHeader.Children.Add(thruHeader, 3, 0);
 
-
-			// Get List of Teams
-			_teams = new List<Team> {
-				_team,
-				new Team {
-					teamName = "Team Strockis",
-					teamId = "12345"
-				},
-				new Team {
-					teamName = "Team Freed",
-					teamId = "12345"
-				},
-				new Team {
-					teamName = "Team Mitchell",
-					teamId = "12345"
-				},
-				new Team {
-					teamName = "Team Dellanno",
-					teamId = "12345"
-				},
-				new Team {
-					teamName = "Team Cisic",
-					teamId = "12345"
-				},
-				new Team {
-					teamName = "Team Shorum",
-					teamId = "12345"
-				},
-				new Team {
-					teamName = "Team Shepardson",
-					teamId = "12345"
-				},
-				new Team {
-					teamName = "Team Jetton",
-					teamId = "12345"
-				}
-			};
-
-
-
-			Grid grid = new Grid
+			_grid = new Grid
 			{
 				VerticalOptions = LayoutOptions.FillAndExpand,
 				RowDefinitions = 
@@ -141,6 +102,53 @@ namespace CostasCup
 					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
 				}
 			};
+
+
+
+			var scrollView = new ScrollView {
+				Content = _grid,
+				BackgroundColor = Color.Transparent
+			};
+
+			var frameLayout = new StackLayout {
+				Spacing = 10,
+				HorizontalOptions = LayoutOptions.Fill,
+				Children = { gridHeader, scrollView } 
+			};
+
+			var listFrame = new Frame {
+				OutlineColor = Color.Black,
+				Content = frameLayout,
+				BackgroundColor = Color.FromRgba(255, 255, 255, 100)
+			};
+
+			Content = new StackLayout
+			{
+				Spacing = 10,
+				Children = { pageTitle, listFrame },
+				Padding = new Thickness(0,0,0,40),
+				HorizontalOptions = LayoutOptions.Fill
+			};
+		}
+
+		async void OnTeamLabelClicked(object sender, EventArgs e)
+		{
+			Button button = sender as Button;
+			Team clickedTeam = _teams.Where (t => t.teamName.Equals (button.Text)).FirstOrDefault();
+			int holesComplete = _team.GetNumHolesComplete ();
+			Navigation.PushAsync (new ScorecardPage (clickedTeam, holesComplete));
+		}
+
+		public void RefreshGridData ()
+		{
+			try {
+				_teams = Team.GetAllTeams();
+				_team = _teams.Where(t => t.teamId.Equals(_team.teamId)).FirstOrDefault();
+			} catch (Exception e) {
+				return;
+			}
+
+			_grid.Children.Clear ();
 
 			int holesComplete = _team.GetNumHolesComplete ();
 			TeamComparer tc = new TeamComparer (holesComplete);
@@ -181,11 +189,12 @@ namespace CostasCup
 					scoreLabel.TextColor = Color.Black;
 				}
 				var thruLabel = new Label {
-					Text = holesComplete.ToString(),
 					Font = Font.SystemFontOfSize (14),
 					HorizontalOptions = LayoutOptions.Center,
 					VerticalOptions = LayoutOptions.Center
 				};
+				var teamHolesComplete = _teams [i].GetNumHolesComplete ();
+				thruLabel.Text = holesComplete >= teamHolesComplete ? teamHolesComplete.ToString () : holesComplete.ToString ();
 
 				if (_teams[i].teamId == _team.teamId) {
 					posLabel.FontAttributes = FontAttributes.Bold;
@@ -194,46 +203,18 @@ namespace CostasCup
 					thruLabel.FontAttributes = FontAttributes.Bold;
 				}
 
-				grid.Children.Add (posLabel, 0, i);
-				grid.Children.Add (teamLabel, 1, i);
-				grid.Children.Add (scoreLabel, 2, i);
-				grid.Children.Add (thruLabel, 3, i);
-
+				_grid.Children.Add (posLabel, 0, i);
+				_grid.Children.Add (teamLabel, 1, i);
+				_grid.Children.Add (scoreLabel, 2, i);
+				_grid.Children.Add (thruLabel, 3, i);
 			}
-
-
-			var scrollView = new ScrollView {
-				Content = grid,
-				BackgroundColor = Color.Transparent
-			};
-
-			var frameLayout = new StackLayout {
-				Spacing = 10,
-				HorizontalOptions = LayoutOptions.Fill,
-				Children = { gridHeader, scrollView } 
-			};
-
-			var listFrame = new Frame {
-				OutlineColor = Color.Black,
-				Content = frameLayout,
-				BackgroundColor = Color.FromRgba(255, 255, 255, 100)
-			};
-
-			Content = new StackLayout
-			{
-				Spacing = 10,
-				Children = { pageTitle, listFrame },
-				Padding = new Thickness(0,0,0,40),
-				HorizontalOptions = LayoutOptions.Fill
-			};
 		}
 
-		async void OnTeamLabelClicked(object sender, EventArgs e)
+		protected override void OnAppearing ()
 		{
-			Button button = sender as Button;
-			Team clickedTeam = _teams.Where (t => t.teamName.Equals (button.Text)).FirstOrDefault();
-			int holesComplete = _team.GetNumHolesComplete ();
-			Navigation.PushAsync (new ScorecardPage (clickedTeam, holesComplete));
+			RefreshGridData ();
+
+			base.OnAppearing ();
 		}
 	}
 }

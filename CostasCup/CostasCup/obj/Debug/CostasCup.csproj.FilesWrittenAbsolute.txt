@@ -5,3 +5,4 @@
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/obj/Debug/CostasCup.dll.mdb
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/Xamarin.Forms.Core.dll
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/Xamarin.Forms.Xaml.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/Newtonsoft.Json.dll

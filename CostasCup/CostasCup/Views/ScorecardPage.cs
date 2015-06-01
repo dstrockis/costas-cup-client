@@ -184,6 +184,17 @@ namespace CostasCup
 				HorizontalOptions = LayoutOptions.Fill
 			};
 		}
+
+		protected override void OnAppearing ()
+		{
+			try {
+				List<Team> teams = Team.GetAllTeams();
+				_team = teams.Where(t => t.teamId.Equals(_team.teamId)).FirstOrDefault();
+			} catch (Exception e) {
+				return;
+			}
+			base.OnAppearing ();
+		}
 	}
 }
 

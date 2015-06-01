@@ -10,7 +10,6 @@ namespace CostasCup
 
 		public string playerId { get; set; }
 		public string name { get; set; }
-		public string initials { get; set; }
 	}
 }
 

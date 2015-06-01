@@ -9,7 +9,7 @@ namespace CostasCup
 		{
 		}
 
-		public List<Hole> holes { get; set; }
+
 	}
 }
 

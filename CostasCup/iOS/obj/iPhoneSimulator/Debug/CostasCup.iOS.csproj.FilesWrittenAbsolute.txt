@@ -30,3 +30,4 @@
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Calabash.dll
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.dll
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.dll.mdb
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll

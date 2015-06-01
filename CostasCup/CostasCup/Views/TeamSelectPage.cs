@@ -1,11 +1,14 @@
 ﻿using System;
 using Xamarin.Forms;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace CostasCup
 {
 	public class TeamSelectPage : ContentPage
 	{
+		ListView _teamList;
+
 		public TeamSelectPage ()
 		{
 			this.Title = "Select Team";
@@ -29,51 +32,32 @@ namespace CostasCup
 				HorizontalOptions = LayoutOptions.Center
 			};
 
-			var teamList = new ListView {
+			// Get Teams
+			List<Team> teams = null;
+			try {
+				teams = Team.GetAllTeams();
+			} catch (Exception e) {
+				DisplayAlert ("Error Occurred", "Please Kill the Process and Try Again.", "OK");
+				return;
+			}
+
+			_teamList = new ListView {
 				RowHeight = 40,
 				BackgroundColor = Color.Transparent,
-				ItemsSource = new string[] {
-					"Team Desai",
-					"Team Strockis",
-					"Team Mitchell",
-					"Team Dellanno",
-					"Team Freed",
-					"Team Desai",
-					"Team Strockis",
-					"Team Mitchell",
-					"Team Dellanno",
-					"Team Freed",
-					"Team Desai",
-					"Team Strockis",
-					"Team Mitchell",
-					"Team Dellanno",
-					"Team Freed",
-					"Team Desai",
-					"Team Strockis",
-					"Team Mitchell",
-					"Team Dellanno",
-					"Team Freed",
-				}
+				ItemsSource = teams,
 			};
+			_teamList.ItemTemplate = new DataTemplate(typeof(TextCell));
+			_teamList.ItemTemplate.SetBinding(TextCell.TextProperty, "teamName");
 
-			teamList.ItemSelected += async (sender, e) => {
-				var tempTeam = new Team {
-					teamId = "123456",
-					teamName = "Team Desai",
-					members = new List<Player> { new Player { name = "Danny Strockis" }, new Player { name = "Dhruv Desai" },
-						new Player { name = "Scott Mitchell" }, new Player { name = "Auzy Freed" }, 
-					},
-					password = "password",
-					round = new Round {
-						scores = new List<Score>(),
-						holes = new List<Hole>()
-					}
-				};
-				await Navigation.PushAsync(new PasswordPage(tempTeam));
+			_teamList.ItemSelected += async (sender, e) => {
+				if (e.SelectedItem == null)
+					return;
+				Team selected = e.SelectedItem as Team;
+				await Navigation.PushAsync(new PasswordPage(selected));
 			};
 
 			var scrollView = new ScrollView {
-				Content = teamList,
+				Content = _teamList,
 				BackgroundColor = Color.Transparent
 			};
 
@@ -89,6 +73,14 @@ namespace CostasCup
 				Children = { pageTitle, instructions, listFrame },
 				Padding = new Thickness(0,0,0,40),
 			};
+
+		}
+
+		protected override void OnAppearing ()
+		{
+			if(_teamList.SelectedItem != null)
+				_teamList.SelectedItem = null;
+			base.OnAppearing ();
 
 		}
 	}
