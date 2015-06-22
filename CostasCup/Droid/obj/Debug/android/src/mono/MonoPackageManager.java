@@ -85,6 +85,7 @@ class MonoPackageManager_Resources {
 		"FormsViewGroup.dll",
 		"Xamarin.Forms.Core.dll",
 		"Xamarin.Forms.Xaml.dll",
+		"Newtonsoft.Json.dll",
 		"CostasCup.dll",
 		"System.Collections.Concurrent.dll",
 		"System.Collections.dll",

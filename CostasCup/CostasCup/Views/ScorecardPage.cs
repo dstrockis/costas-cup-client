@@ -9,19 +9,22 @@ namespace CostasCup
 	{
 		Team _team;
 
-		public ScorecardPage (Team team, int numScoresToDisplay)
+		public ScorecardPage (Team team, int numScoresToDisplay, bool showScores)
 		{
 			_team = team;
 
 			this.Title = _team.teamName;
-			this.BackgroundImage = "indian.jpg";
+			this.BackgroundImage = "chambers.jpg";
 
 			Padding = new Thickness(20);
 			var pageTitle = new Label
 			{
 				Text = "Costas Cup 2015",
-				Font = Font.SystemFontOfSize (20),
+				Font = Font.SystemFontOfSize (42),
 				HorizontalOptions = LayoutOptions.Center,
+				TextColor = Color.White,
+				LineBreakMode = LineBreakMode.NoWrap
+
 			};
 			Device.OnPlatform(
 				iOS: () => pageTitle.FontFamily = Globals.TitleFontIos
@@ -33,6 +36,7 @@ namespace CostasCup
 				Text = "Hole",
 				Font = Font.SystemFontOfSize (16),
 				HorizontalOptions = LayoutOptions.Center,
+				TextColor = Color.Black
 			};
 
 			var holeParHeader = new Label
@@ -40,6 +44,7 @@ namespace CostasCup
 				Text = "Par",
 				Font = Font.SystemFontOfSize (16),
 				HorizontalOptions = LayoutOptions.Center,
+				TextColor = Color.Black
 			};
 
 			var nameHeader = new Label
@@ -47,6 +52,7 @@ namespace CostasCup
 				Text = "Player",
 				Font = Font.SystemFontOfSize (16),
 				HorizontalOptions = LayoutOptions.Center,
+				TextColor = Color.Black
 			};
 
 			var scoreHeader = new Label
@@ -54,6 +60,7 @@ namespace CostasCup
 				Text = "Score",
 				Font = Font.SystemFontOfSize (16),
 				HorizontalOptions = LayoutOptions.Center,
+				TextColor = Color.Black
 			};
 
 			var timeHeader = new Label
@@ -61,75 +68,140 @@ namespace CostasCup
 				Text = "Time",
 				Font = Font.SystemFontOfSize (16),
 				HorizontalOptions = LayoutOptions.Center,
+				TextColor = Color.Black
 			};
 
-			Grid gridHeader = new Grid
-			{
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				RowDefinitions = 
-				{
-					new RowDefinition { Height = GridLength.Auto },
-				},
-				ColumnDefinitions = 
-				{
-					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-				}
-			};
+			Grid gridHeader;
+			Grid grid;
 
-			gridHeader.Children.Add(holeNumHeader, 0, 0);
-			gridHeader.Children.Add(holeParHeader, 1, 0);
-			gridHeader.Children.Add(nameHeader, 2, 0);
-			gridHeader.Children.Add(scoreHeader, 3, 0);
-			gridHeader.Children.Add(timeHeader, 4, 0);
+			if (showScores) {
+			
+				gridHeader = new Grid {
+					VerticalOptions = LayoutOptions.FillAndExpand,
+					RowDefinitions = {
+						new RowDefinition { Height = GridLength.Auto },
+					},
+					ColumnDefinitions = {
+						new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength (2, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength (1, GridUnitType.Star) },
+					}
+				};
 
-			Grid grid = new Grid
-			{
-				VerticalOptions = LayoutOptions.FillAndExpand,
-				RowDefinitions = 
+				gridHeader.Children.Add(holeNumHeader, 0, 0);
+				gridHeader.Children.Add(holeParHeader, 1, 0);
+				gridHeader.Children.Add(nameHeader, 2, 0);
+				gridHeader.Children.Add(timeHeader, 3, 0);
+				gridHeader.Children.Add(scoreHeader, 4, 0);
+
+
+				grid = new Grid
 				{
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-					new RowDefinition { Height = GridLength.Auto },
-				},
-				ColumnDefinitions = 
+					VerticalOptions = LayoutOptions.FillAndExpand,
+					RowDefinitions = 
+					{
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+					},
+					ColumnDefinitions = 
+					{
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+					}
+				};
+			
+			} else {
+			
+				gridHeader = new Grid
 				{
-					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
-				}
-			};
+					VerticalOptions = LayoutOptions.FillAndExpand,
+					RowDefinitions = 
+					{
+						new RowDefinition { Height = GridLength.Auto },
+					},
+					ColumnDefinitions = 
+					{
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) },
+						//					new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+					}
+				};
+
+				gridHeader.Children.Add(holeNumHeader, 0, 0);
+				gridHeader.Children.Add(holeParHeader, 1, 0);
+				gridHeader.Children.Add(nameHeader, 2, 0);
+				gridHeader.Children.Add(timeHeader, 3, 0);
+
+				grid = new Grid
+				{
+					VerticalOptions = LayoutOptions.FillAndExpand,
+					RowDefinitions = 
+					{
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+						new RowDefinition { Height = GridLength.Auto },
+					},
+					ColumnDefinitions = 
+					{
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(2, GridUnitType.Star) },
+//						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+					}
+				};
+			}
 
 			foreach (Hole hole in _team.round.holes) {
 				grid.Children.Add (new Label {
 					Text = hole.number.ToString(),
 					Font = Font.SystemFontOfSize (14),
 					HorizontalOptions = LayoutOptions.Center,
+					TextColor = Color.Black
 				}, 0, hole.number-1);
 				grid.Children.Add (new Label {
 					Text = hole.par.ToString(),
 					Font = Font.SystemFontOfSize (14),
 					HorizontalOptions = LayoutOptions.Center,
+					TextColor = Color.Black
 				}, 1, hole.number-1);
 			};
 					
@@ -144,17 +216,24 @@ namespace CostasCup
 						Text = score.player.name,
 						Font = Font.SystemFontOfSize (14),
 						HorizontalOptions = LayoutOptions.Center,
+						TextColor = Color.Black
 					}, 2, score.hole.number-1);
-					grid.Children.Add (new Label {
-						Text = score.score.ToString (),
-						Font = Font.SystemFontOfSize (14),
-						HorizontalOptions = LayoutOptions.Center,
-					}, 3, score.hole.number - 1);
 					grid.Children.Add (new Label {
 						Text = score.timestamp.ToString ("h:mm"),
 						Font = Font.SystemFontOfSize (14),
 						HorizontalOptions = LayoutOptions.Center,
-					}, 4, score.hole.number - 1);
+						TextColor = Color.Black
+					}, 3, score.hole.number - 1);
+					if (showScores) {
+					
+						grid.Children.Add (new Label {
+							Text = score.score.ToString (),
+							Font = Font.SystemFontOfSize (14),
+							HorizontalOptions = LayoutOptions.Center,
+							TextColor = Color.Black
+						}, 4, score.hole.number - 1);
+					
+					}
 				}
 			};
 
@@ -188,7 +267,7 @@ namespace CostasCup
 		protected override void OnAppearing ()
 		{
 			try {
-				List<Team> teams = Team.GetAllTeams();
+				List<Team> teams = Team.GetAllTeams().Result;
 				_team = teams.Where(t => t.teamId.Equals(_team.teamId)).FirstOrDefault();
 			} catch (Exception e) {
 				return;

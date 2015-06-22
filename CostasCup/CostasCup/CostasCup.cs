@@ -8,22 +8,21 @@ namespace CostasCup
 	{
 		public App ()
 		{
-			// The root page of your application
-			var main = new NavigationPage (new TeamSelectPage ());
-			main.BackgroundImage = "indian.jpg";
-//			main.BarBackgroundColor = Color.Transparent;
-			MainPage = main;
-		}
-
-		public static Page GetMainPage()
-		{
-			var mainNav = new NavigationPage (new TeamSelectPage ());
-			return mainNav;
+			var main = new NavigationPage (new TeamSelectPage (null));
+			main.BackgroundImage = "chambers.jpg";
+			this.MainPage = main;
 		}
 
 		protected override void OnStart ()
 		{
-			// Handle when your app starts
+			object obj;
+			if (Application.Current.Properties.TryGetValue ("team", out obj)) 
+			{
+				Team team = obj as Team;
+				var main = new NavigationPage (new TeamSelectPage (team));
+				main.BackgroundImage = "chambers.jpg";
+				this.MainPage = main;
+			}
 		}
 
 		protected override void OnSleep ()

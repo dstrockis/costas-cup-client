@@ -9,17 +9,22 @@ namespace CostasCup
 	{
 		ListView _teamList;
 
-		public TeamSelectPage ()
+		public TeamSelectPage (Team team)
 		{
+			if (team != null)
+				Navigation.PushAsync(new ScoreEntryPage(team));
+
 			this.Title = "Select Team";
-			this.BackgroundImage = "indian.jpg";
+			this.BackgroundImage = "chambers.jpg";
 
 			Padding = new Thickness(20);
 			var pageTitle = new Label
 			{
-				Text = "Welcome to Costas Cup 2015",
-				Font = Font.SystemFontOfSize (20),
+				Text = "Costas Cup 2015",
+				Font = Font.SystemFontOfSize (42),
 				HorizontalOptions = LayoutOptions.Center,
+				TextColor = Color.White,
+				LineBreakMode = LineBreakMode.NoWrap
 			};
 			Device.OnPlatform(
 				iOS: () => pageTitle.FontFamily = Globals.TitleFontIos
@@ -35,18 +40,21 @@ namespace CostasCup
 			// Get Teams
 			List<Team> teams = null;
 			try {
-				teams = Team.GetAllTeams();
+				teams = Team.GetAllTeams().Result;
 			} catch (Exception e) {
 				DisplayAlert ("Error Occurred", "Please Kill the Process and Try Again.", "OK");
 				return;
 			}
+//			List<Team> teams = new List<Team>();
 
 			_teamList = new ListView {
 				RowHeight = 40,
 				BackgroundColor = Color.Transparent,
 				ItemsSource = teams,
 			};
-			_teamList.ItemTemplate = new DataTemplate(typeof(TextCell));
+			var cell = new DataTemplate(typeof(TextCell));
+			cell.SetValue (TextCell.TextColorProperty, Color.Black);
+			_teamList.ItemTemplate = cell;
 			_teamList.ItemTemplate.SetBinding(TextCell.TextProperty, "teamName");
 
 			_teamList.ItemSelected += async (sender, e) => {
@@ -78,10 +86,15 @@ namespace CostasCup
 
 		protected override void OnAppearing ()
 		{
-			if(_teamList.SelectedItem != null)
+       			if(_teamList.SelectedItem != null)
 				_teamList.SelectedItem = null;
 			base.OnAppearing ();
 
+		}
+
+		protected override bool OnBackButtonPressed ()
+		{
+			return base.OnBackButtonPressed ();
 		}
 	}
 }

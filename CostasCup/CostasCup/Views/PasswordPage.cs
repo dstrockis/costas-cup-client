@@ -13,14 +13,16 @@ namespace CostasCup
 			_team = team;
 
 			this.Title = "Select Team";
-			this.BackgroundImage = "indian.jpg";
+			this.BackgroundImage = "chambers.jpg";
 
 			Padding = new Thickness(20);
 			var pageTitle = new Label
 			{
-				Text = "Welcome to Costas Cup 2015",
-				Font = Font.SystemFontOfSize (20),
+				Text = "Costas Cup 2015",
+				Font = Font.SystemFontOfSize (42),
 				HorizontalOptions = LayoutOptions.Center,
+				TextColor = Color.White,
+				LineBreakMode = LineBreakMode.NoWrap
 			};
 			Device.OnPlatform(
 				iOS: () => pageTitle.FontFamily = Globals.TitleFontIos
@@ -45,6 +47,7 @@ namespace CostasCup
 				Font = Font.SystemFontOfSize (16),
 				BorderWidth = 0,
 				TextColor = Color.Green,
+				BackgroundColor = Color.Transparent
 			};
 
 			submitButton.Clicked += OnPasswordSubmit;
@@ -71,7 +74,7 @@ namespace CostasCup
 				await DisplayAlert ("Nice Try Buckley...", "Invalid Password", "OK");
 				return;
 			}
-
+			Application.Current.Properties["team"] = _team;
 			Navigation.InsertPageBefore(new ScoreEntryPage(_team), this);
 			await Navigation.PopAsync().ConfigureAwait(false);
 		}

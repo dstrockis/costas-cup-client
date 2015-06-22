@@ -21,7 +21,7 @@
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="0.0"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.20392156862745098" green="0.59607843137254901" blue="0.85882352941176465" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" colorSpace="calibratedWhite" white="0" alpha="1"/>
                         <constraints>
                             <constraint firstItem="23" firstAttribute="centerY" secondItem="yd7-JS-zBw" secondAttribute="centerY" priority="1" id="39"/>
                             <constraint firstItem="23" firstAttribute="centerX" secondItem="yd7-JS-zBw" secondAttribute="centerX" priority="1" id="41"/>
@@ -35,5 +35,14 @@
     </scenes>
     <resources>
         <image name="Icon-60.png" width="180" height="180"/>
+        <image name="Default.png" width="518" height="640"/>
+        <image name="Default-568h.png" width="518" height="640"/>
+        <image name="Default-Portrait.png" width="518" height="640"/>
+        <image name="Icon-76.png" width="76" height="76"/>
+        <image name="Icon-Small.png" width="29" height="29"/>
+        <image name="Icon-Small-40.png" width="40" height="40"/>
+        <image name="chambers.jpg" width="518" height="640"/>
+        <image name="indian.jpg" width="395" height="640"/>
+        <image name="cove.jpg" width="424" height="640"/>
     </resources>
 </document>

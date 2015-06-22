@@ -1,0 +1,7 @@
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/UITests/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/UITests/bin/Debug/CostasCup.UITests.dll.mdb
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/UITests/bin/Debug/CostasCup.UITests.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/UITests/obj/Debug/CostasCup.UITests.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/UITests/obj/Debug/CostasCup.UITests.dll.mdb
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/UITests/bin/Debug/nunit.framework.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/UITests/bin/Debug/Xamarin.UITest.dll

@@ -37,15 +37,16 @@ namespace CostasCup
 			_team = team;
 
 			this.Title = _team.teamName;
-			this.BackgroundImage = "indian.jpg";
+			this.BackgroundImage = "chambers.jpg";
 
 			Padding = new Thickness(20);
 			var pageTitle = new Label
 			{
 				Text = "Costas Cup 2015",
-				Font = Font.SystemFontOfSize (20),
+				Font = Font.SystemFontOfSize (42),
 				HorizontalOptions = LayoutOptions.Center,
-				TextColor = Color.Black
+				TextColor = Color.White,
+				LineBreakMode = LineBreakMode.NoWrap
 			};
 			Device.OnPlatform(
 				iOS: () => pageTitle.FontFamily = Globals.TitleFontIos
@@ -54,7 +55,7 @@ namespace CostasCup
 
 			// Refresh Data
 			try {
-				_teams = Team.GetAllTeams();
+				_teams = Team.GetAllTeams().Result;
 				_team = _teams.Where(t => t.teamId.Equals(_team.teamId)).FirstOrDefault();
 			} catch (Exception e) {
 				return;
@@ -182,8 +183,8 @@ namespace CostasCup
 					_scorePicker.BackgroundColor = Color.FromRgba(255, 255, 255, 200);
 				},
 				Android: () => {
-					_playerPicker.BackgroundColor = Color.FromRgba(0, 0, 0, 200);
-					_scorePicker.BackgroundColor = Color.FromRgba(0, 0, 0, 200);
+					_playerPicker.BackgroundColor = Color.Transparent;
+					_scorePicker.BackgroundColor = Color.Transparent;
 				}
 			);
 
@@ -230,7 +231,7 @@ namespace CostasCup
 
 		async void OnScorecardClicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync (new ScorecardPage (_team, _team.round.scores.Count));
+			await Navigation.PushAsync (new ScorecardPage (_team, _team.round.scores.Count, true));
 		}
 
 		async void OnLeaderboardClicked(object sender, EventArgs e)
@@ -268,7 +269,7 @@ namespace CostasCup
 
 			try {
 				_team.SubmitScore(score, player, teamIndex);
-				_teams = Team.GetAllTeams();
+				_teams = await Team.GetAllTeams();
 				_team = _teams.Where(t => t.teamId.Equals(_team.teamId)).FirstOrDefault();
 			} catch (Exception ex) {
 				await DisplayAlert ("Error Occurred", "Please Try Again.", "OK");

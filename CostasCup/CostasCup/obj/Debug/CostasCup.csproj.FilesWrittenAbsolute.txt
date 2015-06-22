@@ -6,3 +6,13 @@
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/Xamarin.Forms.Core.dll
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/Xamarin.Forms.Xaml.dll
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/Newtonsoft.Json.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/mscorlib.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/System.Core.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/System.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/System.Linq.Queryable.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/System.Diagnostics.Tools.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/System.ComponentModel.EventBasedAsync.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/System.Net.Primitives.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/System.Net.Requests.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/System.Net.NetworkInformation.dll
+/Users/dastrock/Source/Personal/Costas Cup/CostasCup/CostasCup/bin/Debug/System.Text.RegularExpressions.dll
