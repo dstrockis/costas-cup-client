@@ -9,7 +9,6 @@ namespace CostasCup
 		public App ()
 		{
 			var main = new NavigationPage (new TeamSelectPage (null));
-			main.BackgroundImage = "chambers.jpg";
 			this.MainPage = main;
 		}
 
@@ -20,7 +19,7 @@ namespace CostasCup
 			{
 				Team team = obj as Team;
 				var main = new NavigationPage (new TeamSelectPage (team));
-				main.BackgroundImage = "chambers.jpg";
+				main.BackgroundColor = Color.Black;
 				this.MainPage = main;
 			}
 		}

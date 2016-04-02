@@ -24,10 +24,7 @@ namespace CostasCup
 				TextColor = Color.White,
 				LineBreakMode = LineBreakMode.NoWrap
 			};
-			Device.OnPlatform(
-				iOS: () => pageTitle.FontFamily = Globals.TitleFontIos
-				//				Android: () => pageTitle.FontFamily = Globals.TitleFontAndroid
-			);
+
 			var instructions = new Label
 			{
 				Text = "Enter " + _team.teamName + "'s Password:",

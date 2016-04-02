@@ -15,12 +15,6 @@ namespace CostasCup
 				return "";
 			}
 		}
-
-		public static string TitleFontIos {
-			get { 
-				return "SnellRoundhand-Black";
-			}
-		}
 	}
 }
 

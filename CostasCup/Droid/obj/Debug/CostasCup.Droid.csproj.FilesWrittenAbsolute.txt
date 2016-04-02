@@ -25,3 +25,30 @@
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/Droid/bin/Debug/CostasCup.dll.mdb
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/Droid/bin/Debug/System.Net.Requests.dll
 /Users/dastrock/Source/Personal/Costas Cup/CostasCup/Droid/bin/Debug/System.Net.Primitives.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/MonoAndroid,Version=v5.0.AssemblyAttribute.cs
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/CostasCup.Droid.dll.mdb
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/CostasCup.Droid.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/com.strockisdev.costas_cup.apk
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/android/bin/com.strockisdev.costas_cup.apk
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/res/drawable/icon.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/res/drawable-hdpi/icon.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/res/drawable-xhdpi/icon.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/res/drawable-xxhdpi/icon.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/res/drawable/chambers.jpg
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/res/drawable/indian.jpg
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/res/drawable/cove.jpg
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/R.cs.flag
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/com.strockisdev.costas_cup-Signed.apk
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/uploadflags.txt
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/CostasCup.Droid.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/obj/Debug/CostasCup.Droid.dll.mdb
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/Xamarin.Android.Support.v4.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/Xamarin.Forms.Platform.Android.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/FormsViewGroup.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/Xamarin.Forms.Core.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/Xamarin.Forms.Xaml.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/Newtonsoft.Json.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/CostasCup.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/CostasCup.dll.mdb
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/System.Net.Requests.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/Droid/bin/Debug/System.Net.Primitives.dll

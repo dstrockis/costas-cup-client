@@ -1,35 +1,43 @@
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.storyboardc/Info-8.0+.plist
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.storyboardc/Info.plist
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.storyboardc/UIViewController-X5k-f2-b5h.nib/objects-8.0+.nib
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.storyboardc/UIViewController-X5k-f2-b5h.nib/runtime.nib
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.storyboardc/X5k-f2-b5h-view-yd7-JS-zBw.nib/objects-8.0+.nib
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.storyboardc/X5k-f2-b5h-view-yd7-JS-zBw.nib/runtime.nib
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Default.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Default@2x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Default-568h@2x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Default-Portrait.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Default-Portrait@2x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-60@2x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-60@3x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-76.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-76@2x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-Small.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-Small@2x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-Small@3x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-Small-40.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-Small-40@2x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Icon-Small-40@3x.png
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.iOS.exe.mdb
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.iOS.exe
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/CostasCup.iOS.exe
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/CostasCup.iOS.exe.mdb
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Calabash.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.dll.mdb
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/System.Net.Requests.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/System.Net.Primitives.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/Xamarin.iOS,Version=v1.0.AssemblyAttribute.cs
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.storyboardc/Info.plist
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.storyboardc/UIViewController-X5k-f2-b5h.nib
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/LaunchScreen.storyboardc/X5k-f2-b5h-view-yd7-JS-zBw.nib
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/ibtool/_BundleResourceWithLogicalName.items
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Default.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Default@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Default-568h@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Default-Portrait.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Default-Portrait@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-60@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-60@3x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-76.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-76@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-Small.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-Small@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-Small@3x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-Small-40.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-Small-40@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-Small-40@3x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.iOS.exe.mdb
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.iOS.exe
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/CostasCup.iOS.exe
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/CostasCup.iOS.exe.mdb
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Calabash.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.dll.mdb
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/System.Net.Requests.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/bin/iPhoneSimulator/Debug/System.Net.Primitives.dll
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_left_white_48pt.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_left_white_48pt@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_left_white_48pt@3x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_right_white_48pt.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_right_white_48pt@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_right_white_48pt@3x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/users-icon.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/users-icon@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/users-icon@3x.png

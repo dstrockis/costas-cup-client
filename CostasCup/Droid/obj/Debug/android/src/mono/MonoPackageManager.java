@@ -95,6 +95,7 @@ class MonoPackageManager_Resources {
 		"System.Diagnostics.Contracts.dll",
 		"System.Diagnostics.Debug.dll",
 		"System.Diagnostics.Tools.dll",
+		"System.Diagnostics.Tracing.dll",
 		"System.Dynamic.Runtime.dll",
 		"System.Globalization.dll",
 		"System.IO.dll",
@@ -124,15 +125,18 @@ class MonoPackageManager_Resources {
 		"System.Security.Principal.dll",
 		"System.ServiceModel.Http.dll",
 		"System.ServiceModel.Primitives.dll",
+		"System.ServiceModel.Security.dll",
 		"System.Text.Encoding.Extensions.dll",
 		"System.Text.Encoding.dll",
 		"System.Text.RegularExpressions.dll",
 		"System.Threading.Tasks.Parallel.dll",
 		"System.Threading.Tasks.dll",
+		"System.Threading.Timer.dll",
 		"System.Threading.dll",
 		"System.Xml.ReaderWriter.dll",
 		"System.Xml.XDocument.dll",
 		"System.Xml.XmlSerializer.dll",
+		"System.ServiceModel.Internals.dll",
 	};
 	public static final String[] Dependencies = new String[]{
 	};

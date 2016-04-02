@@ -114,6 +114,24 @@
     <BundleResource Include="Resources\chambers.jpg" />
     <BundleResource Include="Resources\indian.jpg" />
     <BundleResource Include="Resources\cove.jpg" />
+    <BundleResource Include="Resources\Caslon Swash SSi Italic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\Montserrat-Black.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\Montserrat-UltraLight.otf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\ic_chevron_left_white_48pt.png" />
+    <BundleResource Include="Resources\ic_chevron_left_white_48pt%402x.png" />
+    <BundleResource Include="Resources\ic_chevron_left_white_48pt%403x.png" />
+    <BundleResource Include="Resources\ic_chevron_right_white_48pt.png" />
+    <BundleResource Include="Resources\ic_chevron_right_white_48pt%402x.png" />
+    <BundleResource Include="Resources\ic_chevron_right_white_48pt%403x.png" />
+    <BundleResource Include="Resources\users-icon.png" />
+    <BundleResource Include="Resources\users-icon%402x.png" />
+    <BundleResource Include="Resources\users-icon%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -128,6 +146,7 @@
     <Compile Include="AppDelegate.cs" />
     <Compile Include="Utils\HttpHelper.cs" />
     <Compile Include="Utils\SaveAndLoad_iOS.cs" />
+    <Compile Include="CarouselLayoutRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
