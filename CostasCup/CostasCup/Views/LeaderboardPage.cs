@@ -15,9 +15,10 @@ namespace CostasCup
 		public LeaderboardPage (Team team)
 		{
 			_team = team;
-
+			NavigationPage.SetHasNavigationBar (this, false);
+			this.BackgroundColor = Color.White;
 			this.Title = "Leaderboard";
-			this.BackgroundImage = "chambers.jpg";
+			this.Icon = "ic_format_list_numbered.png";
 
 			Padding = new Thickness(20);
 			var pageTitle = new Label

@@ -132,6 +132,18 @@
     <BundleResource Include="Resources\users-icon.png" />
     <BundleResource Include="Resources\users-icon%402x.png" />
     <BundleResource Include="Resources\users-icon%403x.png" />
+    <BundleResource Include="Resources\ic_chevron_left_white_18pt.png" />
+    <BundleResource Include="Resources\ic_chevron_left_white_18pt%402x.png" />
+    <BundleResource Include="Resources\ic_chevron_left_white_18pt%403x.png" />
+    <BundleResource Include="Resources\ic_chevron_left_white.png" />
+    <BundleResource Include="Resources\ic_chevron_left_white%402x.png" />
+    <BundleResource Include="Resources\ic_chevron_left_white%403x.png" />
+    <BundleResource Include="Resources\ic_format_list_numbered.png" />
+    <BundleResource Include="Resources\ic_format_list_numbered%402x.png" />
+    <BundleResource Include="Resources\ic_format_list_numbered%403x.png" />
+    <BundleResource Include="Resources\ic_mode_edit.png" />
+    <BundleResource Include="Resources\ic_mode_edit%402x.png" />
+    <BundleResource Include="Resources\ic_mode_edit%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

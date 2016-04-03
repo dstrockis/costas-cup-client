@@ -20,7 +20,7 @@ namespace CostasCup
 
 			// Check if we already know the team
 			if (team != null)
-				Navigation.PushAsync(new ScoreEntryPage(team));
+				Navigation.PushAsync(new HomePage(team));
 
 			// Get list of all teams
 			try {
@@ -96,7 +96,9 @@ namespace CostasCup
 			var selectPane = new StackLayout {
 				Orientation = StackOrientation.Horizontal,
 				Children = {left, teamBundle, right},
-				HorizontalOptions = LayoutOptions.Center
+				Padding = 0,
+				Spacing = 0,
+				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};
 
 			var selectButton = new Button { 
@@ -115,7 +117,7 @@ namespace CostasCup
 			Content = new StackLayout { 
 				Children = { title, instructions, selectPane, selectButton},
 				Spacing = 10,
-				Padding = new Thickness(20),
+				Padding = new Thickness(0, 20, 0, 20),
 			};
 		}
 

@@ -36,8 +36,55 @@ namespace CostasCup
 		{
 			_team = team;
 
+			NavigationPage.SetHasNavigationBar (this, false);
+			this.BackgroundColor = Color.White;
 			this.Title = _team.teamName;
-			this.BackgroundImage = "chambers.jpg";
+
+			Label _backLabel = new Label {
+				Text = "Back",
+				VerticalOptions = LayoutOptions.Center,
+				FontSize = 16,
+				TextColor = Color.White
+			};
+
+			Image _backButton = new Image {
+				Aspect = Aspect.AspectFit,
+				Source = ImageSource.FromFile ("ic_chevron_left_white.png"),
+				VerticalOptions = LayoutOptions.Center,
+			};
+
+			var _back = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+				HorizontalOptions = LayoutOptions.Start,
+				Spacing = 0,
+				Children = { _backButton, _backLabel }
+			};
+
+			var _navbar = new StackLayout {
+				Orientation = StackOrientation.Horizontal,
+				HeightRequest = 50,
+				Padding = new Thickness(0, 0, 10, 30),
+				Spacing = 5,
+				BackgroundColor = Color.Black,
+				Children = {
+					_back,
+					new Label {
+						Text = "|",
+						TextColor = Color.FromRgb(225,225,225),
+						FontSize = 24,
+						VerticalOptions = LayoutOptions.Center,	
+					},
+					new Label {
+						Text = "COSTAS",
+						HorizontalOptions = LayoutOptions.End,
+						VerticalOptions = LayoutOptions.Center,
+						FontSize = 16,
+						FontFamily = "CaslonSwashSSiItalic",
+						TextColor = Color.FromRgb(242,214,0),
+						LineBreakMode = LineBreakMode.NoWrap
+					}
+				}
+			};
 
 			Padding = new Thickness(20);
 			var pageTitle = new Label

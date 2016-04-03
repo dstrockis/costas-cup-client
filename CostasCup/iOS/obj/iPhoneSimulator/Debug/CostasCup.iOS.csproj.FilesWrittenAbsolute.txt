@@ -41,3 +41,15 @@
 /Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/users-icon.png
 /Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/users-icon@2x.png
 /Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/users-icon@3x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_left_white_18pt.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_left_white_18pt@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_left_white_18pt@3x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_left_white.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_left_white@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_left_white@3x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_format_list_numbered.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_format_list_numbered@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_format_list_numbered@3x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_mode_edit.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_mode_edit@2x.png
+/Users/Strockis/Source/moonlight/costas_cup/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_mode_edit@3x.png
