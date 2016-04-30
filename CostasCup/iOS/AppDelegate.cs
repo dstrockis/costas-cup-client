@@ -19,7 +19,7 @@ namespace CostasCup.iOS
 			Xamarin.Calabash.Start();
 			#endif
 
-			LoadApplication (new App ());
+			LoadApplication (new CostasCup.UI.App ());
 
 			return base.FinishedLaunching (app, options);
 		}

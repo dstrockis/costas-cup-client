@@ -1,48 +1,54 @@
 ﻿<Properties StartupItem="iOS/CostasCup.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CostasCup/Views/ScorecardPage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CostasCup/Pages/ScorecardPage.cs">
     <Files>
-      <File FileName="CostasCup/Views/TeamSelectPage.cs" Line="24" Column="4" />
-      <File FileName="CostasCup/CostasCup.cs" Line="1" Column="1" />
-      <File FileName="CostasCup/Views/ScoreEntryPage.cs" Line="87" Column="6" />
-      <File FileName="CostasCup/Views/ScorecardPage.cs" Line="13" Column="23" />
-      <File FileName="CostasCup/Views/PasswordPage.cs" Line="8" Column="22" />
-      <File FileName="CostasCup/Views/LeaderboardPage.cs" Line="21" Column="46" />
-      <File FileName="iOS/packages.config" Line="1" Column="1" />
-      <File FileName="iOS/Info.plist" />
-      <File FileName="iOS/Entitlements.plist" />
-      <File FileName="CostasCup/Utils/Globals.cs" Line="1" Column="1" />
-      <File FileName="CostasCup/Models/Team.cs" Line="93" Column="4" />
-      <File FileName="CostasCup/UI/CarouselLayout.cs" Line="53" Column="60" />
-      <File FileName="iOS/CarouselLayoutRenderer.cs" Line="10" Column="51" />
-      <File FileName="CostasCup/UI/TeamView.cs" Line="33" Column="23" />
-      <File FileName="CostasCup/UI/TeamSelectViewModel.cs" Line="21" Column="4" />
-      <File FileName="CostasCup/UI/BaseViewModel.cs" Line="11" Column="22" />
-      <File FileName="CostasCup/Views/HomePage.cs" Line="17" Column="45" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
-      <File FileName="CostasCup/Models/Score.cs" Line="1" Column="1" />
-      <File FileName="CostasCup/Models/Round.cs" Line="1" Column="1" />
-      <File FileName="CostasCup/UI/ScoreCell.cs" Line="42" Column="3" />
+      <File FileName="CostasCup/Pages/ScorecardPage.cs" Line="17" Column="53" />
+      <File FileName="CostasCup/Pages/ScorecardPage.xaml" Line="12" Column="46" />
+      <File FileName="CostasCup/Pages/ScorecardPage.xaml.cs" Line="11" Column="27" />
+      <File FileName="CostasCup/Controls/CustomNavBar.xaml" Line="5" Column="60" />
+      <File FileName="CostasCup/Controls/CustomNavBar.xaml.cs" Line="6" Column="2" />
+      <File FileName="CostasCup/Controls/CarouselLayout.cs" Line="120" Column="1" />
+      <File FileName="CostasCup/Controls/TeamView.cs" Line="32" Column="1" />
+      <File FileName="CostasCup/CostasCup.xaml" Line="5" Column="30" />
+      <File FileName="CostasCup/Pages/HomePage.cs" Line="20" Column="42" />
+      <File FileName="CostasCup/Pages/PasswordPage.xaml.cs" Line="30" Column="50" />
+      <File FileName="CostasCup/Pages/TeamSelectPage.xaml.cs" Line="59" Column="39" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CostasCup" expanded="True">
-            <Node name="CostasCup" expanded="True">
-              <Node name="Models" expanded="True" />
-              <Node name="UI" expanded="True" />
-              <Node name="Views" expanded="True">
-                <Node name="ScorecardPage.cs" selected="True" />
+            <Node name="Backend" expanded="True">
+              <Node name="CostasCup.DataStore.Mock" expanded="True" />
+            </Node>
+            <Node name="Clients" expanded="True">
+              <Node name="CostasCup.Logic" expanded="True">
+                <Node name="ViewModels" expanded="True" />
+              </Node>
+              <Node name="CostasCup.UI" expanded="True">
+                <Node name="Controls" expanded="True">
+                  <Node name="CustomNavBar.xaml" expanded="True" />
+                </Node>
+                <Node name="Pages" expanded="True">
+                  <Node name="PasswordPage.xaml" expanded="True" />
+                  <Node name="ScorecardPage.cs" selected="True" />
+                  <Node name="ScorecardPage.xaml" expanded="True" />
+                  <Node name="TeamSelectPage.xaml" expanded="True" />
+                </Node>
+                <Node name="Properties" expanded="True" />
               </Node>
             </Node>
-            <Node name="CostasCup.iOS" expanded="True">
-              <Node name="Resources" expanded="True" />
+            <Node name="Targets" expanded="True">
+              <Node name="CostasCup.iOS" expanded="True" />
             </Node>
           </Node>
         </State>
       </Pad>
       <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
+        <State>
+          <Value>width</Value>
+          <Value>width</Value>
+        </State>
       </Pad>
       <Pad Id="MonoDevelop.NUnit.TestPad">
         <State name="__root__">
@@ -52,7 +58,12 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup/Views/HomePage.cs" line="12" column="1" />
+      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup/Views/TeamSelectPage.cs" line="14" column="1" />
+      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/CostasCup.DataStore.Mock/TeamStore.cs" line="21" column="1" />
+      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/CostasCup.DataStore.Mock/TeamStore.cs" line="15" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

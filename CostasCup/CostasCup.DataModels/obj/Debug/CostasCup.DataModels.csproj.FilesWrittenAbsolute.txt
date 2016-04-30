@@ -1,0 +1,5 @@
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/bin/Debug/CostasCup.DataModels.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/bin/Debug/CostasCup.DataModels.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/obj/Debug/CostasCup.DataModels.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/obj/Debug/CostasCup.DataModels.dll.mdb

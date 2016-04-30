@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:costas="clr-namespace:CostasCup.UI;assembly=CostasCup"
+	x:Class="CostasCup.UI.ScorecardPage"
+	Title="Scorecard"
+	Icon="ic_mode_edit.png"
+	BackgroundColor="{DynamicResource PrimaryBackground}">
+	<ContentPage.Content>
+		<StackLayout>
+			<costas:CustomNavBar></costas:CustomNavBar>
+			<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+		 		<ListView 
+			        x:Name="ListViewScores"
+			        ItemsSource="{Binding Scores}"
+			        IsPullToRefreshEnabled="{Binding IsNotBusy}"
+			        RefreshCommand="{Binding RefreshCommand}"
+			        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+			        HasUnevenRows ="true"
+			        CachingStrategy="RecycleElement"
+			        IsVisible="{Binding IsNotBusy}"
+			        BackgroundColor="{DynamicResource PrimaryBackground}"
+			        AbsoluteLayout.LayoutFlags="All" 
+			        AbsoluteLayout.LayoutBounds="0,0,1,1"
+			        SeparatorColor="#E1E1E1">
+				   <ListView.ItemTemplate>
+				    <DataTemplate>
+				      <ViewCell>
+				         <local:ScoreCellView />
+				      </ViewCell>
+				    </DataTemplate>
+				  </ListView.ItemTemplate>
+				</ListView>
+				<StackLayout IsVisible="{Binding IsBusy}"
+				       AbsoluteLayout.LayoutFlags="PositionProportional"
+				       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+				       Orientation="Horizontal">
+					<ActivityIndicator IsRunning="{Binding IsBusy}" Color="{DynamicResource TitleColor}" />
+					<Label Text="Loading Scores..." HorizontalOptions="Center" FontSize="16" TextColor="Black" FontFamily="Montserrat-UltraLight" />
+				</StackLayout>
+			</AbsoluteLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

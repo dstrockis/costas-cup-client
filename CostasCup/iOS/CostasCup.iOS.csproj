@@ -90,9 +90,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CostasCup\CostasCup.csproj">
+    <ProjectReference Include="..\CostasCup\CostasCup.UI.csproj">
       <Project>{46FBC244-1C5A-4BB2-8C6E-8A87F7F2A325}</Project>
-      <Name>CostasCup</Name>
+      <Name>CostasCup.UI</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

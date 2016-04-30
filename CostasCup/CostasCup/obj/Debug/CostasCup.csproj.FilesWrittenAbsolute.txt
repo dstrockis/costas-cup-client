@@ -6,3 +6,11 @@
 /Users/Strockis/Source/moonlight/costas_cup/CostasCup/CostasCup/bin/Debug/Xamarin.Forms.Core.dll
 /Users/Strockis/Source/moonlight/costas_cup/CostasCup/CostasCup/bin/Debug/Xamarin.Forms.Xaml.dll
 /Users/Strockis/Source/moonlight/costas_cup/CostasCup/CostasCup/bin/Debug/Newtonsoft.Json.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/Xamarin.Forms.Core.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/Xamarin.Forms.Xaml.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/Newtonsoft.Json.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/CostasCup.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/CostasCup.dll

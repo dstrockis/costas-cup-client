@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="CostasCup.TeamSelectPage"
+	Title="Select Team"
+	BackgroundColor="{DynamicResource SecondaryBackground}">
+	<ContentPage.Content>
+		<StackLayout Padding="0,20,0,20" Spacing="10">
+			<StackLayout Padding="0,0,0,40" Spacing="5">
+				<Label FontFamily="CaslonSwashSSiItalic" FontSize="30" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{DynamicResource TitleColor}" LineBreakMode="NoWrap">THE COSTAS CUP</Label>
+				<Label FontFamily="Montserrat-UltraLight" FontSize="12" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryText}">A tradition unlike any other</Label>
+			</StackLayout>
+			<Label FontFamily="Montserrat-UltraLight" FontSize="16" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryText}">Swipe to your team:</Label>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+				<Image Aspect="AspectFit" Source="ic_chevron_left_white_48pt.png" HorizontalOptions="End" VerticalOptions="Center"></Image>
+				<StackLayout Spacing="10" Padding="10" HorizontalOptions="Center" x:Name="TeamBundle"></StackLayout>
+				<Image Aspect="AspectFit" Source="ic_chevron_right_white_48pt.png" HorizontalOptions="End" VerticalOptions="Center"></Image>
+			</StackLayout>
+			<Button FontSize="16" BorderWidth="1" WidthRequest="150" HeightRequest="60" TextColor="{DynamicResource PrimaryText}" BackgroundColor="{DynamicResource SecondaryButtonColor}" HorizontalOptions="CenterAndExpand" Clicked="OnSelectClicked" Text="Select"></Button>
+		</StackLayout>
+
+	</ContentPage.Content>
+</ContentPage>
