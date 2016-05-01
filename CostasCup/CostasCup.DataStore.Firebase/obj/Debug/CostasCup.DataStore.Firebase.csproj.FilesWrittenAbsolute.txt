@@ -9,3 +9,5 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Firebase/bin/Debug/CostasCup.DataStore.Firebase.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Firebase/obj/Debug/CostasCup.DataStore.Firebase.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Firebase/obj/Debug/CostasCup.DataStore.Firebase.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Firebase/bin/Debug/Newtonsoft.Json.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Firebase/bin/Debug/Xamarin.Forms.Platform.dll

@@ -13,3 +13,7 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/CostasCup.ViewModels.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/obj/Debug/CostasCup.ViewModels.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/obj/Debug/CostasCup.ViewModels.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/CostasCup.Utils.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/CostasCup.Utils.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/Xamarin.Forms.Platform.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/Newtonsoft.Json.dll

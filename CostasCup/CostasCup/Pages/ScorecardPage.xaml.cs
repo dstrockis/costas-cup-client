@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Xamarin.Forms;
 using CostasCup.DataModels;
 using CostasCup.Logic;
+using System.ComponentModel;
 
 namespace CostasCup.UI
 {
@@ -17,7 +18,12 @@ namespace CostasCup.UI
 		public ScorecardPage (Team team)
 		{
 			InitializeComponent ();
-			BindingContext = vm = new ScorecardViewModel (team, Navigation);
+			ListViewScores.BindingContext = vm = new ScorecardViewModel (team, Navigation);
+			LoadingIndicator.BindingContext = vm;
+			LoadingView.BindingContext = vm;
+
+			// Workaround for Xam Forms Bug (I think)
+			vm.PropertyChanged += OnBusyChange;
 		}
 
 		public async void OnScoreSelected(object sender, EventArgs e)
@@ -30,9 +36,14 @@ namespace CostasCup.UI
 			vm.RefreshScores ();
 		}
 
-		protected override void OnResume ()
+		private void OnBusyChange(object sender, PropertyChangedEventArgs e)
 		{
-			vm.RefreshScores ();
+			if (e.PropertyName.Equals("IsBusy"))
+			{
+				ListViewScores.IsVisible = ((ScorecardViewModel)sender).IsNotBusy;
+				ListViewScores.IsPullToRefreshEnabled = ((ScorecardViewModel)sender).IsNotBusy;
+				ListViewScores.IsRefreshing = ((ScorecardViewModel)sender).IsBusy;
+			}
 		}
 	}
 }

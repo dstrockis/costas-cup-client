@@ -53,8 +53,7 @@ namespace CostasCup.DataStore.Mock
 		{
 			public static IEnumerable<Round> GetAllRounds() 
 			{
-				throw new NotImplementedException ();
-//				return CostasCup.Utils.Json.ParseRounds (rounds);
+				return CostasCup.Utils.Json.ParseRounds (rounds);
 			}
 
 			readonly static string rounds = "[{" +

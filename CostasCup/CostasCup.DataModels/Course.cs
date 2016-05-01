@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace CostasCup.DataModels
 {
 	public class Course : BaseDataModel
 	{
-//		[JsonProperty(Name="name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
-//		[JsonProperty(Name="holes")]
+		[JsonProperty("holes")]
 		public ICollection<Hole> Holes { get; set; }
 	}
 }

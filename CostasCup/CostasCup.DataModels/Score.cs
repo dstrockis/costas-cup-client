@@ -1,16 +1,17 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace CostasCup.DataModels
 {
 	public class Score : BaseDataModel
 	{
-//		[JsonProperty(Name="numStrokes")]
-		public int NumStrokes { get; set; }
-//		[JsonProperty(Name="timestamp")]
-		public DateTime Timestamp { get; set; }
-//		[JsonProperty(Name="playerId")]
+		[JsonProperty("numStrokes")]
+		public int? NumStrokes { get; set; }
+		[JsonProperty("timestamp")]
+		public DateTime? Timestamp { get; set; }
+		[JsonProperty("playerId")]
 		public string PlayerId { get; set; }
-//		[JsonProperty(Name="holeNumber")]
+		[JsonProperty("holeNumber")]
 		public int HoleNumber { get; set; }
 	}
 }

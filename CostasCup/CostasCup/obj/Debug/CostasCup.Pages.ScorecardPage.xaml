@@ -10,6 +10,36 @@
 	<ContentPage.Content>
 		<StackLayout>
 			<costas:CustomNavBar></costas:CustomNavBar>
+			<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+		 		<ListView 
+			        x:Name="ListViewScores"
+			        ItemsSource="{Binding Scores}"
+			        IsPullToRefreshEnabled="{Binding IsNotBusy}"
+			        RefreshCommand="{Binding RefreshCommand}"
+			        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+			        HasUnevenRows ="true"
+			        CachingStrategy="RecycleElement"
+			        IsVisible="{Binding IsNotBusy}"
+			        BackgroundColor="{DynamicResource PrimaryBackground}"
+			        AbsoluteLayout.LayoutFlags="All" 
+			        AbsoluteLayout.LayoutBounds="0,0,1,1"
+			        SeparatorColor="#E1E1E1">
+				   <ListView.ItemTemplate>
+				    <DataTemplate>
+				      <ViewCell>
+				         <costas:ScoreCellView />
+				      </ViewCell>
+				    </DataTemplate>
+				  </ListView.ItemTemplate>
+				</ListView>
+				<StackLayout x:Name="LoadingView" IsVisible="{Binding IsBusy}"
+				       AbsoluteLayout.LayoutFlags="PositionProportional"
+				       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+				       Orientation="Horizontal">
+					<ActivityIndicator x:Name="LoadingIndicator" IsRunning="{Binding IsBusy}" Color="{DynamicResource TitleColor}" />
+					<Label Text="Loading Scores..." HorizontalOptions="Center" FontSize="16" TextColor="Black" FontFamily="Montserrat-UltraLight" />
+				</StackLayout>
+			</AbsoluteLayout>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -3,3 +3,6 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup.Utils/bin/Debug/CostasCup.Utils.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.Utils/obj/Debug/CostasCup.Utils.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.Utils/obj/Debug/CostasCup.Utils.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup.Utils/bin/Debug/Newtonsoft.Json.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.Utils/bin/Debug/CostasCup.DataModels.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.Utils/bin/Debug/CostasCup.DataModels.dll.mdb

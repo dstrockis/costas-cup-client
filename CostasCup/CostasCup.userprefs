@@ -1,41 +1,49 @@
 ﻿<Properties StartupItem="iOS/CostasCup.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CostasCup/Pages/ScorecardPage.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CostasCup/Pages/ScorecardPage.xaml.cs">
     <Files>
-      <File FileName="CostasCup/Pages/ScorecardPage.cs" Line="17" Column="53" />
-      <File FileName="CostasCup/Pages/ScorecardPage.xaml" Line="12" Column="46" />
-      <File FileName="CostasCup/Pages/ScorecardPage.xaml.cs" Line="11" Column="27" />
-      <File FileName="CostasCup/Controls/CustomNavBar.xaml" Line="5" Column="60" />
-      <File FileName="CostasCup/Controls/CustomNavBar.xaml.cs" Line="6" Column="2" />
-      <File FileName="CostasCup/Controls/CarouselLayout.cs" Line="120" Column="1" />
-      <File FileName="CostasCup/Controls/TeamView.cs" Line="32" Column="1" />
-      <File FileName="CostasCup/CostasCup.xaml" Line="5" Column="30" />
-      <File FileName="CostasCup/Pages/HomePage.cs" Line="20" Column="42" />
-      <File FileName="CostasCup/Pages/PasswordPage.xaml.cs" Line="30" Column="50" />
-      <File FileName="CostasCup/Pages/TeamSelectPage.xaml.cs" Line="59" Column="39" />
+      <File FileName="CostasCup/Controls/ScoreCellView.xaml" Line="29" Column="46" />
+      <File FileName="CostasCup/Controls/ScoreCellView.xaml.cs" Line="55" Column="41" />
+      <File FileName="CostasCup/Pages/ScorecardPage.xaml" Line="22" Column="37" />
+      <File FileName="CostasCup/Pages/ScorecardPage.xaml.cs" Line="48" Column="1" />
+      <File FileName="CostasCup.ViewModels/ViewModels/ScorecardViewModel.cs" Line="33" Column="89" />
+      <File FileName="CostasCup.ViewModels/ViewModels/BaseViewModel.cs" Line="22" Column="18" />
+      <File FileName="CostasCup.ViewModels/ViewModels/TeamSelectViewModel.cs" Line="40" Column="3" />
+      <File FileName="CostasCup.DataModels/Round.cs" Line="27" Column="3" />
+      <File FileName="CostasCup.DataModels/Course.cs" Line="11" Column="17" />
+      <File FileName="CostasCup.Utils/Constants.cs" Line="7" Column="48" />
+      <File FileName="CostasCup.DataStore.Mock/CourseStore.cs" Line="56" Column="30" />
+      <File FileName="CostasCup.DataModels/Team.cs" Line="5" Column="8" />
+      <File FileName="CostasCup.DataModels/Score.cs" Line="14" Column="31" />
+      <File FileName="CostasCup.DataModels/Player.cs" Line="8" Column="9" />
+      <File FileName="CostasCup.DataModels/Hole.cs" Line="8" Column="11" />
+      <File FileName="CostasCup.ViewModels/ViewModels/RoundViewModel.cs" Line="13" Column="20" />
+      <File FileName="CostasCup.DataStore.Mock/RoundStore.cs" Line="56" Column="17" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="../../Evolve/src/XamarinEvolve.Clients.UI/Converters/ImageConverters.cs" Line="48" Column="10" />
+      <File FileName="iOS/Utils/HttpHelper.cs" Line="1" Column="1" />
+      <File FileName="iOS/AppDelegate.cs" Line="23" Column="19" />
+      <File FileName="CostasCup.Utils/Json.cs" Line="19" Column="3" />
+      <File FileName="CostasCup.DataStore.Mock/TeamStore.cs" Line="56" Column="19" />
+      <File FileName="CostasCup.ViewModels/ViewModels/TeamViewModel.cs" Line="1" Column="1" />
+      <File FileName="CostasCup.DataStore.Firebase/DataStoreService.cs" Line="3" Column="7" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CostasCup" expanded="True">
-            <Node name="Backend" expanded="True">
-              <Node name="CostasCup.DataStore.Mock" expanded="True" />
-            </Node>
+            <Node name="Backend" expanded="True" />
             <Node name="Clients" expanded="True">
               <Node name="CostasCup.Logic" expanded="True">
                 <Node name="ViewModels" expanded="True" />
               </Node>
               <Node name="CostasCup.UI" expanded="True">
-                <Node name="Controls" expanded="True">
-                  <Node name="CustomNavBar.xaml" expanded="True" />
-                </Node>
+                <Node name="Controls" expanded="True" />
                 <Node name="Pages" expanded="True">
-                  <Node name="PasswordPage.xaml" expanded="True" />
-                  <Node name="ScorecardPage.cs" selected="True" />
-                  <Node name="ScorecardPage.xaml" expanded="True" />
-                  <Node name="TeamSelectPage.xaml" expanded="True" />
+                  <Node name="ScorecardPage.xaml" expanded="True">
+                    <Node name="ScorecardPage.xaml.cs" selected="True" />
+                  </Node>
                 </Node>
-                <Node name="Properties" expanded="True" />
               </Node>
             </Node>
             <Node name="Targets" expanded="True">

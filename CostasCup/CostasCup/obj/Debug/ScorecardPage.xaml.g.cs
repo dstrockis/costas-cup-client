@@ -16,8 +16,11 @@ namespace CostasCup.UI {
     
     public partial class ScorecardPage : ContentPage {
         
+        private ListView ListViewScores;
+        
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ScorecardPage));
+            ListViewScores = this.FindByName <ListView>("ListViewScores");
         }
     }
 }

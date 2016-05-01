@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace CostasCup.DataModels
 {
 	public class Round : BaseDataModel
 	{
-//		[JsonProperty(Name="scores")]
+		[JsonProperty("scores")]
 		public ICollection<Score> Scores { get; set; }
-//		[JsonProperty(Name="courseId")]
+		[JsonProperty("courseId")]
 		public string CourseId { get; set; }
-//		[JsonProperty(Name="teamId")]
+		[JsonProperty("teamId")]
 		public string TeamId { get; set; }
 
 //		public int ScoreToPar {

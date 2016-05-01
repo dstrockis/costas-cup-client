@@ -19,6 +19,7 @@ namespace CostasCup.Logic
 		{
 			Navigation = navigation;
 			DataStoreService = DependencyService.Get<IDataStoreService>();
+			IsBusy = true;
 		}
 
 		protected void OnPropertyChanged(string propertyName) {
@@ -33,12 +34,14 @@ namespace CostasCup.Logic
 			OnPropertyChanged (propertyName);
 		}
 
-		public bool IsBusy { get; set; }
+		private bool isBusy;
+		public bool	 IsBusy 
+		{ 
+			get { return isBusy; } 
+			set { this.SetObservableProperty (ref isBusy, value); }
+		}
 		public bool IsNotBusy {
-			get 
-			{ 
-				return !IsBusy;
-			}
+			get { return !isBusy; }
 		}
 
 		public event PropertyChangedEventHandler PropertyChanged;

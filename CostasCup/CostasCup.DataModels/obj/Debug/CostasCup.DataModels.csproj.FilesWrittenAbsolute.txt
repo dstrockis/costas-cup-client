@@ -3,3 +3,4 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/bin/Debug/CostasCup.DataModels.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/obj/Debug/CostasCup.DataModels.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/obj/Debug/CostasCup.DataModels.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/bin/Debug/Newtonsoft.Json.dll

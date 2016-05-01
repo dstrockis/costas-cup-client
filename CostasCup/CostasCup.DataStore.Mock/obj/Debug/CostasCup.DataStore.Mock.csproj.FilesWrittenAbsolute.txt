@@ -9,3 +9,7 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Mock/bin/Debug/CostasCup.DataStore.Mock.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Mock/obj/Debug/CostasCup.DataStore.Mock.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Mock/obj/Debug/CostasCup.DataStore.Mock.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Mock/bin/Debug/Newtonsoft.Json.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Mock/bin/Debug/CostasCup.Utils.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Mock/bin/Debug/CostasCup.Utils.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Mock/bin/Debug/Xamarin.Forms.Platform.dll

@@ -26,3 +26,16 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.CustomNavBar.xaml
 /Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/ScorecardPage.xaml.g.cs
 /Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CustomNavBar.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.ScoreCellView.xaml
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/ScoreCellView.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.TeamSelectPage.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.CostasCup.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.PasswordPage.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.ScorecardPage.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.CustomNavBar.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.ScoreCellView.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/Xamarin.Forms.Platform.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/ImageCircle.Forms.Plugin.Abstractions.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/CostasCup.Utils.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/CostasCup.Utils.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/System.Diagnostics.Tools.dll

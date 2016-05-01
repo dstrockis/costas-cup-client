@@ -44,10 +44,13 @@
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.iOS.exe
 /Users/Danny/Source/Costas/CostasCup/iOS/obj/iPhoneSimulator/Debug/CostasCup.iOS.exe
 /Users/Danny/Source/Costas/CostasCup/iOS/obj/iPhoneSimulator/Debug/CostasCup.iOS.exe.mdb
+/Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/ImageCircle.Forms.Plugin.iOS.dll
+/Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/ImageCircle.Forms.Plugin.Abstractions.dll
+/Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/Calabash.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.iOS.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Core.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Xaml.dll
-/Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/Calabash.dll
+/Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/Xamarin.Forms.Platform.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/Newtonsoft.Json.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.dll.mdb
@@ -55,9 +58,12 @@
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.DataModels.dll.mdb
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.ViewModels.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.ViewModels.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/System.Diagnostics.Tools.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.DataModels.Interfaces.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.DataModels.Interfaces.dll.mdb
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.DataStore.Mock.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.DataStore.Mock.dll.mdb
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.DataStore.Firebase.dll
 /Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.DataStore.Firebase.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.Utils.dll
+/Users/Danny/Source/Costas/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.Utils.dll.mdb

@@ -4,6 +4,7 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
+using ImageCircle.Forms.Plugin.iOS;
 
 namespace CostasCup.iOS
 {
@@ -18,6 +19,8 @@ namespace CostasCup.iOS
 			#if ENABLE_TEST_CLOUD
 			Xamarin.Calabash.Start();
 			#endif
+
+			ImageCircleRenderer.Init();
 
 			LoadApplication (new CostasCup.UI.App ());
 

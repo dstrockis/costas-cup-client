@@ -53,8 +53,7 @@ namespace CostasCup.DataStore.Mock
 		{
 			public static IEnumerable<Course> GetAllCourses() 
 			{
-				throw new NotImplementedException ();
-//				return CostasCup.Utils.Json.ParseCourses (courses);
+				return CostasCup.Utils.Json.ParseCourses (courses);
 			}
 
 			readonly static string courses = "[{" +

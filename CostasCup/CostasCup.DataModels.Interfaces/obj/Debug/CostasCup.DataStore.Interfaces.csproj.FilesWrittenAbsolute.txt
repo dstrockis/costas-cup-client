@@ -5,3 +5,4 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels.Interfaces/obj/Debug/CostasCup.DataModels.Interfaces.dll.mdb
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels.Interfaces/bin/Debug/CostasCup.DataModels.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels.Interfaces/bin/Debug/CostasCup.DataModels.dll.mdb
+/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels.Interfaces/bin/Debug/Newtonsoft.Json.dll

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
-//using Newtonsoft.Json;
+using Newtonsoft.Json;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -11,13 +11,13 @@ namespace CostasCup.DataModels
 {
 	public class Team : BaseDataModel
 	{
-//		[JsonProperty(Name="name")]
+		[JsonProperty("name")]
 		public string Name { get; set; }
-//		[JsonProperty(Name="members")]
+		[JsonProperty("members")]
 		public ICollection<Player> Members { get; set; }
-//		[JsonProperty(Name="password")]
+		[JsonProperty("password")]
 		public string Password { get; set; }
-//		[JsonProperty(Name="startingHole")]
+		[JsonProperty("startingHole")]
 		public int StartingHole { get; set; }
 		public string ImageSource { get { return "users-icon.png"; } }
 	}	

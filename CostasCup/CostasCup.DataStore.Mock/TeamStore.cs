@@ -53,41 +53,7 @@ namespace CostasCup.DataStore.Mock
 		{
 			public static IEnumerable<Team> GetAllTeams() 
 			{
-				return new List<Team> {
-					new Team
-					{
-						Name = "Team Desai",
-						Password = "password",
-						StartingHole = 1,
-						Id = "desai"
-					},
-
-					new Team
-					{
-						Name = "Team Mitchell",
-						Password = "password",
-						StartingHole = 1,
-						Id = "mitchell"
-					},
-
-					new Team
-					{
-						Name = "Team Strockis",
-						Password = "password",
-						StartingHole = 1,
-						Id = "strockis"
-					},
-
-					new Team
-					{
-						Name = "Team Short",
-						Password = "password",
-						StartingHole = 1,
-						Id = "short"
-					}
-				};
-
-				//return CostasCup.Utils.Json.ParseTeams (teams);
+				return CostasCup.Utils.Json.ParseTeams (teams);
 			}
 
 			readonly static string teams = "[{" +

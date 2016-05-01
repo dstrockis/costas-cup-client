@@ -1,12 +1,13 @@
 ﻿using System;
+using Newtonsoft.Json;
 
 namespace CostasCup.DataModels
 {
 	public class Hole : BaseDataModel
 	{
-//		[JsonProperty(Name="number")]
+		[JsonProperty("number")]
 		public int Number { get; set; }
-//		[JsonProperty(Name="par")]
+		[JsonProperty("par")]
 		public int Par { get; set; }
 	}
 }
