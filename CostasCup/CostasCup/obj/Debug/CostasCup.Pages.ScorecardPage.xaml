@@ -8,11 +8,6 @@
 	Title="Scorecard"
 	Icon="ic_mode_edit.png"
 	BackgroundColor="{DynamicResource PrimaryBackground}">
-	<ContentPage.Resources>
-		<ResourceDictionary>
-			<costas:PlayerImageConverter x:Key="PlayerImageConverter" />
-		</ResourceDictionary>
-    </ContentPage.Resources>
 	<ContentPage.Content>
 		<StackLayout Spacing="0">
 			<costas:CustomNavBar></costas:CustomNavBar>
@@ -29,7 +24,7 @@
 				<BoxView BackgroundColor="{DynamicResource SecondaryBackground}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
 				<BoxView BackgroundColor="{DynamicResource SecondaryBackground}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
 				<imagecircle:CircleImage FillColor="#E1E1E1" 
-                                       Source="{Binding TeamImage, Converter={StaticResource PlayerImageConverter}}"
+                                       Source="{Binding TeamImage}"
                                        VerticalOptions="Center"
                                        Aspect="AspectFill"
                                        WidthRequest="60"
@@ -38,7 +33,7 @@
                                        Grid.Row="0"
                                        Grid.RowSpan="2"	
                                        Grid.Column="0" />
-				<Label Grid.Column="1" Grid.Row="0" FontSize="20" TextColor="{DynamicResource SecondaryText}" Text="{Binding TeamName}" VerticalOptions="Center" HorizontalOptions="Start" />
+				<Label Grid.Column="1" Grid.Row="0" FontSize="20" TextColor="{DynamicResource SecondaryText}" Text="{Binding TeamName}" VerticalOptions="Center" HorizontalOptions="Start" LineBreakMode="TailTruncation" />
 				<Label x:Name="TeamNetScore" Grid.Column="2" Grid.Row="0" FontSize="24" TextColor="{Binding TeamScoreToParColor}" Text="{Binding TeamScoreToPar}" VerticalOptions="Center" Margin="0,0,15	,0" />
 			</Grid>
 				

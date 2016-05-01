@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Linq;
 using CostasCup.DataModels;
 using CostasCup.DataModels.Interfaces;
+using Xamarin.Forms;
+using System.Globalization;
 
 namespace CostasCup.DataStore.Mock
 {
@@ -81,6 +83,22 @@ namespace CostasCup.DataStore.Mock
 				"{\"Id\": \"mikethornton\", \"name\": \"Mike Thornton\", \"imageSource\": \"users-icon.png\"}, " +
 				"]}, " +
 				"]";
+		}
+	}
+
+	public class PlayerImageConverter : IImageConverter
+	{
+		public ImageSource Convert(string value)
+		{
+			if (!string.IsNullOrWhiteSpace(value))
+			{
+				return new FileImageSource
+				{
+					File = (string)value
+				};
+			}
+
+			return null;
 		}
 	}
 }

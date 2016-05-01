@@ -8,11 +8,6 @@
 	Title="Scorecard"
 	Icon="ic_mode_edit.png"
 	BackgroundColor="{DynamicResource PrimaryBackground}">
-	<ContentPage.Resources>
-		<ResourceDictionary>
-			<costas:PlayerImageConverter x:Key="PlayerImageConverter" />
-		</ResourceDictionary>
-    </ContentPage.Resources>
 	<ContentPage.Content>
 		<StackLayout Spacing="0">
 			<costas:CustomNavBar></costas:CustomNavBar>
@@ -29,7 +24,7 @@
 				<BoxView BackgroundColor="{DynamicResource SecondaryBackground}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
 				<BoxView BackgroundColor="{DynamicResource SecondaryBackground}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
 				<imagecircle:CircleImage FillColor="#E1E1E1" 
-                                       Source="{Binding TeamImage, Converter={StaticResource PlayerImageConverter}}"
+                                       Source="{Binding TeamImage}"
                                        VerticalOptions="Center"
                                        Aspect="AspectFill"
                                        WidthRequest="60"

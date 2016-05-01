@@ -5,11 +5,6 @@
 	xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
     xmlns:costas="clr-namespace:CostasCup.UI;assembly=CostasCup" 
 	x:Class="CostasCup.UI.ScoreCellView">
-	<ContentPage.Resources>
-     <ResourceDictionary>
-        <costas:PlayerImageConverter x:Key="PlayerImageConverter" />
-     </ResourceDictionary>
-    </ContentPage.Resources>
 	<ContentView.Content>
 		<Grid Padding="16,5" ColumnSpacing="10">
               <Grid.ColumnDefinitions>
@@ -17,8 +12,8 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
               </Grid.ColumnDefinitions>
-              <imagecircle:CircleImage FillColor="{Binding PlayerImageBg}" 
-                                       Source="{Binding PlayerImage, Converter={StaticResource PlayerImageConverter}}"
+              <imagecircle:CircleImage FillColor="{Binding PlayerImageBg}"
+									   Source="{Binding PlayerImage}"
                                        VerticalOptions="Center"
                                        Aspect="AspectFill"
                                        WidthRequest="44"

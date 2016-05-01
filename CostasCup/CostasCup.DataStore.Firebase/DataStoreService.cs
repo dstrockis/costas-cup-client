@@ -14,6 +14,9 @@ namespace CostasCup.DataStore.Firebase
 
 		ITeamStore teamStore;
 		public ITeamStore TeamStore => teamStore ?? (teamStore = DependencyService.Get<ITeamStore>());
+
+		IImageConverter imageConverter;
+		public IImageConverter ImageConverter => imageConverter ?? (imageConverter = DependencyService.Get<IImageConverter>());
 	}
 }
 

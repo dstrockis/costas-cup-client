@@ -13,7 +13,7 @@ namespace CostasCup.Logic
 	{
 		public INavigation Navigation { get; set; }
 
-		protected IDataStoreService DataStoreService { get; private set; }
+		public IDataStoreService DataStoreService { get; private set; }
 
 		public BaseViewModel(INavigation navigation = null)
 		{
@@ -54,13 +54,14 @@ namespace CostasCup.Logic
 				DependencyService.Register<IRoundStore, CostasCup.DataStore.Mock.RoundStore> ();
 				DependencyService.Register<ITeamStore, CostasCup.DataStore.Mock.TeamStore> ();
 				DependencyService.Register<IDataStoreService, CostasCup.DataStore.Mock.DataStoreService> ();
+				DependencyService.Register<IImageConverter, CostasCup.DataStore.Mock.PlayerImageConverter> ();
 			} 
 			else 
 			{
 				DependencyService.Register<ICourseStore, CostasCup.DataStore.Firebase.CourseStore> ();
 				DependencyService.Register<IRoundStore, CostasCup.DataStore.Firebase.RoundStore> ();
 				DependencyService.Register<ITeamStore, CostasCup.DataStore.Firebase.TeamStore> ();
-				DependencyService.Register<IDataStoreService, CostasCup.DataStore.Firebase.DataStoreService> ();
+				DependencyService.Register<IImageConverter, CostasCup.DataStore.Firebase.PlayerImageConverter> ();
 			}
 		}
 	}
