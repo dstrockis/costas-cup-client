@@ -59,24 +59,26 @@ namespace CostasCup.DataStore.Mock
 			readonly static string teams = "[{" +
 				"\"Id\": \"desai\", " +
 				"\"name\": \"Team Desai\", " +
+				"\"imageSource\": \"users-icon.png\", " + 
 				"\"startingHole\": 1, " +
 				"\"password\": \"password\", " +
 				"\"members\": [" +
-				"{\"Id\": \"dhruvdesai\", \"name\": \"Dhruv Desai\"}, " +
-				"{\"Id\": \"dannystrockis\", \"name\": \"Danny Strockis\"}, " +
-				"{\"Id\": \"mikeshort\", \"name\": \"Mike Short\"}, " +
-				"{\"Id\": \"auzyfreed\", \"name\": \"Auzy Freed\"}, " +
+				"{\"Id\": \"dhruvdesai\", \"name\": \"Dhruv Desai\", \"imageSource\": \"users-icon.png\"}, " +
+				"{\"Id\": \"dannystrockis\", \"name\": \"Danny Strockis\", \"imageSource\": \"users-icon.png\"}, " +
+				"{\"Id\": \"mikeshort\", \"name\": \"Mike Short\", \"imageSource\": \"users-icon.png\"}, " +
+				"{\"Id\": \"auzyfreed\", \"name\": \"Auzy Freed\", \"imageSource\": \"users-icon.png\"}, " +
 				"]}, " +
 				"{" + 
 				"\"Id\": \"mitchell\", " +
 				"\"name\": \"Team Mitchell\", " +
+				"\"imageSource\": \"users-icon.png\", " +
 				"\"startingHole\": 1, " +
 				"\"password\": \"password\", " +
 				"\"members\": [" +
-				"{\"Id\": \"scottmitchell\", \"name\": \"Scott Mitchell\"}, " +
-				"{\"Id\": \"coreyshep\", \"name\": \"Corey Shep\"}, " +
-				"{\"Id\": \"theolee\", \"name\": \"Theo Lee\"}, " +
-				"{\"Id\": \"mikethornton\", \"name\": \"Mike Thornton\"}, " +
+				"{\"Id\": \"scottmitchell\", \"name\": \"Scott Mitchell\", \"imageSource\": \"users-icon.png\"}, " +
+				"{\"Id\": \"coreyshep\", \"name\": \"Corey Shep\", \"imageSource\": \"users-icon.png\"}, " +
+				"{\"Id\": \"theolee\", \"name\": \"Theo Lee\", \"imageSource\": \"users-icon.png\"}, " +
+				"{\"Id\": \"mikethornton\", \"name\": \"Mike Thornton\", \"imageSource\": \"users-icon.png\"}, " +
 				"]}, " +
 				"]";
 		}

@@ -11,13 +11,13 @@
      </ResourceDictionary>
     </ContentPage.Resources>
 	<ContentView.Content>
-		<Grid Padding="16,5" ColumnSpacing="5">
+		<Grid Padding="16,5" ColumnSpacing="10">
               <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="Auto"/>
               </Grid.ColumnDefinitions>
-              <imagecircle:CircleImage FillColor="#E1E1E1" 
+              <imagecircle:CircleImage FillColor="{Binding PlayerImageBg}" 
                                        Source="{Binding PlayerImage, Converter={StaticResource PlayerImageConverter}}"
                                        VerticalOptions="Center"
                                        Aspect="AspectFill"

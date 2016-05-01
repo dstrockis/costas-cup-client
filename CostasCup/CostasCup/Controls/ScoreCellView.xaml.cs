@@ -33,12 +33,17 @@ namespace CostasCup.UI
 			{
 				if (!string.IsNullOrWhiteSpace((string)value))
 				{
-					return new UriImageSource
+					return new FileImageSource
 					{
-						Uri = new Uri((string)value),
-						CachingEnabled = true,
-						CacheValidity = TimeSpan.FromDays(3)
+						File = (string)value
 					};
+
+//					return new UriImageSource
+//					{
+//						Uri = new Uri((string)value),
+//						CachingEnabled = true,
+//						CacheValidity = TimeSpan.FromDays(3)
+//					};
 				}
 			}
 			catch(Exception ex)
@@ -46,7 +51,7 @@ namespace CostasCup.UI
 				
 			}
 
-			return ImageSource.FromFile("users-icon.png");
+			return null;
 		}
 
 		public object ConvertBack(object value, Type targetType,

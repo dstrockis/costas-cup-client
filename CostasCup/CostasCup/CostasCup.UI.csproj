@@ -44,7 +44,6 @@
     </Compile>
     <Compile Include="Controls\CarouselLayout.cs" />
     <Compile Include="Controls\TeamView.cs" />
-    <Compile Include="Controls\ScoreCell.cs" />
     <Compile Include="Pages\PasswordPage.xaml.cs">
       <DependentUpon>PasswordPage.xaml</DependentUpon>
     </Compile>

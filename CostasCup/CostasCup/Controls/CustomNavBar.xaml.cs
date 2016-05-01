@@ -9,6 +9,12 @@ namespace CostasCup.UI
 		public CustomNavBar ()
 		{
 			InitializeComponent ();
+			BackButton.GestureRecognizers.Add (new TapGestureRecognizer (OnBackClicked));
+		}
+
+		async void OnBackClicked(View image, object sender)
+		{
+			Navigation.PopAsync ().ConfigureAwait (false);
 		}
 	}
 }

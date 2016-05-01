@@ -5,13 +5,17 @@
 	xmlns:local="clr-namespace:CostasCup.UI;assembly=CostasCup	" 
 	x:Class="CostasCup.UI.CustomNavBar">
 	<ContentView.Content>
-		<StackLayout Orientation="Horizontal" HeightRequest="50" Padding="0,0,0,0" Spacing="5" BackgroundColor="{DynamicResource SecondaryBackground}">
-			<StackLayout Orientation="Horizontal" Spacing="0" Padding="0">
+
+		<Grid HeightRequest="60" Padding="0,0,0,0" BackgroundColor="{DynamicResource SecondaryBackground}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="*" />
+			</Grid.ColumnDefinitions>
+			<StackLayout x:Name="BackButton" Orientation="Horizontal" Spacing="0" Padding="0" Grid.Column="0">
 				<Image Aspect="AspectFit" Source="ic_chevron_left_white.png" VerticalOptions="Center" />
-				<Label Text="Back" VerticalOptions="Center" FontSize="16" TextColor="White" />
+				<Label Text="Back" VerticalOptions="Center" FontSize="20" TextColor="White" />
 			</StackLayout>
-			<Label Text="|" TextColor="#E1E1E1" FontSize="24" VerticalOptions="Center" />			
-			<Label Text="COSTAS" VerticalOptions="Center" FontSize="16" FontFamily="CaslonSwashSSiItalic" TextColor="{DynamicResource TitleColor}" LineBreakMode="NoWrap" />			
-		</StackLayout>
+			<Label Text="COSTAS" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" FontSize="24" FontFamily="CaslonSwashSSiItalic" TextColor="{DynamicResource TitleColor}" LineBreakMode="NoWrap" FontAttributes="Bold" />			
+		</Grid>
 	</ContentView.Content>
 </ContentView>

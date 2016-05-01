@@ -12,15 +12,11 @@ namespace CostasCup.UI
 	{
 		ScorecardViewModel vm;
 		ScorecardViewModel ViewModel => vm ?? (vm = BindingContext as ScorecardViewModel);
-		bool showScores;
-
 
 		public ScorecardPage (Team team)
 		{
 			InitializeComponent ();
-			ListViewScores.BindingContext = vm = new ScorecardViewModel (team, Navigation);
-			LoadingIndicator.BindingContext = vm;
-			LoadingView.BindingContext = vm;
+			BindingContext = vm = new ScorecardViewModel (team, Navigation);
 
 			// Workaround for Xam Forms Bug (I think)
 			vm.PropertyChanged += OnBusyChange;
@@ -38,12 +34,11 @@ namespace CostasCup.UI
 
 		private void OnBusyChange(object sender, PropertyChangedEventArgs e)
 		{
-			if (e.PropertyName.Equals("IsBusy"))
-			{
+			if (e.PropertyName.Equals ("IsBusy")) {
 				ListViewScores.IsVisible = ((ScorecardViewModel)sender).IsNotBusy;
 				ListViewScores.IsPullToRefreshEnabled = ((ScorecardViewModel)sender).IsNotBusy;
 				ListViewScores.IsRefreshing = ((ScorecardViewModel)sender).IsBusy;
-			}
+			} 
 		}
 	}
 }

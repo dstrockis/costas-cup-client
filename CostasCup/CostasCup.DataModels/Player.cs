@@ -7,6 +7,7 @@ namespace CostasCup.DataModels
 	{
 		[JsonProperty("name")]
 		public string Name { get; set; }
+		[JsonProperty("imageSource")]
 		public string Image { get; set;}
 	}
 }

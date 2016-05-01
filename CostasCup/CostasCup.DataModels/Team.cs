@@ -19,7 +19,8 @@ namespace CostasCup.DataModels
 		public string Password { get; set; }
 		[JsonProperty("startingHole")]
 		public int StartingHole { get; set; }
-		public string ImageSource { get { return "users-icon.png"; } }
+		[JsonProperty("imageSource")]
+		public string ImageSource { get; set; }
 	}	
 }
 

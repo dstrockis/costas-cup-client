@@ -3,14 +3,46 @@
 	xmlns="http://xamarin.com/schemas/2014/forms"
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 	xmlns:costas="clr-namespace:CostasCup.UI;assembly=CostasCup"
+	xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
 	x:Class="CostasCup.UI.ScorecardPage"
 	Title="Scorecard"
 	Icon="ic_mode_edit.png"
 	BackgroundColor="{DynamicResource PrimaryBackground}">
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<costas:PlayerImageConverter x:Key="PlayerImageConverter" />
+		</ResourceDictionary>
+    </ContentPage.Resources>
 	<ContentPage.Content>
-		<StackLayout>
+		<StackLayout Spacing="0">
 			<costas:CustomNavBar></costas:CustomNavBar>
-			<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+			<Grid Padding="0,0,0,0" BackgroundColor="{DynamicResource PrimaryBackground}">
+				<Grid.RowDefinitions>
+					<RowDefinition Height="50" />
+					<RowDefinition Height="Auto" />
+				</Grid.RowDefinitions>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<BoxView BackgroundColor="{DynamicResource SecondaryBackground}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+				<BoxView BackgroundColor="{DynamicResource SecondaryBackground}" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" />
+				<imagecircle:CircleImage FillColor="#E1E1E1" 
+                                       Source="{Binding TeamImage, Converter={StaticResource PlayerImageConverter}}"
+                                       VerticalOptions="Center"
+                                       Aspect="AspectFill"
+                                       WidthRequest="60"
+                                       HeightRequest="60"
+                                       Margin="15,0,0,0"
+                                       Grid.Row="0"
+                                       Grid.RowSpan="2"	
+                                       Grid.Column="0" />
+				<Label Grid.Column="1" Grid.Row="0" FontSize="20" TextColor="{DynamicResource SecondaryText}" Text="{Binding TeamName}" VerticalOptions="Center" HorizontalOptions="Start" LineBreakMode="TailTruncation" />
+				<Label x:Name="TeamNetScore" Grid.Column="2" Grid.Row="0" FontSize="24" TextColor="{Binding TeamScoreToParColor}" Text="{Binding TeamScoreToPar}" VerticalOptions="Center" Margin="0,0,15	,0" />
+			</Grid>
+				
+			<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,10,0,0">
 		 		<ListView 
 			        x:Name="ListViewScores"
 			        ItemsSource="{Binding Scores}"
