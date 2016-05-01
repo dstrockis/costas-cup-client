@@ -12,11 +12,16 @@
 				<Label FontFamily="Montserrat-UltraLight" FontSize="12" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryText}">A tradition unlike any other</Label>
 			</StackLayout>
 			<Label FontFamily="Montserrat-UltraLight" FontSize="16" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryText}">Swipe to your team:</Label>
-			<StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
-				<Image Aspect="AspectFit" Source="ic_chevron_left_white_48pt.png" HorizontalOptions="End" VerticalOptions="Center"></Image>
-				<StackLayout Spacing="10" Padding="10" HorizontalOptions="Center" x:Name="TeamBundle"></StackLayout>
-				<Image Aspect="AspectFit" Source="ic_chevron_right_white_48pt.png" HorizontalOptions="End" VerticalOptions="Center"></Image>
-			</StackLayout>
+			<Grid HorizontalOptions="FillAndExpand">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" /> 
+					<ColumnDefinition Width="*" /> 
+					<ColumnDefinition Width="Auto" /> 
+				</Grid.ColumnDefinitions>
+				<Image Grid.Column="0" Aspect="AspectFit" Source="ic_chevron_left_white_48pt.png" HorizontalOptions="End" VerticalOptions="Center"></Image>
+				<StackLayout Grid.Column="1" Spacing="10" Padding="10" HorizontalOptions="Center" x:Name="TeamBundle"></StackLayout>
+				<Image Grid.Column="2" Aspect="AspectFit" Source="ic_chevron_right_white_48pt.png" HorizontalOptions="End" VerticalOptions="Center"></Image>
+			</Grid>
 			<Button FontSize="16" BorderWidth="1" WidthRequest="150" HeightRequest="60" TextColor="{DynamicResource PrimaryText}" BackgroundColor="{DynamicResource SecondaryButtonColor}" HorizontalOptions="CenterAndExpand" Clicked="OnSelectClicked" Text="Select"></Button>
 		</StackLayout>
 

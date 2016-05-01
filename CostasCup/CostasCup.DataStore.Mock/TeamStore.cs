@@ -82,6 +82,18 @@ namespace CostasCup.DataStore.Mock
 				"{\"Id\": \"theolee\", \"name\": \"Theo Lee\", \"imageSource\": \"users-icon.png\"}, " +
 				"{\"Id\": \"mikethornton\", \"name\": \"Mike Thornton\", \"imageSource\": \"users-icon.png\"}, " +
 				"]}, " +
+				"{" + 
+				"\"Id\": \"dellanno\", " +
+				"\"name\": \"Team DellAnno\", " +
+				"\"imageSource\": \"users-icon.png\", " +
+				"\"startingHole\": 1, " +
+				"\"password\": \"password\", " +
+				"\"members\": [" +
+				"{\"Id\": \"philhoehn\", \"name\": \"Phil Hoehn\", \"imageSource\": \"users-icon.png\"}, " +
+				"{\"Id\": \"joeydellanno\", \"name\": \"Joey DellAnno\", \"imageSource\": \"users-icon.png\"}, " +
+				"{\"Id\": \"collinwooster\", \"name\": \"Collin Wooster\", \"imageSource\": \"users-icon.png\"}, " +
+				"{\"Id\": \"nicklerner\", \"name\": \"Nick Lerner\", \"imageSource\": \"users-icon.png\"}, " +
+				"]}, " +
 				"]";
 		}
 	}

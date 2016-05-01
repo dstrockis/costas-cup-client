@@ -39,3 +39,7 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/CostasCup.Utils.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/CostasCup.Utils.dll.mdb
 /Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/System.Diagnostics.Tools.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.LeaderboardPage.xaml
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.LeaderboardCellView.xaml
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.LeaderboardPage.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.LeaderboardCellView.xaml.g.cs

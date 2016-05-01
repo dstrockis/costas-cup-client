@@ -37,7 +37,7 @@
 				<Label x:Name="TeamNetScore" Grid.Column="2" Grid.Row="0" FontSize="24" TextColor="{Binding TeamScoreToParColor}" Text="{Binding TeamScoreToPar}" VerticalOptions="Center" Margin="0,0,15	,0" />
 			</Grid>
 				
-			<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,10,0,0">
+			<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,0">
 		 		<ListView 
 			        x:Name="ListViewScores"
 			        ItemsSource="{Binding Scores}"

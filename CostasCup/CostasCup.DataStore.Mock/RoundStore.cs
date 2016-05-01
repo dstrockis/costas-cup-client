@@ -71,10 +71,15 @@ namespace CostasCup.DataStore.Mock
 				"\"courseId\": \"fake-course\", " +
 				"\"teamId\": \"mitchell\", " +
 				"\"scores\": [" +
-				"{\"numStrokes\": 4, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"scottmitchell\", \"holeNumber\": 1}, " +
+				"{\"numStrokes\": 3, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"scottmitchell\", \"holeNumber\": 1}, " +
 				"{\"numStrokes\": 4, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"scottmitchell\", \"holeNumber\": 2}, " +
 				"{\"numStrokes\": 4, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"scottmitchell\", \"holeNumber\": 3}, " +
 				"{\"numStrokes\": 4, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"scottmitchell\", \"holeNumber\": 4}, " +
+				"]}, " +
+				"{" +
+				"\"courseId\": \"fake-course\", " +
+				"\"teamId\": \"dellanno\", " +
+				"\"scores\": [" +
 				"]}, " +
 				"]";
 		}

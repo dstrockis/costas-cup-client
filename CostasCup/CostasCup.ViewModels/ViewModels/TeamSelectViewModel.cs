@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using CostasCup.Logic;
 using CostasCup.DataModels;
+using Xamarin.Forms;
 
 namespace CostasCup.Logic
 {
@@ -12,8 +13,8 @@ namespace CostasCup.Logic
 
 		public TeamSelectViewModel () {}
 
-		IEnumerable<Team> _pages;
-		public IEnumerable<Team> Pages {
+		IEnumerable<TeamViewModel> _pages;
+		public IEnumerable<TeamViewModel> Pages {
 			get 
 			{
 				return _pages;
@@ -25,8 +26,8 @@ namespace CostasCup.Logic
 			}
 		}
 
-		Team _currentPage;
-		public Team CurrentPage {
+		TeamViewModel _currentPage;
+		public TeamViewModel CurrentPage {
 			get 
 			{
 				return _currentPage;
@@ -40,9 +41,26 @@ namespace CostasCup.Logic
 		public async void LoadTeams()
 		{
 			Teams = await DataStoreService.TeamStore.GetAsync ();
-			Pages = Teams;
+			List<TeamViewModel> teams = new List<TeamViewModel> ();
+			foreach (Team team in Teams)
+			{
+				teams.Add (new TeamViewModel
+					{ 
+						Id = team.Id,
+						Name = team.Name,
+						ImageSource = DataStoreService.ImageConverter.Convert(team.ImageSource)
+					});	
+			};
+			Pages = teams;
 			CurrentPage = Pages.First ();
 		}
+	}
+
+	public class TeamViewModel : BaseViewModel
+	{
+		public string Id { get; set; }
+		public string Name { get; set; }
+		public ImageSource ImageSource { get; set; }
 	}
 }
 

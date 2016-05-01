@@ -38,7 +38,7 @@ namespace CostasCup.Logic
 		{ 
 			get
 			{ 
-				return NetScoreToColor (teamScoreToPar, "White");
+				return Golf.NetScoreToColor (teamScoreToPar, "White");
 			}
 		}
 
@@ -69,16 +69,16 @@ namespace CostasCup.Logic
 				int netScore = 0;
 				foreach (Score score in round.Scores)
 				{
-					netScore += EvaluateScoreToPar(score.NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(score.HoleNumber))?.Par) ?? 0;
+					netScore += Golf.EvaluateScoreToPar(score.NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(score.HoleNumber))?.Par) ?? 0;
 
 					newScores.Add(new ScoreViewModel
 						{
 							PlayerImage = DataStoreService.ImageConverter.Convert(_team.Members.FirstOrDefault(p => p.Id.Equals(score.PlayerId))?.Image),
 							HoleNumber = score.HoleNumber,
 							HoleToPar = (int) course.Holes.FirstOrDefault(h => h.Number.Equals(score.HoleNumber))?.Par,
-							SubmissionStatus = score.Timestamp == null ? "Score not yet submitted" : ("Score submitted at " + ((DateTime)(score.Timestamp)).ToString("HH:mm:ss")),
-							ScoreToPar = NetScoreToString(EvaluateScoreToPar(score.NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(score.HoleNumber))?.Par)),
-							ScoreToParColor = NetScoreToColor(EvaluateScoreToPar(score.NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(score.HoleNumber))?.Par)),
+							SubmissionStatus = score.Timestamp == null ? "Score not yet submitted" : ("Score submitted at " + ((DateTime)(score.Timestamp)).ToLocalTime().ToString("HH:mm:ss")),
+							ScoreToPar = Golf.NetScoreToString(Golf.EvaluateScoreToPar(score.NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(score.HoleNumber))?.Par)),
+							ScoreToParColor = Golf.NetScoreToColor(Golf.EvaluateScoreToPar(score.NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(score.HoleNumber))?.Par)),
 						});
 				}
 
@@ -105,7 +105,7 @@ namespace CostasCup.Logic
 
 				Scores = new ObservableCollection<ScoreViewModel>(full18);
 				teamScoreToPar = netScore;
-				TeamScoreToPar = NetScoreToString(netScore);
+				TeamScoreToPar = Golf.NetScoreToString(netScore);
 
 			} catch (Exception ex)
 			{
@@ -115,35 +115,6 @@ namespace CostasCup.Logic
 			{
 				IsBusy = false;
 			}
-		}
-
-		private static string NetScoreToString(int? net)
-		{
-			if (net == null)
-				return "-";
-			if (net < 0)
-				return net.ToString ();
-			if (net == 0)
-				return "E";
-			return "+" + net.ToString ();
-		}
-
-		private static int? EvaluateScoreToPar(int? score, int? par)
-		{
-			if (score == null || par == null)
-				return null;
-			return (int)(score - par);
-		}
-
-		private static Color NetScoreToColor(int? net, string color = "Black")
-		{
-			if (net == null)
-				return color == "Black" ? Color.Black : Color.White;
-			if (net < 0)
-				return Color.Green;
-			if (net == 0)
-				return color == "Black" ? Color.Black : Color.White	;
-			return Color.Red;
 		}
 	}
 
@@ -159,7 +130,7 @@ namespace CostasCup.Logic
 		public Color PlayerImageBg 
 		{ 
 			get { 
-				return PlayerImage == null ? Color.White : Color.FromHex ("#E1E1E1");
+				return PlayerImage == null ? Color.Transparent : Color.FromHex ("#E1E1E1");
 			}
 		}
 

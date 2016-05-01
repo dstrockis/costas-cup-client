@@ -17,9 +17,6 @@ namespace CostasCup
 		{
 			_team = team;
 			NavigationPage.SetHasNavigationBar (this, false);
-			this.BackgroundColor = Color.White;
-			this.Title = "Leaderboard";
-			this.Icon = "ic_format_list_numbered.png";
 //
 //			Padding = new Thickness(20);
 //			var pageTitle = new Label

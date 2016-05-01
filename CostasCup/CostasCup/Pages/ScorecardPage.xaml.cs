@@ -16,10 +16,10 @@ namespace CostasCup.UI
 		public ScorecardPage (Team team)
 		{
 			InitializeComponent ();
-			BindingContext = vm = new ScorecardViewModel (team, Navigation);
+				BindingContext = vm = new ScorecardViewModel (team, Navigation);
 
-			// Workaround for Xam Forms Bug (I think)
-			vm.PropertyChanged += OnBusyChange;
+				// Workaround for Xam Forms Bug (I think)
+				vm.PropertyChanged += OnBusyChange;
 		}
 
 		public async void OnScoreSelected(object sender, EventArgs e)
