@@ -40,19 +40,31 @@ namespace CostasCup.Logic
 
 		public async void LoadTeams()
 		{
-			Teams = await DataStoreService.TeamStore.GetAsync ();
-			List<TeamViewModel> teams = new List<TeamViewModel> ();
-			foreach (Team team in Teams)
+			try
 			{
-				teams.Add (new TeamViewModel
-					{ 
-						Id = team.Id,
-						Name = team.Name,
-						ImageSource = DataStoreService.ImageConverter.Convert(team.ImageSource)
-					});	
-			};
-			Pages = teams;
-			CurrentPage = Pages.First ();
+				IsBusy = true;
+				Teams = await DataStoreService.TeamStore.GetAsync ();
+				List<TeamViewModel> teams = new List<TeamViewModel> ();
+				foreach (Team team in Teams)
+				{
+					teams.Add (new TeamViewModel
+						{ 
+							Id = team.Id,
+							Name = team.Name,
+							ImageSource = DataStoreService.ImageConverter.Convert(team.ImageSource)
+						});	
+				};
+				Pages = teams;
+				CurrentPage = Pages.First ();
+			}
+			catch 
+			{
+				
+			}
+			finally 
+			{
+				IsBusy = false;
+			}
 		}
 	}
 

@@ -18,7 +18,7 @@ namespace CostasCup.DataModels
 		[JsonProperty("password")]
 		public string Password { get; set; }
 		[JsonProperty("startingHole")]
-		public int StartingHole { get; set; }
+		public int? StartingHole { get; set; }
 		[JsonProperty("imageSource")]
 		public string ImageSource { get; set; }
 	}	

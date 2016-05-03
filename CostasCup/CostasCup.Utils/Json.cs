@@ -21,6 +21,11 @@ namespace CostasCup.Utils
 		{
 			return JsonConvert.DeserializeObject<IEnumerable<Round>>(json);
 		}
+
+		public static Settings ParseSettings(string json)
+		{
+			return JsonConvert.DeserializeObject<Settings>(json);
+		}
 	}
 }
 

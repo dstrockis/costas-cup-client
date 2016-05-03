@@ -12,6 +12,7 @@
             <Color x:Key="SecondaryText">White</Color>
             <Color x:Key="PrimaryText">Black</Color>
             <Color x:Key="SecondaryButtonColor">#D9BF00</Color>
+            <Color x:Key="PrimaryButtonColor">#E2E2E2</Color>
 
         </ResourceDictionary>
     </Application.Resources>

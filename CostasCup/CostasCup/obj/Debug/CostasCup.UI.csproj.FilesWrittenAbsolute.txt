@@ -43,3 +43,5 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.LeaderboardCellView.xaml
 /Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.LeaderboardPage.xaml.g.cs
 /Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.LeaderboardCellView.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.ScoreEntryPage.xaml
+/Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.ScoreEntryPage.xaml.g.cs

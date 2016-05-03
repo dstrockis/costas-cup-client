@@ -9,6 +9,7 @@ namespace CostasCup.DataModels.Interfaces
 		IRoundStore RoundStore { get; }
 		ITeamStore TeamStore { get; }
 		IImageConverter ImageConverter { get; }
+		ISettingsStore SettingsStore { get; }
 	}
 }
 

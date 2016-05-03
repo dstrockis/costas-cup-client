@@ -17,21 +17,8 @@ namespace CostasCup
 //		Label _hole;
 //		StackLayout _body;
 //
-//		static Dictionary<string, int> scoreToInt = new Dictionary<string, int>
-//		{
-//			{ "Ace", 1 },
-//			{ "Two", 2 },
-//			{ "Three", 3 },
-//			{ "Four", 4 },
-//			{ "Five", 5 },
-//			{ "Six", 6 },
-//			{ "Seven", 7 },
-//			{ "Snowman", 8 },
-//			{ "Nine", 9 },
-//			{ "Ten", 10 },
-//			{ "Eleven", 11 },
-//			{ "Holy Shit...", 12 }
-//		};
+
+
 //
 //		public ScoreEntryPage (Team team)
 //		{

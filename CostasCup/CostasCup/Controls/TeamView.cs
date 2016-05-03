@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using ImageCircle.Forms.Plugin.Abstractions;
 
 namespace CostasCup.UI
 {
@@ -15,22 +16,24 @@ namespace CostasCup.UI
 				FontFamily = "Montserrat-UltraLight",
 				FontSize = 16,
 			};
-
-			var teamIcon = new Image {
-				Aspect = Aspect.AspectFit,
-				HorizontalOptions = LayoutOptions.Center,
-				VerticalOptions = LayoutOptions.Center,
-			};
-
 			teamName.SetBinding(Label.TextProperty, "Name");
-			teamIcon.SetBinding (Image.SourceProperty, "ImageSource");
+
+			var teamIcon = new CircleImage {
+				FillColor = Color.FromHex ("#E1E1E1"),
+				VerticalOptions = LayoutOptions.Center,
+				Aspect = Aspect.AspectFill,
+				WidthRequest = 175,
+				HeightRequest = 175,
+				Margin = new Thickness (0, 0, 0, 0),
+			};
+			teamIcon.SetBinding (CircleImage.SourceProperty, "ImageSource");
 
 			Content = new StackLayout {
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				HorizontalOptions = LayoutOptions.Center,
 				Spacing = 10,
 				Padding = new Thickness(10),
-				Children = { teamIcon, teamName }
+				Children = { teamName, teamIcon }
 			};
 		}
 	}

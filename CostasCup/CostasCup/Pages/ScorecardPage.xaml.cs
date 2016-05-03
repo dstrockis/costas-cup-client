@@ -10,26 +10,62 @@ namespace CostasCup.UI
 {
 	public partial class ScorecardPage : ContentPage
 	{
+		private string teamId;
+		bool isMainTeam;
 		ScorecardViewModel vm;
 		ScorecardViewModel ViewModel => vm ?? (vm = BindingContext as ScorecardViewModel);
+
+		public ScorecardPage (string teamId)
+		{
+			InitializeComponent ();
+			NavigationPage.SetHasNavigationBar (this, false);
+			BindingContext = vm = new ScorecardViewModel (teamId, Navigation);
+			ListViewScores.ItemSelected += OnScoreSelected;
+			isMainTeam = false;
+			teamId = teamId;
+
+			// Workaround for Xam Forms Bug (I think)
+			vm.PropertyChanged += OnBusyChange;
+		}
 
 		public ScorecardPage (Team team)
 		{
 			InitializeComponent ();
-				BindingContext = vm = new ScorecardViewModel (team, Navigation);
+			NavigationPage.SetHasNavigationBar (this, false);
+			BindingContext = vm = new ScorecardViewModel (team, Navigation);
+			ListViewScores.ItemSelected += OnScoreSelected;
+			isMainTeam = true;
+			teamId = team.Id;
 
-				// Workaround for Xam Forms Bug (I think)
-				vm.PropertyChanged += OnBusyChange;
+			// Workaround for Xam Forms Bug (I think)
+			vm.PropertyChanged += OnBusyChange;
 		}
 
 		public async void OnScoreSelected(object sender, EventArgs e)
 		{
-			// TODO: Show score entry page or score summary page
+			ScoreViewModel selected = ((ListView)sender).SelectedItem as ScoreViewModel;
+			if (selected != null) 
+			{
+				if (!isMainTeam) 
+				{
+					((ListView)sender).SelectedItem = null;
+					return;
+				}
+
+				await Navigation.PushAsync (new ScoreEntryPage (teamId, selected.HoleInfo, selected.Score));
+			}
 		}
 
-		protected override void OnAppearing ()
+		protected async override void OnAppearing ()
 		{
-			vm.RefreshScores ();
+			try 
+			{
+				vm.RefreshScores ();
+			}
+			catch (TeamNotSelectedException ex) 
+			{
+				await Navigation.PushAsync (new TeamSelectPage (null));
+				}
 		}
 
 		private void OnBusyChange(object sender, PropertyChangedEventArgs e)

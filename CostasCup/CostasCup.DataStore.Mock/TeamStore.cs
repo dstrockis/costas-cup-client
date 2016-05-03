@@ -62,7 +62,7 @@ namespace CostasCup.DataStore.Mock
 				"\"Id\": \"desai\", " +
 				"\"name\": \"Team Desai\", " +
 				"\"imageSource\": \"users-icon.png\", " + 
-				"\"startingHole\": 1, " +
+				"\"startingHole\": 5, " +
 				"\"password\": \"password\", " +
 				"\"members\": [" +
 				"{\"Id\": \"dhruvdesai\", \"name\": \"Dhruv Desai\", \"imageSource\": \"users-icon.png\"}, " +
@@ -86,7 +86,7 @@ namespace CostasCup.DataStore.Mock
 				"\"Id\": \"dellanno\", " +
 				"\"name\": \"Team DellAnno\", " +
 				"\"imageSource\": \"users-icon.png\", " +
-				"\"startingHole\": 1, " +
+				"\"startingHole\": 17, " +
 				"\"password\": \"password\", " +
 				"\"members\": [" +
 				"{\"Id\": \"philhoehn\", \"name\": \"Phil Hoehn\", \"imageSource\": \"users-icon.png\"}, " +

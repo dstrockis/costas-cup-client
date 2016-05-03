@@ -36,23 +36,45 @@ namespace CostasCup.Logic
 			try 
 			{
 				IsBusy = true;
-				Course course = await DataStoreService.CourseStore.GetAsync(Constants.CourseId);
+
+				Settings settings = await DataStoreService.SettingsStore.GetAsync();
+
+				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
 				IEnumerable<Team> teams = await DataStoreService.TeamStore.GetAsync();
 				List<LeaderViewModel> newLeaders = new List<LeaderViewModel>();
+
+				IEnumerable<Round> allRounds = await DataStoreService.RoundStore.GetAsync();
+				Round mainRound = allRounds.FirstOrDefault(r => r.CourseId == settings.CourseId && r.TeamId == _team.Id);
+				int numScoresToShow = settings.NumHolesCeiling ?? 18;
+				numScoresToShow = (settings.HideFutureScores && mainRound.Scores.Count < numScoresToShow) ? mainRound.Scores.Count : numScoresToShow;
+
 				foreach (Team team in teams)
 				{
-					DateTime mostRecentSubmission;
+					DateTime? mostRecentSubmission;
 					int numHolesComplete = 0;
 					int netScore = 0;
-					Round round = DataStoreService.RoundStore.GetAsync().Result.FirstOrDefault(r => r.CourseId.Equals(Constants.CourseId) && r.TeamId.Equals(team.Id));
-					foreach (Score score in round.Scores)
+					List<Score> scores = allRounds.FirstOrDefault(r => r.CourseId.Equals(settings.CourseId) && r.TeamId.Equals(team.Id)).Scores.ToList();
+
+					scores.Sort(new TimeStampComparer());  // Scores should be sorted from first submission --> last
+
+					for (int i=0; i < scores.Count; i++)
 					{
-						netScore += Golf.EvaluateScoreToPar(score.NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(score.HoleNumber))?.Par) ?? 0;
-						if (score.Timestamp != null && (mostRecentSubmission == null || mostRecentSubmission < score.Timestamp))
+						if (team.StartingHole != null) // Use starting hole to limit shown scores
 						{
-							mostRecentSubmission = (DateTime)score.Timestamp;
+							int adjustedHoleNumber = scores[i].HoleNumber < team.StartingHole ? (scores[i].HoleNumber + 18) : scores[i].HoleNumber;
+							if ((adjustedHoleNumber >= (team.StartingHole + numScoresToShow)) && (team.Id != _team.Id)) continue;
 						}
-						if (score.Timestamp != null && score.NumStrokes != null)
+						else // Use timestamp to limit shown scores
+						{
+							if (((i+1) > numScoresToShow) && team.Id != _team.Id) break;
+						}
+
+						netScore += Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par) ?? 0;
+						if (scores[i].Timestamp != null && (mostRecentSubmission == null || mostRecentSubmission < scores[i].Timestamp))
+						{
+							mostRecentSubmission = scores[i].Timestamp;
+						}
+						if (scores[i].Timestamp != null && scores[i].NumStrokes != null)
 						{
 							numHolesComplete += 1;
 						}
@@ -63,9 +85,10 @@ namespace CostasCup.Logic
 							ScoreToPar = netScore,
 							IsUsersTeam = team.Id == _team.Id,
 							TeamName = team.Name,
-							MostRecentSubmission = mostRecentSubmission == null ? null : String.Format("{0} minutes ago", ((int)(DateTime.Now - mostRecentSubmission).TotalMinutes).ToString()),
+							MostRecentSubmission = mostRecentSubmission == null ? null : String.Format("{0} minutes ago", ((int)(DateTime.Now - ((DateTime)mostRecentSubmission)).TotalMinutes).ToString()),
 							NumHolesComplete = numHolesComplete,
-							TeamImage = DataStoreService.ImageConverter.Convert(team.ImageSource)
+							TeamImage = DataStoreService.ImageConverter.Convert(team.ImageSource),
+							TeamId = team.Id
 						});
 				}
 
@@ -101,6 +124,7 @@ namespace CostasCup.Logic
 		internal int ScoreToPar { get; set; }
 		internal bool IsUsersTeam { get; set; }
 
+		public string TeamId { get; set; }
 		public int? Position { get; set; }
 		public string TeamName { get; set; }
 		public string MostRecentSubmission { get; set; }

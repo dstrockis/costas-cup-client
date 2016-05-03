@@ -17,6 +17,10 @@ namespace CostasCup.DataStore.Firebase
 
 		IImageConverter imageConverter;
 		public IImageConverter ImageConverter => imageConverter ?? (imageConverter = DependencyService.Get<IImageConverter>());
+	
+		ISettingsStore settingsStore;
+		public ISettingsStore SettingsStore => settingsStore ?? (settingsStore = DependencyService.Get<ISettingsStore>());
+
 	}
 }
 

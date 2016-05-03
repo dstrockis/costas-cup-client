@@ -55,13 +55,14 @@ namespace CostasCup.Logic
 				DependencyService.Register<ITeamStore, CostasCup.DataStore.Mock.TeamStore> ();
 				DependencyService.Register<IDataStoreService, CostasCup.DataStore.Mock.DataStoreService> ();
 				DependencyService.Register<IImageConverter, CostasCup.DataStore.Mock.PlayerImageConverter> ();
+				DependencyService.Register<ISettingsStore, CostasCup.DataStore.Mock.SettingsStore> ();
 			} 
 			else 
 			{
 				DependencyService.Register<ICourseStore, CostasCup.DataStore.Firebase.CourseStore> ();
 				DependencyService.Register<IRoundStore, CostasCup.DataStore.Firebase.RoundStore> ();
 				DependencyService.Register<ITeamStore, CostasCup.DataStore.Firebase.TeamStore> ();
-				DependencyService.Register<IImageConverter, CostasCup.DataStore.Firebase.PlayerImageConverter> ();
+				DependencyService.Register<ISettingsStore, CostasCup.DataStore.Firebase.SettingsStore> ();
 			}
 		}
 	}

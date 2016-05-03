@@ -6,6 +6,7 @@ using CostasCup.DataModels;
 using System.Linq;
 using CostasCup.UI;
 using CostasCup.Logic;
+using System.ComponentModel;
 
 namespace CostasCup
 {
@@ -24,6 +25,9 @@ namespace CostasCup
 				Navigation.PushAsync(new HomePage(team));
 
 			BindingContext = vm = new TeamSelectViewModel();
+
+			// Workaround for Xam Forms Bug (I think)
+			vm.PropertyChanged += OnBusyChange;
 
 			var pagesCarousel = CreatePagesCarousel();
 			TeamBundle.Children.Add (pagesCarousel);
@@ -46,6 +50,13 @@ namespace CostasCup
 		protected override void OnAppearing ()
 		{
 			if (vm.Teams == null) vm.LoadTeams ();
+		}
+
+		private void OnBusyChange(object sender, PropertyChangedEventArgs e)
+		{
+			if (e.PropertyName.Equals ("IsBusy")) {
+				TeamGrid.IsVisible = ((TeamSelectViewModel)sender).IsNotBusy;
+			} 
 		}
 
 		async void OnSelectClicked(object sender, EventArgs e)

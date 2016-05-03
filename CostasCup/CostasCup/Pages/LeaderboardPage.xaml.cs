@@ -10,6 +10,7 @@ namespace CostasCup.UI
 {
 	public partial class LeaderboardPage : ContentPage
 	{
+		private Team _team;
 		LeaderboardViewModel vm;
 		LeaderboardViewModel ViewModel => vm ?? (vm = BindingContext as LeaderboardViewModel);
 
@@ -17,6 +18,8 @@ namespace CostasCup.UI
 		{
 			InitializeComponent ();
 			BindingContext = vm = new LeaderboardViewModel (team, Navigation);
+			ListViewLeaders.ItemSelected += OnTeamSelected;
+			_team = team;
 
 			// Workaround for Xam Forms Bug (I think)
 			vm.PropertyChanged += OnBusyChange;
@@ -24,7 +27,17 @@ namespace CostasCup.UI
 
 		public async void OnTeamSelected(object sender, EventArgs e)
 		{
-			// TODO: Show scoreboard page
+			LeaderViewModel selected = ((ListView)sender).SelectedItem as LeaderViewModel;
+			if (selected != null) 
+			{
+				if (selected.TeamId == _team.Id) 
+				{
+					((ListView)sender).SelectedItem = null;
+					return;
+				}
+					
+				await Navigation.PushAsync (new ScorecardPage (selected.TeamId));
+			}
 		}
 
 		protected override void OnAppearing ()
