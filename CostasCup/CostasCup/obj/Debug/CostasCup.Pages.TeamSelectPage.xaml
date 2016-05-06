@@ -12,7 +12,8 @@
 				<Label FontFamily="Montserrat-UltraLight" FontSize="12" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryText}">A tradition unlike any other</Label>
 			</StackLayout>
 			<Label FontFamily="Montserrat-UltraLight" FontSize="16" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryText}">Swipe to your team:</Label>
-			<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,0">
+
+			<AbsoluteLayout HorizontalOptions="Fill" VerticalOptions="Fill" Padding="0,0,0,0" HeightRequest="250">
 				<Grid HorizontalOptions="FillAndExpand" IsVisible="{Binding IsNotBusy}" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" x:Name="TeamGrid">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="Auto" /> 

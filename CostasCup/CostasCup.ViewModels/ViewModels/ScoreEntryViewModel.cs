@@ -4,12 +4,14 @@ using System.Collections.Generic;
 using CostasCup.DataModels;
 using System.Linq;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace CostasCup.Logic
 {
 	public class ScoreEntryViewModel : BaseViewModel
 	{
 		private string _teamId;
+		private int _holeNumber;
 		private Score _score;
 
 		public IEnumerable<Player> Players { get; private set; }
@@ -23,11 +25,12 @@ namespace CostasCup.Logic
 			}
 		}
 
-		public ScoreEntryViewModel (string teamId, string holeInfo, Score score) 
+		public ScoreEntryViewModel (string teamId, int holeToPar, int holeNumber, Score score) 
 		{
 			_teamId = teamId;
 			_score = score;
-			HoleInfo = holeInfo;
+			_holeNumber = holeNumber;
+			HoleInfo = String.Format("Hole {0} | Par {1}", holeNumber, holeToPar);
 		}
 
 		IEnumerable<PlayerViewModel> _pages;
@@ -87,6 +90,30 @@ namespace CostasCup.Logic
 				}
 				Pages = players;
 				CurrentPage = players.First();
+			}
+			catch 
+			{
+				
+			}
+			finally 
+			{
+				IsBusy = false;
+			}
+		}
+
+		public async Task SubmitScoreAsync(string playerId, int? numStrokes)
+		{
+			try
+			{
+				IsBusy = true;
+				Score score = new Score
+				{
+					PlayerId = playerId,
+					NumStrokes = numStrokes,
+					Timestamp = DateTime.UtcNow,
+					HoleNumber = _holeNumber
+				};
+				await DataStoreService.RoundStore.PostScoreAsync(score, DataStoreService.SettingsStore.GetAsync().Result.CourseId, _teamId);
 			}
 			catch 
 			{

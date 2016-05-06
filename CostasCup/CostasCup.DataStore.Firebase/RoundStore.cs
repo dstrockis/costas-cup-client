@@ -25,6 +25,11 @@ namespace CostasCup.DataStore.Firebase
 			throw new NotImplementedException ();
 		}
 
+		public async Task PostScoreAsync(Score item, string courseId, string teamId)
+		{
+			throw new NotImplementedException ();
+		}
+
 		public Task<bool> PatchAsync(Round item)
 		{
 			throw new NotImplementedException ();

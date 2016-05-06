@@ -52,7 +52,7 @@ namespace CostasCup.UI
 					return;
 				}
 
-				await Navigation.PushAsync (new ScoreEntryPage (teamId, selected.HoleInfo, selected.Score));
+				await Navigation.PushAsync (new ScoreEntryPage (teamId, selected.HoleToPar, selected.HoleNumber, selected.Score));
 			}
 		}
 

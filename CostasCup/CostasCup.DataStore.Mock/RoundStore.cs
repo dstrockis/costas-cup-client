@@ -28,6 +28,24 @@ namespace CostasCup.DataStore.Mock
 			throw new NotImplementedException ();
 		}
 
+		public async Task PostScoreAsync(Score item, string courseId, string teamId)
+		{
+			ICollection<Score> scores = rounds.FirstOrDefault (r => (r.CourseId.Equals (courseId) && r.TeamId.Equals (teamId))).Scores;
+			Score existing = scores.FirstOrDefault (s => s.HoleNumber.Equals (item.HoleNumber));
+			if (existing == null) 
+			{
+				scores.Add (item);
+			} 
+			else 
+			{
+				existing.NumStrokes = item.NumStrokes;
+				existing.PlayerId = item.PlayerId;
+				existing.Timestamp = item.Timestamp;
+			}
+
+			await SyncAsync();
+		}
+
 		public Task<bool> PatchAsync(Round item)
 		{
 			throw new NotImplementedException ();
@@ -45,18 +63,18 @@ namespace CostasCup.DataStore.Mock
 
 		public Task<bool> SyncAsync ()
 		{
-			rounds = MockRoundStore.GetAllRounds ();
+			rounds = MockRoundStore.PutAllRounds (rounds);
 			return Task.FromResult(true);
 		}
 
 		private static class MockRoundStore
 		{
-			public static IEnumerable<Round> GetAllRounds() 
+			public static IEnumerable<Round> PutAllRounds(IEnumerable<Round> rounds) 
 			{
-				return CostasCup.Utils.Json.ParseRounds (rounds);
+				return rounds == null ? CostasCup.Utils.Json.ParseRounds (staticRounds) : rounds;
 			}
 
-			readonly static string rounds = "[{" +
+			readonly static string staticRounds = "[{" +
 				"\"courseId\": \"fake-course\", " +
 				"\"teamId\": \"desai\", " +
 				"\"scores\": [" +

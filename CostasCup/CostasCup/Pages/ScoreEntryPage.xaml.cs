@@ -14,12 +14,12 @@ namespace CostasCup
 		ScoreEntryViewModel vm;
 		ScoreEntryViewModel ViewModel => vm ?? (vm = BindingContext as ScoreEntryViewModel);
 
-		public ScoreEntryPage (string teamId, string holeInfo, Score score)
+		public ScoreEntryPage (string teamId, int holeToPar, int holeNumber, Score score)
 		{
 			NavigationPage.SetHasNavigationBar (this, false);
 			InitializeComponent ();
 
-			BindingContext = vm = new ScoreEntryViewModel(teamId, holeInfo, score);
+			BindingContext = vm = new ScoreEntryViewModel(teamId, holeToPar, holeNumber, score);
 
 			// Workaround for Xam Forms Bug (I think)
 			vm.PropertyChanged += OnBusyChange;
@@ -42,7 +42,6 @@ namespace CostasCup
 				carousel.IsEnabled = true;
 				ScorePicker.IsEnabled = true;
 				ScorePicker.SelectedIndex = -1;
-				ScorePicker.BackgroundColor = Color.FromHex("#D9BF00");
 				SaveButton.Opacity=1;
 				EditButton.Opacity=0;
 			} 
@@ -90,13 +89,20 @@ namespace CostasCup
 			RightArrow.FadeTo(1, 250);
 			SaveButton.IsVisible = true;
 			SaveButton.FadeTo(1, 250);
-			ScorePicker.BackgroundColor = Color.FromHex("#D9BF00");
 			ScorePicker.FadeTo(1, 250);
 		}
 
 		async void OnSaveClicked(object sender, EventArgs e)
 		{
-			// Write Data
+			if (ScorePicker.SelectedIndex == -1) {
+				await DisplayAlert ("Error", "Please Select a Score", "OK");
+				return;
+			}
+
+			int score = scoreToInt[ScorePicker.Items[ScorePicker.SelectedIndex]];
+			string player = vm.CurrentPage.Id;
+
+			await vm.SubmitScoreAsync (player, score);
 			await Navigation.PopAsync();
 		}
 
