@@ -10,9 +10,9 @@ namespace CostasCup.DataModels.Interfaces
 
 	}
 
-	public interface IImageConverter
+	public interface IImageConverter : IValueConverter
 	{
-		ImageSource Convert (string value);
+		
 	}
 }
 

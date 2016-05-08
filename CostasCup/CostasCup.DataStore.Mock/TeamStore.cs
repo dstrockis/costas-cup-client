@@ -100,9 +100,10 @@ namespace CostasCup.DataStore.Mock
 
 	public class PlayerImageConverter : IImageConverter
 	{
-		public ImageSource Convert(string value)
+		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			if (!string.IsNullOrWhiteSpace(value))
+			string val = (string)value;
+			if (!string.IsNullOrWhiteSpace(val))
 			{
 				return new FileImageSource
 				{
@@ -111,6 +112,11 @@ namespace CostasCup.DataStore.Mock
 			}
 
 			return null;
+		}
+
+		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+		{
+			throw new NotImplementedException ();
 		}
 	}
 }

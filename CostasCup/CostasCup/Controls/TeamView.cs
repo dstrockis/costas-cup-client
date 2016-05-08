@@ -1,12 +1,13 @@
 ﻿using System;
 using Xamarin.Forms;
 using ImageCircle.Forms.Plugin.Abstractions;
+using CostasCup.DataModels.Interfaces;
 
 namespace CostasCup.UI
 {
 	public class TeamView : ContentView
 	{
-		public TeamView ()
+		public TeamView (IImageConverter converter)
 		{
 			BackgroundColor = Color.Black;
 
@@ -26,7 +27,7 @@ namespace CostasCup.UI
 				HeightRequest = 175,
 				Margin = new Thickness (0, 0, 0, 0),
 			};
-			teamIcon.SetBinding (CircleImage.SourceProperty, "ImageSource");
+			teamIcon.SetBinding (CircleImage.SourceProperty, "ImageSource", BindingMode.OneWay, converter, null);
 
 			Content = new StackLayout {
 				VerticalOptions = LayoutOptions.CenterAndExpand,

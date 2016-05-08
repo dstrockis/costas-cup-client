@@ -33,7 +33,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Globals.cs" />
     <Compile Include="Utils\ISaveAndLoad.cs" />
-    <Compile Include="Pages\ScoreEntryPage.cs" />
     <Compile Include="Pages\LeaderboardPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Pages\TeamSelectPage.xaml.cs">
@@ -100,6 +99,10 @@
     <ProjectReference Include="..\CostasCup.DataModels\CostasCup.DataModels.csproj">
       <Project>{4D0A6CAF-33FF-4378-ABA2-6B0B15F6612D}</Project>
       <Name>CostasCup.DataModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CostasCup.DataModels.Interfaces\CostasCup.DataStore.Interfaces.csproj">
+      <Project>{8AF0DE1F-C25F-4D75-93FE-3D773451A0FC}</Project>
+      <Name>CostasCup.DataStore.Interfaces</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

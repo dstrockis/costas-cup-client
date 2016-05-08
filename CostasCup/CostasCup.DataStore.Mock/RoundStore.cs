@@ -28,7 +28,7 @@ namespace CostasCup.DataStore.Mock
 			throw new NotImplementedException ();
 		}
 
-		public async Task PostScoreAsync(Score item, string courseId, string teamId)
+		public async Task<bool> PostScoreAsync(Score item, string courseId, string teamId)
 		{
 			ICollection<Score> scores = rounds.FirstOrDefault (r => (r.CourseId.Equals (courseId) && r.TeamId.Equals (teamId))).Scores;
 			Score existing = scores.FirstOrDefault (s => s.HoleNumber.Equals (item.HoleNumber));
@@ -43,7 +43,7 @@ namespace CostasCup.DataStore.Mock
 				existing.Timestamp = item.Timestamp;
 			}
 
-			await SyncAsync();
+			return await SyncAsync();
 		}
 
 		public Task<bool> PatchAsync(Round item)

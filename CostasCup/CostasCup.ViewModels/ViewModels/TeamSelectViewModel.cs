@@ -51,13 +51,13 @@ namespace CostasCup.Logic
 						{ 
 							Id = team.Id,
 							Name = team.Name,
-							ImageSource = DataStoreService.ImageConverter.Convert(team.ImageSource)
+							ImageSource = team.ImageSource
 						});	
 				};
 				Pages = teams;
 				CurrentPage = Pages.First ();
 			}
-			catch 
+			catch (Exception ex)
 			{
 				
 			}
@@ -72,7 +72,7 @@ namespace CostasCup.Logic
 	{
 		public string Id { get; set; }
 		public string Name { get; set; }
-		public ImageSource ImageSource { get; set; }
+		public string ImageSource { get; set; }
 	}
 }
 

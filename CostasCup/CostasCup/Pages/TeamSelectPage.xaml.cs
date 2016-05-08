@@ -38,7 +38,9 @@ namespace CostasCup
 			var carousel = new CarouselLayout {
 				HorizontalOptions = LayoutOptions.FillAndExpand,
 				VerticalOptions = LayoutOptions.FillAndExpand,
-				ItemTemplate = new DataTemplate(typeof(TeamView))
+				ItemTemplate = new DataTemplate(() => {
+					return new TeamView(vm.DataStoreService.ImageConverter);
+				})
 			};
 			carousel.SetBinding(CarouselLayout.ItemsSourceProperty, "Pages");
 			carousel.SetBinding(CarouselLayout.SelectedItemProperty, "CurrentPage", BindingMode.TwoWay);

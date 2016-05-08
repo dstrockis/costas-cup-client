@@ -87,7 +87,7 @@ namespace CostasCup.Logic
 							TeamName = team.Name,
 							MostRecentSubmission = mostRecentSubmission == null ? null : String.Format("{0} minutes ago", ((int)(DateTime.Now - ((DateTime)mostRecentSubmission)).TotalMinutes).ToString()),
 							NumHolesComplete = numHolesComplete,
-							TeamImage = DataStoreService.ImageConverter.Convert(team.ImageSource),
+							TeamImage = (ImageSource)DataStoreService.ImageConverter.Convert(team.ImageSource, typeof(ImageSource), null, null),
 							TeamId = team.Id
 						});
 				}

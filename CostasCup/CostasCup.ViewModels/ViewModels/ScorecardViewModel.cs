@@ -51,7 +51,7 @@ namespace CostasCup.Logic
 
 		public ImageSource TeamImage
 		{
-			get { return DataStoreService.ImageConverter.Convert(_team.ImageSource); }
+			get { return (ImageSource)DataStoreService.ImageConverter.Convert(_team.ImageSource, typeof(ImageSource), null, null); }
 		}
 
 		private ObservableCollection<ScoreViewModel> scores;
@@ -112,7 +112,7 @@ namespace CostasCup.Logic
 
 					newScores.Add(new ScoreViewModel
 						{
-							PlayerImage = DataStoreService.ImageConverter.Convert(_team.Members.FirstOrDefault(p => p.Id.Equals(scores[i].PlayerId))?.Image),
+							PlayerImage = (ImageSource)DataStoreService.ImageConverter.Convert(_team.Members.FirstOrDefault(p => p.Id.Equals(scores[i].PlayerId))?.Image, typeof(ImageSource), null, null),
 							HoleNumber = scores[i].HoleNumber,
 							HoleToPar = (int) course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par,
 							SubmissionStatus = scores[i].Timestamp == null ? "Score not yet submitted" : ("Score submitted at " + ((DateTime)(scores[i].Timestamp)).ToLocalTime().ToString("HH:mm:ss")),

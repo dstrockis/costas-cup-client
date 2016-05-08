@@ -13,7 +13,7 @@ namespace CostasCup.UI
 		public App ()
 		{
 			InitializeComponent();
-			BaseViewModel.Init ();
+			BaseViewModel.Init (false);
 			this.MainPage = new NavigationPage (new TeamSelectPage (null));
 		}
 

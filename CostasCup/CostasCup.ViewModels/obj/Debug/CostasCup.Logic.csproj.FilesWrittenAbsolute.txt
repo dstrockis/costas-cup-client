@@ -17,3 +17,5 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/CostasCup.Utils.dll
 /Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/CostasCup.Utils.dll.mdb
 /Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/Newtonsoft.Json.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/System.Net.Http.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup.ViewModels/bin/Debug/System.Net.Http.Primitives.dll

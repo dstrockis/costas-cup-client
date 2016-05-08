@@ -61,6 +61,8 @@ namespace CostasCup.Logic
 			{
 				DependencyService.Register<ICourseStore, CostasCup.DataStore.Firebase.CourseStore> ();
 				DependencyService.Register<IRoundStore, CostasCup.DataStore.Firebase.RoundStore> ();
+				DependencyService.Register<IDataStoreService, CostasCup.DataStore.Firebase.DataStoreService> ();
+				DependencyService.Register<IImageConverter, CostasCup.DataStore.Firebase.PlayerImageConverter> ();
 				DependencyService.Register<ITeamStore, CostasCup.DataStore.Firebase.TeamStore> ();
 				DependencyService.Register<ISettingsStore, CostasCup.DataStore.Firebase.SettingsStore> ();
 			}

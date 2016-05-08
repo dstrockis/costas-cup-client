@@ -73,7 +73,7 @@ namespace CostasCup.Logic
 						{ 
 							Id = active.Id,
 							Name = active.Name,
-							ImageSource = DataStoreService.ImageConverter.Convert (active.Image)
+							ImageSource = (ImageSource) DataStoreService.ImageConverter.Convert (active.Image, typeof(ImageSource), null, null)
 						});
 				}
 
@@ -84,7 +84,7 @@ namespace CostasCup.Logic
 							{ 
 								Id = player.Id,
 								Name = player.Name,
-								ImageSource = DataStoreService.ImageConverter.Convert(player.Image)
+								ImageSource = (ImageSource) DataStoreService.ImageConverter.Convert(player.Image, typeof (ImageSource), null, null)
 							});	
 					};
 				}

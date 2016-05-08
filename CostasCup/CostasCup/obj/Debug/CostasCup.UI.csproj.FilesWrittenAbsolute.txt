@@ -45,3 +45,5 @@
 /Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.LeaderboardCellView.xaml.g.cs
 /Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.ScoreEntryPage.xaml
 /Users/Danny/Source/Costas/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.ScoreEntryPage.xaml.g.cs
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/System.Net.Http.dll
+/Users/Danny/Source/Costas/CostasCup/CostasCup/bin/Debug/System.Net.Http.Primitives.dll
