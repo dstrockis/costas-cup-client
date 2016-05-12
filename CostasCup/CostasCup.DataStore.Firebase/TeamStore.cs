@@ -9,6 +9,7 @@ using CostasCup.Utils;
 using System.Net.Http;
 using CostasCup.DataStore.Interfaces;
 using System.Text;
+using System.IO;
 
 namespace CostasCup.DataStore.Firebase
 {
@@ -80,16 +81,47 @@ namespace CostasCup.DataStore.Firebase
 
 	public class PlayerImageConverter : IImageConverter
 	{
-		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		Dictionary<string, Stream> images;
+
+		public PlayerImageConverter()
+		{
+			images = new Dictionary<string, Stream> ();
+		}
+
+		public async object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			string val = (string)value;
-			if (!string.IsNullOrWhiteSpace(val))
+			if (string.IsNullOrWhiteSpace(val))
 			{
-				// Get stream manually..., add caching later...
-				return ImageSource.FromStream();
+				return null;
 			}
 
-			return null;
+			Stream strm;
+			if (images.TryGetValue (val, out strm)) 
+			{
+				return strm;
+			}
+
+			try 
+			{
+				HttpClient client = new HttpClient ();
+				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, Constants.ImageStoreBaseUrl + val);
+				HttpResponseMessage resp = await client.SendAsync(req);
+
+				if (!resp.IsSuccessStatusCode)
+				{
+					return ImageSource.FromFile("users-icon.png");
+				}
+
+				Stream stream = await resp.Content.ReadAsStreamAsync();
+				images[val] = stream;
+				return ImageSource.FromStream(() => {return stream;});
+			}
+			catch (Exception ex) 
+			{
+				return ImageSource.FromFile("users-icon.png");
+			}
+			return ImageSource.FromStream();
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
