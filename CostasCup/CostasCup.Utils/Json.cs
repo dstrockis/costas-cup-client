@@ -29,12 +29,18 @@ namespace CostasCup.Utils
 
 		public static IEnumerable<Round> ParseRounds(string json)
 		{
-			return JsonConvert.DeserializeObject<IEnumerable<Round>>(json);
+			Dictionary<string, Round> rounds = (Dictionary<string, Round>) JsonConvert.DeserializeObject (json, typeof(Dictionary<string, Round>), new JsonSerializerSettings ());
+			return rounds.Values;
 		}
 
 		public static string SerializeRounds(IEnumerable<Round> rounds)
 		{
-			return JsonConvert.SerializeObject (rounds, typeof(IEnumerable<Round>), new JsonSerializerSettings ());
+			string keyTemplate = "{0}%%{1}";
+			Dictionary<string, Round> json = new Dictionary<string, Round> ();
+			foreach (Round round in rounds) {
+				json [String.Format (keyTemplate, round.CourseId, round.TeamId)] = round;
+			}
+			return JsonConvert.SerializeObject(json, typeof(Dictionary<string, Round>), new JsonSerializerSettings());
 		}
 
 

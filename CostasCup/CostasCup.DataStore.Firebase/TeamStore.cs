@@ -10,6 +10,7 @@ using System.Net.Http;
 using CostasCup.DataStore.Interfaces;
 using System.Text;
 using System.IO;
+using ModernHttpClient;
 
 namespace CostasCup.DataStore.Firebase
 {
@@ -57,7 +58,7 @@ namespace CostasCup.DataStore.Firebase
 		{
 			try 
 			{
-				HttpClient client = new HttpClient ();
+				HttpClient client = new HttpClient (new NativeMessageHandler());
 				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, Constants.DataStoreBaseUrl + "/teams.json");
 //				req.Content = new StringContent (Json.SerializeTeams(teams), Encoding.UTF8, "application/json");
 				HttpResponseMessage resp = await client.SendAsync(req);
@@ -88,7 +89,7 @@ namespace CostasCup.DataStore.Firebase
 			images = new Dictionary<string, Stream> ();
 		}
 
-		public async object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
 			string val = (string)value;
 			if (string.IsNullOrWhiteSpace(val))
@@ -104,16 +105,16 @@ namespace CostasCup.DataStore.Firebase
 
 			try 
 			{
-				HttpClient client = new HttpClient ();
+				HttpClient client = new HttpClient (new NativeMessageHandler());
 				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, Constants.ImageStoreBaseUrl + val);
-				HttpResponseMessage resp = await client.SendAsync(req);
+				HttpResponseMessage resp = client.SendAsync(req).Result;
 
 				if (!resp.IsSuccessStatusCode)
 				{
 					return ImageSource.FromFile("users-icon.png");
 				}
 
-				Stream stream = await resp.Content.ReadAsStreamAsync();
+				Stream stream = resp.Content.ReadAsStreamAsync().Result;
 				images[val] = stream;
 				return ImageSource.FromStream(() => {return stream;});
 			}
@@ -121,7 +122,6 @@ namespace CostasCup.DataStore.Firebase
 			{
 				return ImageSource.FromFile("users-icon.png");
 			}
-			return ImageSource.FromStream();
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

@@ -4,6 +4,7 @@ using System.Linq;
 using CostasCup.Logic;
 using CostasCup.DataModels;
 using Xamarin.Forms;
+using System.Threading.Tasks;
 
 namespace CostasCup.Logic
 {
@@ -38,7 +39,7 @@ namespace CostasCup.Logic
 			}
 		}
 
-		public async void LoadTeams()
+		public async Task LoadTeams()
 		{
 			try
 			{

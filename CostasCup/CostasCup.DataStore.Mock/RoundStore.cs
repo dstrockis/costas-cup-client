@@ -74,7 +74,9 @@ namespace CostasCup.DataStore.Mock
 				return rounds == null ? CostasCup.Utils.Json.ParseRounds (staticRounds) : rounds;
 			}
 
-			readonly static string staticRounds = "[{" +
+			readonly static string staticRounds = "{" +
+				"\"fake-course%%desai\":" +
+				"{" +
 				"\"courseId\": \"fake-course\", " +
 				"\"teamId\": \"desai\", " +
 				"\"scores\": [" +
@@ -87,6 +89,7 @@ namespace CostasCup.DataStore.Mock
 				"{\"numStrokes\": 4, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"dhruvdesai\", \"holeNumber\": 7}, " +
 				"{\"numStrokes\": 7, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"dhruvdesai\", \"holeNumber\": 8}, " +
 				"]}, " +
+				"\"fake-course%%mitchell\":" +
 				"{" +
 				"\"courseId\": \"fake-course\", " +
 				"\"teamId\": \"mitchell\", " +
@@ -110,6 +113,7 @@ namespace CostasCup.DataStore.Mock
 				"{\"numStrokes\": 4, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"scottmitchell\", \"holeNumber\": 17}, " +
 				"{\"numStrokes\": 4, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"scottmitchell\", \"holeNumber\": 18}, " +
 				"]}, " +
+				"\"fake-course%%dellanno\":" +
 				"{" +
 				"\"courseId\": \"fake-course\", " +
 				"\"teamId\": \"dellanno\", " +
@@ -121,7 +125,7 @@ namespace CostasCup.DataStore.Mock
 				"{\"numStrokes\": 4, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"joeydellanno\", \"holeNumber\": 13}, " +
 				"{\"numStrokes\": 4, \"timestamp\": \"2015-06-17T23:30:01.126385-07:00\", \"playerId\": \"joeydellanno\", \"holeNumber\": 18}, " +
 				"]}, " +
-				"]";
+				"}";
 		}
 	}
 }

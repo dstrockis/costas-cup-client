@@ -49,9 +49,9 @@ namespace CostasCup
 			return carousel;
 		}
 
-		protected override void OnAppearing ()
+		protected async override void OnAppearing ()
 		{
-			if (vm.Teams == null) vm.LoadTeams ();
+			if (vm.Teams == null) await vm.LoadTeams ();
 		}
 
 		private void OnBusyChange(object sender, PropertyChangedEventArgs e)
