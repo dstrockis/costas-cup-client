@@ -4,16 +4,21 @@ using CostasCup.DataModels;
 using System.Threading.Tasks;
 using System.Net.Http;
 using CostasCup.Utils;
+using ModernHttpClient;
 
 namespace CostasCup.DataStore.Firebase
 {
 	public class SettingsStore : ISettingsStore
 	{
 		Settings settings;
+		DateTime lastSuccessfulSyncTime;
 
 		public async Task<Settings> GetAsync()
 		{
-			await SyncAsync ();
+			if (lastSuccessfulSyncTime == null || settings == null || ((DateTime.UtcNow - lastSuccessfulSyncTime) > TimeSpan.FromHours(5))) 
+			{
+				await SyncAsync ();
+			}
 			return settings;
 		}
 
@@ -21,7 +26,7 @@ namespace CostasCup.DataStore.Firebase
 		{
 			try 
 			{
-				HttpClient client = new HttpClient ();
+				HttpClient client = new HttpClient (new NativeMessageHandler());
 				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, Constants.DataStoreBaseUrl + "/settings.json");
 				HttpResponseMessage resp = await client.SendAsync(req);
 
@@ -31,6 +36,7 @@ namespace CostasCup.DataStore.Firebase
 				}
 
 				settings = Json.ParseSettings(resp.Content.ReadAsStringAsync().Result);
+				lastSuccessfulSyncTime = DateTime.UtcNow;
 				return true;
 			}
 			catch (Exception ex) 

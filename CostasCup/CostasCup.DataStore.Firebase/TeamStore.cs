@@ -11,6 +11,7 @@ using CostasCup.DataStore.Interfaces;
 using System.Text;
 using System.IO;
 using ModernHttpClient;
+using System.Linq;
 
 namespace CostasCup.DataStore.Firebase
 {
@@ -31,7 +32,8 @@ namespace CostasCup.DataStore.Firebase
 
 		public async Task<Team> GetAsync (string id)
 		{
-			throw new NotImplementedException ();
+			await SyncAsync ();
+			return teams.FirstOrDefault (t => t.Id.Equals (id));
 		}
 
 		public Task<bool> PostAsync(Team item)
@@ -60,7 +62,6 @@ namespace CostasCup.DataStore.Firebase
 			{
 				HttpClient client = new HttpClient (new NativeMessageHandler());
 				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, Constants.DataStoreBaseUrl + "/teams.json");
-//				req.Content = new StringContent (Json.SerializeTeams(teams), Encoding.UTF8, "application/json");
 				HttpResponseMessage resp = await client.SendAsync(req);
 
 				if (!resp.IsSuccessStatusCode)
@@ -89,20 +90,19 @@ namespace CostasCup.DataStore.Firebase
 			images = new Dictionary<string, Stream> ();
 		}
 
-		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-		{
+		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)		{
 			string val = (string)value;
 			if (string.IsNullOrWhiteSpace(val))
 			{
 				return null;
 			}
 
-			Stream strm;
-			if (images.TryGetValue (val, out strm)) 
-			{
-				return strm;
-			}
-
+//			Stream strm;
+//			if (images.TryGetValue (val, out strm)) 
+//			{
+//				return ImageSource.FromStream((strm) => {return strm;});
+//			}
+//
 			try 
 			{
 				HttpClient client = new HttpClient (new NativeMessageHandler());

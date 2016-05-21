@@ -15,12 +15,6 @@ namespace CostasCup.Logic
 	{
 		private Team _team;
 
-		public ScorecardViewModel (string teamId, INavigation navigation = null) : base(navigation) 
-		{
-			Scores = new ObservableCollection<ScoreViewModel> (new ScoreViewModel[18]);
-			_team = DataStoreService.TeamStore.GetAsync (teamId).Result;
-		}
-
 		public ScorecardViewModel (Team team, INavigation navigation = null) : base(navigation) 
 		{
 			Scores = new ObservableCollection<ScoreViewModel> (new ScoreViewModel[18]);
@@ -89,37 +83,43 @@ namespace CostasCup.Logic
 				Round mainRound = allRounds.FirstOrDefault(r => r.CourseId == settings.CourseId && r.TeamId == mainTeam.Id);
 
 				int numScoresToShow = settings.NumHolesCeiling ?? 18;
-				numScoresToShow = (settings.HideFutureScores && mainRound.Scores.Count < numScoresToShow) ? mainRound.Scores.Count : numScoresToShow;
+				int mainTeamUpperLimit = (mainRound != null && mainRound.Scores != null) ? mainRound.Scores.Count : 0;
+				numScoresToShow = (settings.HideFutureScores && mainTeamUpperLimit < numScoresToShow) ? mainTeamUpperLimit : numScoresToShow;
 
-				List<Score> scores = allRounds.FirstOrDefault(r => r.CourseId.Equals(settings.CourseId) && r.TeamId.Equals(_team.Id)).Scores.ToList();
-				scores.Sort(new TimeStampComparer());
-
+				Round round = allRounds.FirstOrDefault(r => r.CourseId.Equals(settings.CourseId) && r.TeamId.Equals(_team.Id));
 				List<ScoreViewModel> newScores = new List<ScoreViewModel>();
 				int netScore = 0;
-				for (int i=0; i < scores.Count; i++)
+
+				if (round != null && round.Scores != null)
 				{
-					if (_team.StartingHole != null) // Use starting hole to limit shown scores
-					{
-						int adjustedHoleNumber = scores[i].HoleNumber < _team.StartingHole ? (scores[i].HoleNumber + 18) : scores[i].HoleNumber;
-						if ((adjustedHoleNumber >= (_team.StartingHole + numScoresToShow)) && (_team.Id != mainTeam.Id)) continue;
-					}
-					else // Use timestamp to limit shown scores
-					{
-						if (((i+1) > numScoresToShow) && _team.Id != mainTeam.Id) break;
-					}
+					List<Score> scores = round.Scores.ToList();
+					scores.Sort(new TimeStampComparer());
 
-					netScore += Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par) ?? 0;
-
-					newScores.Add(new ScoreViewModel
+					for (int i=0; i < scores.Count; i++)
+					{
+						if (_team.StartingHole != null) // Use starting hole to limit shown scores
 						{
-							PlayerImage = (ImageSource)DataStoreService.ImageConverter.Convert(_team.Members.FirstOrDefault(p => p.Id.Equals(scores[i].PlayerId))?.Image, typeof(ImageSource), null, null),
-							HoleNumber = scores[i].HoleNumber,
-							HoleToPar = (int) course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par,
-							SubmissionStatus = scores[i].Timestamp == null ? "Score not yet submitted" : ("Score submitted at " + ((DateTime)(scores[i].Timestamp)).ToLocalTime().ToString("HH:mm:ss")),
-							ScoreToPar = Golf.NetScoreToString(Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par)),
-							ScoreToParColor = Golf.NetScoreToColor(Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par)),
-							Score = scores[i]
-						});
+							int adjustedHoleNumber = scores[i].HoleNumber < _team.StartingHole ? (scores[i].HoleNumber + 18) : scores[i].HoleNumber;
+							if ((adjustedHoleNumber >= (_team.StartingHole + numScoresToShow)) && (_team.Id != mainTeam.Id)) continue;
+						}
+						else // Use timestamp to limit shown scores
+						{
+							if (((i+1) > numScoresToShow) && _team.Id != mainTeam.Id) break;
+						}
+
+						netScore += Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par) ?? 0;
+
+						newScores.Add(new ScoreViewModel
+							{
+								PlayerImage = (ImageSource)DataStoreService.ImageConverter.Convert(_team.Members.FirstOrDefault(p => p.Id.Equals(scores[i].PlayerId))?.Image, typeof(ImageSource), null, null),
+								HoleNumber = scores[i].HoleNumber,
+								HoleToPar = (int) course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par,
+								SubmissionStatus = scores[i].Timestamp == null ? "Score not yet submitted" : ("Score submitted at " + ((DateTime)(scores[i].Timestamp)).ToLocalTime().ToString("HH:mm:ss")),
+								ScoreToPar = Golf.NetScoreToString(Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par)),
+								ScoreToParColor = Golf.NetScoreToColor(Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par)),
+								Score = scores[i]
+							});
+					}
 				}
 
 				ScoreViewModel[] full18 = new ScoreViewModel[18];

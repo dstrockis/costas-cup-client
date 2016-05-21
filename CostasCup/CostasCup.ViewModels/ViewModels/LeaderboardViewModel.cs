@@ -46,37 +46,42 @@ namespace CostasCup.Logic
 				IEnumerable<Round> allRounds = await DataStoreService.RoundStore.GetAsync();
 				Round mainRound = allRounds.FirstOrDefault(r => r.CourseId == settings.CourseId && r.TeamId == _team.Id);
 				int numScoresToShow = settings.NumHolesCeiling ?? 18;
-				numScoresToShow = (settings.HideFutureScores && mainRound.Scores.Count < numScoresToShow) ? mainRound.Scores.Count : numScoresToShow;
+				int mainTeamUpperLimit = (mainRound != null && mainRound.Scores != null) ? mainRound.Scores.Count : 0;
+				numScoresToShow = (settings.HideFutureScores && mainTeamUpperLimit < numScoresToShow) ? mainTeamUpperLimit : numScoresToShow;
 
 				foreach (Team team in teams)
 				{
 					DateTime? mostRecentSubmission;
 					int numHolesComplete = 0;
 					int netScore = 0;
-					List<Score> scores = allRounds.FirstOrDefault(r => r.CourseId.Equals(settings.CourseId) && r.TeamId.Equals(team.Id)).Scores.ToList();
+					Round round = allRounds.FirstOrDefault(r => r.CourseId.Equals(settings.CourseId) && r.TeamId.Equals(team.Id));
 
-					scores.Sort(new TimeStampComparer());  // Scores should be sorted from first submission --> last
-
-					for (int i=0; i < scores.Count; i++)
+					if (round != null && round.Scores != null)
 					{
-						if (team.StartingHole != null) // Use starting hole to limit shown scores
-						{
-							int adjustedHoleNumber = scores[i].HoleNumber < team.StartingHole ? (scores[i].HoleNumber + 18) : scores[i].HoleNumber;
-							if ((adjustedHoleNumber >= (team.StartingHole + numScoresToShow)) && (team.Id != _team.Id)) continue;
-						}
-						else // Use timestamp to limit shown scores
-						{
-							if (((i+1) > numScoresToShow) && team.Id != _team.Id) break;
-						}
+						List<Score> scores = round.Scores.ToList();
+						scores.Sort(new TimeStampComparer());  // Scores should be sorted from first submission --> last
 
-						netScore += Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par) ?? 0;
-						if (scores[i].Timestamp != null && (mostRecentSubmission == null || mostRecentSubmission < scores[i].Timestamp))
+						for (int i=0; i < scores.Count; i++)
 						{
-							mostRecentSubmission = scores[i].Timestamp;
-						}
-						if (scores[i].Timestamp != null && scores[i].NumStrokes != null)
-						{
-							numHolesComplete += 1;
+							if (team.StartingHole != null) // Use starting hole to limit shown scores
+							{
+								int adjustedHoleNumber = scores[i].HoleNumber < team.StartingHole ? (scores[i].HoleNumber + 18) : scores[i].HoleNumber;
+								if ((adjustedHoleNumber >= (team.StartingHole + numScoresToShow)) && (team.Id != _team.Id)) continue;
+							}
+							else // Use timestamp to limit shown scores
+							{
+								if (((i+1) > numScoresToShow) && team.Id != _team.Id) break;
+							}
+
+							netScore += Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par) ?? 0;
+							if (scores[i].Timestamp != null && (mostRecentSubmission == null || mostRecentSubmission < scores[i].Timestamp))
+							{
+								mostRecentSubmission = scores[i].Timestamp;
+							}
+							if (scores[i].Timestamp != null && scores[i].NumStrokes != null)
+							{
+								numHolesComplete += 1;
+							}
 						}
 					}
 
@@ -85,10 +90,10 @@ namespace CostasCup.Logic
 							ScoreToPar = netScore,
 							IsUsersTeam = team.Id == _team.Id,
 							TeamName = team.Name,
-							MostRecentSubmission = mostRecentSubmission == null ? null : String.Format("{0} minutes ago", ((int)(DateTime.Now - ((DateTime)mostRecentSubmission)).TotalMinutes).ToString()),
+							MostRecentSubmission = mostRecentSubmission == null ? null : String.Format("{0} minutes ago", ((int)(DateTime.UtcNow - ((DateTime)mostRecentSubmission)).TotalMinutes).ToString()),
 							NumHolesComplete = numHolesComplete,
 							TeamImage = (ImageSource)DataStoreService.ImageConverter.Convert(team.ImageSource, typeof(ImageSource), null, null),
-							TeamId = team.Id
+							Team = team
 						});
 				}
 
@@ -124,7 +129,7 @@ namespace CostasCup.Logic
 		internal int ScoreToPar { get; set; }
 		internal bool IsUsersTeam { get; set; }
 
-		public string TeamId { get; set; }
+		public Team Team { get; set; }
 		public int? Position { get; set; }
 		public string TeamName { get; set; }
 		public string MostRecentSubmission { get; set; }

@@ -1,62 +1,62 @@
 ﻿<Properties StartupItem="iOS/CostasCup.iOS.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.3" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CostasCup.DataStore.Firebase/TeamStore.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CostasCup.DataModels/BaseDataModel.cs">
     <Files>
       <File FileName="CostasCup/Pages/ScoreEntryPage.xaml" Line="1" Column="1" />
       <File FileName="CostasCup/Pages/TeamSelectPage.xaml" Line="1" Column="1" />
       <File FileName="CostasCup/Pages/LeaderboardPage.xaml" Line="1" Column="1" />
-      <File FileName="CostasCup/Pages/TeamSelectPage.xaml.cs" Line="53" Column="1" />
-      <File FileName="CostasCup.ViewModels/ViewModels/ScoreEntryViewModel.cs" Line="1" Column="1" />
-      <File FileName="CostasCup/Pages/ScoreEntryPage.xaml.cs" Line="1" Column="1" />
-      <File FileName="CostasCup/Controls/TeamView.cs" Line="10" Column="20" />
+      <File FileName="CostasCup/Pages/TeamSelectPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="CostasCup.ViewModels/ViewModels/ScoreEntryViewModel.cs" Line="118" Column="49" />
+      <File FileName="CostasCup/Pages/ScoreEntryPage.xaml.cs" Line="113" Column="20" />
+      <File FileName="CostasCup/Controls/TeamView.cs" Line="1" Column="1" />
       <File FileName="CostasCup.DataModels/Player.cs" Line="1" Column="1" />
-      <File FileName="CostasCup.ViewModels/ViewModels/TeamSelectViewModel.cs" Line="58" Column="1" />
-      <File FileName="CostasCup.ViewModels/ViewModels/ScorecardViewModel.cs" Line="1" Column="1" />
+      <File FileName="CostasCup.ViewModels/ViewModels/TeamSelectViewModel.cs" Line="1" Column="1" />
+      <File FileName="CostasCup.ViewModels/ViewModels/ScorecardViewModel.cs" Line="86" Column="21" />
       <File FileName="CostasCup.DataStore.Mock/TeamStore.cs" Line="1" Column="1" />
-      <File FileName="CostasCup/Pages/ScorecardPage.xaml.cs" Line="1" Column="1" />
+      <File FileName="CostasCup/Pages/ScorecardPage.xaml.cs" Line="19" Column="1" />
       <File FileName="CostasCup/CostasCup.xaml" Line="1" Column="1" />
       <File FileName="CostasCup/Controls/PlayerView.cs" Line="1" Column="1" />
-      <File FileName="CostasCup.DataStore.Mock/RoundStore.cs" Line="78" Column="21" />
-      <File FileName="iOS/Main.cs" Line="1" Column="1" />
+      <File FileName="CostasCup.DataStore.Mock/RoundStore.cs" Line="1" Column="1" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
       <File FileName="CostasCup.DataModels/Score.cs" Line="1" Column="1" />
-      <File FileName="CostasCup/Pages/ScorecardPage.xaml" Line="1" Column="1" />
-      <File FileName="CostasCup.DataModels.Interfaces/IRoundStore.cs" Line="1" Column="1" />
-      <File FileName="CostasCup.DataModels.Interfaces/IBaseStore.cs" Line="9" Column="3" />
-      <File FileName="CostasCup.DataStore.Firebase/RoundStore.cs" Line="77" Column="53" />
-      <File FileName="CostasCup.ViewModels/ViewModels/LeaderboardViewModel.cs" Line="1" Column="1" />
+      <File FileName="CostasCup/Pages/ScorecardPage.xaml" Line="41" Column="10" />
+      <File FileName="CostasCup.DataModels.Interfaces/IRoundStore.cs" Line="9" Column="3" />
+      <File FileName="CostasCup.DataModels.Interfaces/IBaseStore.cs" Line="1" Column="1" />
+      <File FileName="CostasCup.DataStore.Firebase/RoundStore.cs" Line="55" Column="1" />
+      <File FileName="CostasCup.ViewModels/ViewModels/LeaderboardViewModel.cs" Line="50" Column="111" />
       <File FileName="CostasCup.DataModels/Team.cs" Line="1" Column="1" />
       <File FileName="CostasCup.DataModels/Settings.cs" Line="1" Column="1" />
-      <File FileName="CostasCup.DataModels/Round.cs" Line="1" Column="1" />
-      <File FileName="CostasCup.DataStore.Firebase/TeamStore.cs" Line="125" Column="1" />
-      <File FileName="CostasCup.Utils/Constants.cs" Line="9" Column="77" />
-      <File FileName="CostasCup.Utils/Json.cs" Line="38" Column="31" />
-      <File FileName="CostasCup.DataStore.Firebase/SettingsStore.cs" Line="1" Column="1" />
+      <File FileName="CostasCup.DataModels/Round.cs" Line="7" Column="2" />
+      <File FileName="CostasCup.DataStore.Firebase/TeamStore.cs" Line="1" Column="1" />
+      <File FileName="CostasCup.Utils/Constants.cs" Line="1" Column="1" />
+      <File FileName="CostasCup.Utils/Json.cs" Line="34" Column="27" />
+      <File FileName="CostasCup.DataStore.Firebase/SettingsStore.cs" Line="39" Column="46" />
       <File FileName="CostasCup.DataStore.Mock/SettingsStore.cs" Line="1" Column="1" />
       <File FileName="CostasCup.DataStore.Firebase/CourseStore.cs" Line="1" Column="1" />
       <File FileName="CostasCup.DataStore.Mock/CourseStore.cs" Line="1" Column="1" />
-      <File FileName="CostasCup/CostasCup.xaml.cs" Line="16" Column="29" />
+      <File FileName="CostasCup/CostasCup.xaml.cs" Line="1" Column="1" />
       <File FileName="CostasCup.ViewModels/ViewModels/BaseViewModel.cs" Line="1" Column="1" />
       <File FileName="CostasCup.DataStore.Firebase/BaseStore.cs" Line="1" Column="1" />
       <File FileName="CostasCup.DataModels.Interfaces/ITeamStore.cs" Line="1" Column="1" />
       <File FileName="CostasCup/Controls/LeaderboardCellView.xaml.cs" Line="1" Column="1" />
       <File FileName="CostasCup.DataModels.Interfaces/IDataStoreService.cs" Line="1" Column="1" />
       <File FileName="CostasCup.DataStore.Mock/DataStoreService.cs" Line="1" Column="1" />
-      <File FileName="Droid/MainActivity.cs" Line="22" Column="38" />
+      <File FileName="Droid/MainActivity.cs" Line="1" Column="1" />
       <File FileName="iOS/Info.plist" />
+      <File FileName="CostasCup/Controls/CarouselLayout.cs" Line="1" Column="1" />
+      <File FileName="CostasCup/Pages/LeaderboardPage.xaml.cs" Line="39" Column="59" />
+      <File FileName="CostasCup/Pages/HomePage.cs" Line="22" Column="4" />
+      <File FileName="CostasCup.DataModels/BaseDataModel.cs" Line="21" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="CostasCup" expanded="True">
             <Node name="Backend" expanded="True">
-              <Node name="CostasCup.DataModels" expanded="True" />
-              <Node name="CostasCup.DataStore.Firebase" expanded="True">
-                <Node name="References" expanded="True">
-                  <Node name="From Packages" expanded="True" />
-                </Node>
-                <Node name="Packages" expanded="True" />
-                <Node name="TeamStore.cs" selected="True" />
+              <Node name="CostasCup.DataModels" expanded="True">
+                <Node name="BaseDataModel.cs" selected="True" />
               </Node>
+              <Node name="CostasCup.DataStore.Firebase" expanded="True" />
               <Node name="CostasCup.DataStore.Interfaces" expanded="True" />
               <Node name="CostasCup.DataStore.Mock" expanded="True" />
             </Node>
@@ -71,13 +71,7 @@
                   <Node name="CustomNavBar.xaml" expanded="True" />
                   <Node name="LeaderboardCellView.xaml" expanded="True" />
                 </Node>
-                <Node name="Pages" expanded="True">
-                  <Node name="LeaderboardPage.xaml" expanded="True" />
-                  <Node name="PasswordPage.xaml" expanded="True" />
-                  <Node name="ScorecardPage.xaml" expanded="True" />
-                  <Node name="ScoreEntryPage.xaml" expanded="True" />
-                  <Node name="TeamSelectPage.xaml" expanded="True" />
-                </Node>
+                <Node name="Pages" expanded="True" />
                 <Node name="CostasCup.xaml" expanded="True" />
               </Node>
             </Node>
@@ -103,24 +97,10 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
-      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup/Views/HomePage.cs" line="12" column="1" />
-      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup/Views/TeamSelectPage.cs" line="14" column="1" />
-      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/CostasCup.DataStore.Mock/TeamStore.cs" line="21" column="1" />
-      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup.DataModels/CostasCup.DataStore.Mock/TeamStore.cs" line="15" column="1" />
-      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Firebase/SettingsStore.cs" line="21" column="1" />
-      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Firebase/CourseStore.cs" line="52" column="1" />
-      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Firebase/TeamStore.cs" line="92" column="1" />
-      <Breakpoint file="/Users/Danny/Source/Costas/CostasCup/CostasCup.DataStore.Mock/TeamStore.cs" line="104" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Firebase/TeamStore.cs" line="93" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Firebase/TeamStore.cs" line="88" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Firebase/TeamStore.cs" line="58" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Firebase/TeamStore.cs" line="22" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Firebase/TeamStore.cs" line="27" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/ViewModels/TeamSelectViewModel.cs" line="45" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/ViewModels/TeamSelectViewModel.cs" line="58" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/ViewModels/TeamSelectViewModel.cs" line="62" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Firebase/TeamStore.cs" line="76" column="1" />
-      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Firebase/TeamStore.cs" line="73" column="1" />
+      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/ViewModels/LeaderboardViewModel.cs" line="116" column="1" />
+      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/ViewModels/ScorecardViewModel.cs" line="151" column="1" />
+      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/ViewModels/ScoreEntryViewModel.cs" line="121" column="1" />
+      <Breakpoint file="/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Firebase/RoundStore.cs" line="55" column="1" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

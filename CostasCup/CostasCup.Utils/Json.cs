@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using CostasCup.DataModels;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace CostasCup.Utils
 {
@@ -27,10 +28,10 @@ namespace CostasCup.Utils
 			return JsonConvert.SerializeObject (courses, typeof(IEnumerable<Course>), new JsonSerializerSettings ());
 		}
 
-		public static IEnumerable<Round> ParseRounds(string json)
+		public static List<Round> ParseRounds(string json)
 		{
 			Dictionary<string, Round> rounds = (Dictionary<string, Round>) JsonConvert.DeserializeObject (json, typeof(Dictionary<string, Round>), new JsonSerializerSettings ());
-			return rounds.Values;
+			return rounds.Values.ToList();
 		}
 
 		public static string SerializeRounds(IEnumerable<Round> rounds)
@@ -38,6 +39,17 @@ namespace CostasCup.Utils
 			string keyTemplate = "{0}%%{1}";
 			Dictionary<string, Round> json = new Dictionary<string, Round> ();
 			foreach (Round round in rounds) {
+				json [String.Format (keyTemplate, round.CourseId, round.TeamId)] = round;
+			}
+			return JsonConvert.SerializeObject(json, typeof(Dictionary<string, Round>), new JsonSerializerSettings());
+		}
+
+		public static string SerializeRound(Round round)
+		{
+			string keyTemplate = "{0}%%{1}";
+			Dictionary<string, Round> json = new Dictionary<string, Round> ();
+			if (round != null) 
+			{
 				json [String.Format (keyTemplate, round.CourseId, round.TeamId)] = round;
 			}
 			return JsonConvert.SerializeObject(json, typeof(Dictionary<string, Round>), new JsonSerializerSettings());

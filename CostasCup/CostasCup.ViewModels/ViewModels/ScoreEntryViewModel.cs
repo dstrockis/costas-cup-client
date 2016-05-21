@@ -62,7 +62,8 @@ namespace CostasCup.Logic
 		{
 			try {
 				IsBusy = true;
-				Players = DataStoreService.TeamStore.GetAsync (_teamId).Result.Members;
+				Team team = await DataStoreService.TeamStore.GetAsync (_teamId);
+				Players = team.Members;
 				List<PlayerViewModel> players = new List<PlayerViewModel> ();
 
 				Player active = null;
@@ -91,7 +92,7 @@ namespace CostasCup.Logic
 				Pages = players;
 				CurrentPage = players.First();
 			}
-			catch 
+			catch (Exception ex)
 			{
 				
 			}
@@ -113,9 +114,10 @@ namespace CostasCup.Logic
 					Timestamp = DateTime.UtcNow,
 					HoleNumber = _holeNumber
 				};
-				await DataStoreService.RoundStore.PostScoreAsync(score, DataStoreService.SettingsStore.GetAsync().Result.CourseId, _teamId);
+				Settings settings = await DataStoreService.SettingsStore.GetAsync();
+				await DataStoreService.RoundStore.PostScoreAsync(score, settings.CourseId, _teamId);
 			}
-			catch 
+			catch (Exception ex)
 			{
 				
 			}

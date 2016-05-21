@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using CostasCup.Logic;
 using CostasCup.DataModels;
 using System.ComponentModel;
+using System.Threading.Tasks;
 
 namespace CostasCup
 {
@@ -74,10 +75,12 @@ namespace CostasCup
 		{
 			if (e.PropertyName.Equals ("IsBusy")) {
 				PlayerGrid.IsVisible = ((ScoreEntryViewModel)sender).IsNotBusy;
+				LoadingView.IsVisible = ((ScoreEntryViewModel)sender).IsBusy;
+				LoadingIndicator.IsRunning = ((ScoreEntryViewModel)sender).IsBusy;
 			} 
 		}
 
-		async void OnEditClicked(object sender, EventArgs e)
+		void OnEditClicked(object sender, EventArgs e)
 		{
 			// Switch to Edit Mode
 			EditButton.FadeTo(0, 250);
@@ -92,18 +95,23 @@ namespace CostasCup
 			ScorePicker.FadeTo(1, 250);
 		}
 
-		async void OnSaveClicked(object sender, EventArgs e)
+		void OnSaveClicked(object sender, EventArgs e)
 		{
 			if (ScorePicker.SelectedIndex == -1) {
-				await DisplayAlert ("Error", "Please Select a Score", "OK");
+				DisplayAlert ("Error", "Please Select a Score", "OK");
 				return;
 			}
 
 			int score = scoreToInt[ScorePicker.Items[ScorePicker.SelectedIndex]];
 			string player = vm.CurrentPage.Id;
 
+			SubmitScore(player, score);
+		}
+
+		private async Task SubmitScore(string player, int score)
+		{
 			await vm.SubmitScoreAsync (player, score);
-			await Navigation.PopAsync();
+			await Navigation.PopAsync ();
 		}
 
 		readonly static Dictionary<string, int> scoreToInt = new Dictionary<string, int>

@@ -7,12 +7,14 @@ using System.Net.Http;
 using CostasCup.Utils;
 using System.Linq;
 using System.Text;
+using ModernHttpClient;
 
 namespace CostasCup.DataStore.Firebase
 {
 	public class RoundStore : IRoundStore
 	{
-		IEnumerable<Round> rounds;
+		List<Round> rounds;
+		DateTime lastSuccessfulSyncTime;
 
 		public RoundStore ()
 		{
@@ -21,7 +23,10 @@ namespace CostasCup.DataStore.Firebase
 
 		public async Task<IEnumerable<Round>> GetAsync ()
 		{
-			await SyncAsync ();
+			if (lastSuccessfulSyncTime != null && ((DateTime.UtcNow - lastSuccessfulSyncTime) > TimeSpan.FromSeconds (10))) 
+			{
+				await SyncAsync ();
+			}
 			return rounds;
 		}
 
@@ -37,7 +42,18 @@ namespace CostasCup.DataStore.Firebase
 
 		public async Task<bool> PostScoreAsync(Score item, string courseId, string teamId)
 		{
-			ICollection<Score> scores = rounds.FirstOrDefault (r => (r.CourseId.Equals (courseId) && r.TeamId.Equals (teamId))).Scores;
+			Round round = rounds.FirstOrDefault (r => (r.CourseId.Equals (courseId) && r.TeamId.Equals (teamId)));
+			if (round == null) 
+			{
+				round = new Round 
+				{
+					CourseId = courseId,
+					TeamId = teamId,
+					Scores = new List<Score> ()
+				};
+				rounds.Add (round);
+			}
+			ICollection<Score> scores = round.Scores;
 			Score existing = scores.FirstOrDefault (s => s.HoleNumber.Equals (item.HoleNumber));
 			if (existing == null) 
 			{
@@ -50,7 +66,7 @@ namespace CostasCup.DataStore.Firebase
 				existing.Timestamp = item.Timestamp;
 			}
 
-			return await SyncAsync();
+			return await SyncAsync(courseId, teamId);
 		}
 
 		public Task<bool> PatchAsync(Round item)
@@ -68,13 +84,37 @@ namespace CostasCup.DataStore.Firebase
 			throw new NotImplementedException ();
 		}
 
+		public async Task<bool> SyncAsync (string courseId, string teamId)
+		{
+			Round round = rounds.FirstOrDefault (r => (r.CourseId.Equals (courseId) && r.TeamId.Equals (teamId)));
+
+			try 
+			{
+				HttpClient client = new HttpClient (new NativeMessageHandler());
+				HttpRequestMessage req = new HttpRequestMessage(new HttpMethod("PATCH"), Constants.DataStoreBaseUrl + "/rounds.json");
+				req.Content = new StringContent (Json.SerializeRound(round), Encoding.UTF8, "application/json");
+				HttpResponseMessage resp = await client.SendAsync(req);
+
+				if (!resp.IsSuccessStatusCode)
+				{
+					return false;
+				}
+
+				return await SyncAsync();
+			}
+			catch (Exception ex) 
+			{
+				return false;
+			}
+
+		}
+
 		public async Task<bool> SyncAsync ()
 		{
 			try 
 			{
-				HttpClient client = new HttpClient ();
-				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Put, Constants.DataStoreBaseUrl + "/rounds.json");
-				req.Content = new StringContent (Json.SerializeRounds(rounds), Encoding.UTF8, "application/json");
+				HttpClient client = new HttpClient (new NativeMessageHandler());
+				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, Constants.DataStoreBaseUrl + "/rounds.json");
 				HttpResponseMessage resp = await client.SendAsync(req);
 
 				if (!resp.IsSuccessStatusCode)
@@ -83,6 +123,7 @@ namespace CostasCup.DataStore.Firebase
 				}
 
 				rounds = Json.ParseRounds(resp.Content.ReadAsStringAsync().Result);
+				lastSuccessfulSyncTime = DateTime.UtcNow;
 				return true;
 			}
 			catch (Exception ex) 

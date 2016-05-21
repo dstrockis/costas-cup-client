@@ -17,7 +17,7 @@ namespace CostasCup.UI
 			this.Title = _team.Name;
 			this.Padding = new Thickness (0, 0, 0, 0);
 
-			Children.Add (new ScorecardPage (_team));
+			Children.Add (new ScorecardPage (_team, true));
 			Children.Add (new LeaderboardPage (_team));
 		}
 	}

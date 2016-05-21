@@ -40,3 +40,4 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/Newtonsoft.Json.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/System.Net.Http.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/System.Net.Http.Primitives.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/ModernHttpClient.dll

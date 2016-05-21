@@ -19,3 +19,4 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/bin/Debug/Newtonsoft.Json.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/bin/Debug/System.Net.Http.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/bin/Debug/System.Net.Http.Primitives.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.ViewModels/bin/Debug/ModernHttpClient.dll

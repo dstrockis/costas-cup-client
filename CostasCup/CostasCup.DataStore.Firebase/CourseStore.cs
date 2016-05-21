@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using CostasCup.Utils;
 using System.Text;
+using ModernHttpClient;
+using System.Linq;
 
 namespace CostasCup.DataStore.Firebase
 {
@@ -20,12 +22,14 @@ namespace CostasCup.DataStore.Firebase
 
 		public async Task<IEnumerable<Course>> GetAsync ()
 		{
-			throw new NotImplementedException ();
+			await SyncAsync ();
+			return courses;
 		}
 
 		public async Task<Course> GetAsync (string id)
 		{
-			throw new NotImplementedException ();
+			await SyncAsync ();
+			return courses.FirstOrDefault(c => c.Id.Equals(id));
 		}
 
 		public Task<bool> PostAsync(Course item)
@@ -52,9 +56,8 @@ namespace CostasCup.DataStore.Firebase
 		{
 			try 
 			{
-				HttpClient client = new HttpClient ();
-				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Put, Constants.DataStoreBaseUrl + "/courses.json");
-				req.Content = new StringContent (Json.SerializeCourses(courses), Encoding.UTF8, "application/json");
+				HttpClient client = new HttpClient (new NativeMessageHandler());
+				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, Constants.DataStoreBaseUrl + "/courses.json");
 				HttpResponseMessage resp = await client.SendAsync(req);
 
 				if (!resp.IsSuccessStatusCode)

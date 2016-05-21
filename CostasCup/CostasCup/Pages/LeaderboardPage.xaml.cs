@@ -30,13 +30,13 @@ namespace CostasCup.UI
 			LeaderViewModel selected = ((ListView)sender).SelectedItem as LeaderViewModel;
 			if (selected != null) 
 			{
-				if (selected.TeamId == _team.Id) 
+				if (selected.Team.Id == _team.Id) 
 				{
 					((ListView)sender).SelectedItem = null;
 					return;
 				}
-					
-				await Navigation.PushAsync (new ScorecardPage (selected.TeamId));
+
+				await Navigation.PushAsync (new ScorecardPage (selected.Team, false));
 			}
 		}
 
