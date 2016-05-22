@@ -49,6 +49,8 @@
 	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.dll \
 	-r \
+	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Debug/CostasCup.DataModels.Interfaces.dll \
+	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Collections.Concurrent.dll \
@@ -163,13 +165,13 @@
 	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.dll \
 	-r \
+	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Debug/CostasCup.DataModels.Interfaces.dll \
+	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.DataModels.dll \
 	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.ViewModels.dll \
 	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/System.Diagnostics.Tools.dll \
-	-r \
-	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.DataModels.Interfaces.dll \
 	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.DataStore.Mock.dll \
 	-r \

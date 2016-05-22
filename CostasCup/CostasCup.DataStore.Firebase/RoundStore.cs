@@ -8,6 +8,7 @@ using CostasCup.Utils;
 using System.Linq;
 using System.Text;
 using ModernHttpClient;
+using Xamarin.Forms;
 
 namespace CostasCup.DataStore.Firebase
 {
@@ -15,10 +16,12 @@ namespace CostasCup.DataStore.Firebase
 	{
 		List<Round> rounds;
 		DateTime lastSuccessfulSyncTime;
+		IRoundLogger logger;
 
 		public RoundStore ()
 		{
 			rounds = new List<Round> ();
+			logger = DependencyService.Get<IRoundLogger> ();
 		}
 
 		public async Task<IEnumerable<Round>> GetAsync ()
@@ -92,7 +95,9 @@ namespace CostasCup.DataStore.Firebase
 			{
 				HttpClient client = new HttpClient (new NativeMessageHandler());
 				HttpRequestMessage req = new HttpRequestMessage(new HttpMethod("PATCH"), Constants.DataStoreBaseUrl + "/rounds.json");
-				req.Content = new StringContent (Json.SerializeRound(round), Encoding.UTF8, "application/json");
+				string json = Json.SerializeRound(round);
+				logger.SaveTextAsync(Constants.LogFileName, json);
+				req.Content = new StringContent (json, Encoding.UTF8, "application/json");
 				HttpResponseMessage resp = await client.SendAsync(req);
 
 				if (!resp.IsSuccessStatusCode)

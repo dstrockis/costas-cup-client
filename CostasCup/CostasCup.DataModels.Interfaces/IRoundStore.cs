@@ -8,5 +8,11 @@ namespace CostasCup.DataModels.Interfaces
 	{
 		Task<bool> PostScoreAsync(Score item, string courseId, string teamId);
 	}
+
+	public interface IRoundLogger
+	{
+		Task SaveTextAsync (string filename, string text);
+		bool FileExists (string filename);
+	}
 }
 

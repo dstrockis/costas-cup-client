@@ -106,6 +106,10 @@
       <Project>{46FBC244-1C5A-4BB2-8C6E-8A87F7F2A325}</Project>
       <Name>CostasCup.UI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CostasCup.DataModels.Interfaces\CostasCup.DataStore.Interfaces.csproj">
+      <Project>{8AF0DE1F-C25F-4D75-93FE-3D773451A0FC}</Project>
+      <Name>CostasCup.DataStore.Interfaces</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default.png" />
@@ -183,6 +187,7 @@
     <Compile Include="Utils\HttpHelper.cs" />
     <Compile Include="Utils\SaveAndLoad_iOS.cs" />
     <Compile Include="CarouselLayoutRenderer.cs" />
+    <Compile Include="RoundLogger_iOS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ITunesArtwork Include="ITunesArtwork" />
