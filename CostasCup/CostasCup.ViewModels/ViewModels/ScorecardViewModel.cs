@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Collections.ObjectModel;
+using CostasCup.DataStore.Interfaces;
 
 namespace CostasCup.Logic
 {
@@ -64,6 +65,7 @@ namespace CostasCup.Logic
 			try {
 
 				IsBusy = true;
+				IsConnectionError = false;
 
 				Settings settings = await DataStoreService.SettingsStore.GetAsync();
 
@@ -147,9 +149,14 @@ namespace CostasCup.Logic
 				teamScoreToPar = netScore;
 				TeamScoreToPar = Golf.NetScoreToString(netScore);
 
-			} catch (Exception ex)
+			}
+			catch (StoreNotInitializedException ex)
 			{
-				
+				IsConnectionError = true;
+			}
+			catch (Exception ex)
+			{
+				IsConnectionError = true;
 			}
 			finally
 			{

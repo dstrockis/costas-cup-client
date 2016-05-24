@@ -5,6 +5,7 @@ using CostasCup.DataModels;
 using System.Linq;
 using Xamarin.Forms;
 using System.Threading.Tasks;
+using CostasCup.DataStore.Interfaces;
 
 namespace CostasCup.Logic
 {
@@ -62,6 +63,8 @@ namespace CostasCup.Logic
 		{
 			try {
 				IsBusy = true;
+				IsConnectionError = false;
+
 				Team team = await DataStoreService.TeamStore.GetAsync (_teamId);
 				Players = team.Members;
 				List<PlayerViewModel> players = new List<PlayerViewModel> ();
@@ -92,9 +95,13 @@ namespace CostasCup.Logic
 				Pages = players;
 				CurrentPage = players.First();
 			}
+			catch (StoreNotInitializedException ex) 
+			{
+				IsConnectionError = true;
+			}
 			catch (Exception ex)
 			{
-				
+				IsConnectionError = true;
 			}
 			finally 
 			{
@@ -107,6 +114,8 @@ namespace CostasCup.Logic
 			try
 			{
 				IsBusy = true;
+				IsConnectionError = false;
+
 				Score score = new Score
 				{
 					PlayerId = playerId,
@@ -117,9 +126,13 @@ namespace CostasCup.Logic
 				Settings settings = await DataStoreService.SettingsStore.GetAsync();
 				await DataStoreService.RoundStore.PostScoreAsync(score, settings.CourseId, _teamId);
 			}
+			catch (StoreNotInitializedException ex) 
+			{
+				IsConnectionError = true;
+			}
 			catch (Exception ex)
 			{
-				
+				IsConnectionError = true;
 			}
 			finally 
 			{

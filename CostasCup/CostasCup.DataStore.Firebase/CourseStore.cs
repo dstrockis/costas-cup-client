@@ -8,6 +8,7 @@ using CostasCup.Utils;
 using System.Text;
 using ModernHttpClient;
 using System.Linq;
+using CostasCup.DataStore.Interfaces;
 
 namespace CostasCup.DataStore.Firebase
 {
@@ -15,20 +16,27 @@ namespace CostasCup.DataStore.Firebase
 	{
 		IEnumerable<Course> courses;
 
-		public CourseStore() 
-		{
-			courses = new List<Course> ();	
-		}
+		public CourseStore() {}
 
 		public async Task<IEnumerable<Course>> GetAsync ()
 		{
 			await SyncAsync ();
+
+			if (courses == null) {
+				throw new StoreNotInitializedException ();
+			}
+
 			return courses;
 		}
 
 		public async Task<Course> GetAsync (string id)
 		{
 			await SyncAsync ();
+
+			if (courses == null) {
+				throw new StoreNotInitializedException ();
+			}
+
 			return courses.FirstOrDefault(c => c.Id.Equals(id));
 		}
 

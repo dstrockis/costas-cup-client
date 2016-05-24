@@ -5,6 +5,8 @@ using CostasCup.Logic;
 using CostasCup.DataModels;
 using Xamarin.Forms;
 using System.Threading.Tasks;
+using CostasCup.DataModels.Interfaces;
+using CostasCup.DataStore.Interfaces;
 
 namespace CostasCup.Logic
 {
@@ -44,7 +46,10 @@ namespace CostasCup.Logic
 			try
 			{
 				IsBusy = true;
+				IsConnectionError = false;
 				Teams = await DataStoreService.TeamStore.GetAsync ();
+				Settings settings = await DataStoreService.SettingsStore.GetAsync();
+				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
 				List<TeamViewModel> teams = new List<TeamViewModel> ();
 				foreach (Team team in Teams)
 				{
@@ -58,9 +63,13 @@ namespace CostasCup.Logic
 				Pages = teams;
 				CurrentPage = Pages.First ();
 			}
+			catch (StoreNotInitializedException ex) 
+			{
+				IsConnectionError = true;	
+			}
 			catch (Exception ex)
 			{
-				
+				IsConnectionError = true;
 			}
 			finally 
 			{

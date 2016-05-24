@@ -12,6 +12,7 @@ using System.Text;
 using System.IO;
 using ModernHttpClient;
 using System.Linq;
+using System.Net;
 
 namespace CostasCup.DataStore.Firebase
 {
@@ -19,20 +20,27 @@ namespace CostasCup.DataStore.Firebase
 	{
 		IEnumerable<Team> teams;
 
-		public TeamStore() 
-		{
-			teams = new List<Team> ();
-		}
+		public TeamStore() {}
 
 		public async Task<IEnumerable<Team>> GetAsync ()
 		{
 			await SyncAsync ();
+
+			if (teams == null) {
+				throw new StoreNotInitializedException ();
+			}
+
 			return teams;
 		}
 
 		public async Task<Team> GetAsync (string id)
 		{
 			await SyncAsync ();
+
+			if (teams == null) {
+				throw new StoreNotInitializedException ();
+			}
+
 			return teams.FirstOrDefault (t => t.Id.Equals (id));
 		}
 

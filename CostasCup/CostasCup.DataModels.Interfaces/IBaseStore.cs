@@ -14,5 +14,7 @@ namespace CostasCup.DataStore.Interfaces
 		Task<bool> SyncAsync();
 		void Drop();
 	}
+
+	public class StoreNotInitializedException : Exception {}
 }
 

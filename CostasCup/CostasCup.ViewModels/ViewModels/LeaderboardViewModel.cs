@@ -7,6 +7,7 @@ using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Linq;
 using CostasCup.Utils;
+using CostasCup.DataStore.Interfaces;
 
 namespace CostasCup.Logic
 {
@@ -36,6 +37,7 @@ namespace CostasCup.Logic
 			try 
 			{
 				IsBusy = true;
+				IsConnectionError = false;
 
 				Settings settings = await DataStoreService.SettingsStore.GetAsync();
 
@@ -112,9 +114,13 @@ namespace CostasCup.Logic
 
 				Leaders = new ObservableCollection<LeaderViewModel>(newLeaders);
 			}
+			catch (StoreNotInitializedException ex)
+			{
+				IsConnectionError = true;	
+			}
 			catch (Exception ex)
 			{
-
+				IsConnectionError = true;
 			}
 			finally
 			{

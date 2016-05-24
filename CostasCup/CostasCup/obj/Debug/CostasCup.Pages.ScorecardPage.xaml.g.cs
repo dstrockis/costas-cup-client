@@ -29,12 +29,20 @@ namespace CostasCup.UI {
         private global::Xamarin.Forms.ActivityIndicator LoadingIndicator;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout ErrorView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label ErrorIndicator;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private void InitializeComponent() {
             this.LoadFromXaml(typeof(ScorecardPage));
             TeamNetScore = this.FindByName <global::Xamarin.Forms.Label>("TeamNetScore");
             ListViewScores = this.FindByName <global::Xamarin.Forms.ListView>("ListViewScores");
             LoadingView = this.FindByName <global::Xamarin.Forms.StackLayout>("LoadingView");
             LoadingIndicator = this.FindByName <global::Xamarin.Forms.ActivityIndicator>("LoadingIndicator");
+            ErrorView = this.FindByName <global::Xamarin.Forms.StackLayout>("ErrorView");
+            ErrorIndicator = this.FindByName <global::Xamarin.Forms.Label>("ErrorIndicator");
         }
     }
 }

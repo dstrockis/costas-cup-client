@@ -44,6 +44,13 @@ namespace CostasCup.Logic
 			get { return !isBusy; }
 		}
 
+		private bool isConnectionError;
+		public bool	IsConnectionError 
+		{ 
+			get { return isConnectionError; } 
+			set { this.SetObservableProperty (ref isConnectionError, value); }
+		}
+
 		public event PropertyChangedEventHandler PropertyChanged;
 
 		public static void Init(bool mock = true)

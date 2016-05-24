@@ -35,6 +35,12 @@ namespace CostasCup {
         private global::Xamarin.Forms.ActivityIndicator LoadingIndicator;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.StackLayout ErrorView;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
+        private global::Xamarin.Forms.Label ErrorIndicator;
+        
+        [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
         private global::Xamarin.Forms.Picker ScorePicker;
         
         [System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Forms.Build.Tasks.XamlG", "0.0.0.0")]
@@ -52,6 +58,8 @@ namespace CostasCup {
             RightArrow = this.FindByName <global::Xamarin.Forms.Image>("RightArrow");
             LoadingView = this.FindByName <global::Xamarin.Forms.StackLayout>("LoadingView");
             LoadingIndicator = this.FindByName <global::Xamarin.Forms.ActivityIndicator>("LoadingIndicator");
+            ErrorView = this.FindByName <global::Xamarin.Forms.StackLayout>("ErrorView");
+            ErrorIndicator = this.FindByName <global::Xamarin.Forms.Label>("ErrorIndicator");
             ScorePicker = this.FindByName <global::Xamarin.Forms.Picker>("ScorePicker");
             EditButton = this.FindByName <global::Xamarin.Forms.Button>("EditButton");
             SaveButton = this.FindByName <global::Xamarin.Forms.Button>("SaveButton");

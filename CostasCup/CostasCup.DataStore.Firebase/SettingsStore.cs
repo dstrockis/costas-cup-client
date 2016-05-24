@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using CostasCup.Utils;
 using ModernHttpClient;
+using CostasCup.DataStore.Interfaces;
 
 namespace CostasCup.DataStore.Firebase
 {
@@ -19,6 +20,11 @@ namespace CostasCup.DataStore.Firebase
 			{
 				await SyncAsync ();
 			}
+
+			if (settings == null) {
+				throw new StoreNotInitializedException ();
+			}
+
 			return settings;
 		}
 
