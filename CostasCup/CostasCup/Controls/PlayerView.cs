@@ -26,6 +26,8 @@ namespace CostasCup
 				WidthRequest = 175,
 				HeightRequest = 175,
 				Margin = new Thickness (0, 0, 0, 0),
+				BorderThickness = 2,
+				BorderColor = Color.FromRgba(0,0,0,0.3),
 			};
 			playerIcon.SetBinding (CircleImage.SourceProperty, "ImageSource");
 

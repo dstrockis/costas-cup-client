@@ -68,6 +68,11 @@ namespace CostasCup.Logic
 				IsConnectionError = false;
 
 				Team team = await DataStoreService.TeamStore.GetAsync (_teamId);
+				Settings settings = await DataStoreService.SettingsStore.GetAsync(Constants.SettingsId);
+				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
+				InitStores(course);
+
+
 				Players = team.Members;
 				List<PlayerViewModel> players = new List<PlayerViewModel> ();
 

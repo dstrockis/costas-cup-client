@@ -7,7 +7,7 @@ namespace CostasCup.DataModels.Interfaces
 	public interface IRoundStore : IBaseStore<Round>
 	{
 		Task<bool> PostScoreAsync(Score item);
-		void InitWithTeam (Team team);
+		void InitWithTeam (Team team, Course _course);
 	}
 
 	public interface IRoundLogger

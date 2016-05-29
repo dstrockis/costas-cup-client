@@ -22,6 +22,15 @@ namespace CostasCup.iOS
 
 			ImageCircleRenderer.Init();
 
+			var familyNames = UIFont.FamilyNames;
+			foreach (var familyName in familyNames ){
+				Console.WriteLine("Family: {0}\n", familyName);
+				var fontNames = UIFont.FontNamesForFamilyName(familyName);
+				foreach (var fontName in fontNames ){
+					Console.WriteLine("\tFont: {0}\n", fontName);
+				}
+			};
+
 			LoadApplication (new CostasCup.UI.App ());
 
 			return base.FinishedLaunching (app, options);

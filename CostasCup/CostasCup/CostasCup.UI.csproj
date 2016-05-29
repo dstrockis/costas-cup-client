@@ -106,6 +106,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Pages\TeamSelectPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="CostasCup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>

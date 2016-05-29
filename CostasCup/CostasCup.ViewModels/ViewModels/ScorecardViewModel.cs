@@ -67,13 +67,14 @@ namespace CostasCup.Logic
 				IsConnectionError = false;
 
 				Settings settings = await DataStoreService.SettingsStore.GetAsync(Constants.SettingsId);
+				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
+				InitStores(course);
 
 				if (MainTeam == null)
 				{
 					throw new TeamNotSelectedException();
 				}
 
-				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
 				IEnumerable<Round> allRounds = await DataStoreService.RoundStore.GetAsync();
 				Round mainRound = allRounds.FirstOrDefault(r => r.CourseId == settings.CourseId && r.TeamId == MainTeam.Id);
 

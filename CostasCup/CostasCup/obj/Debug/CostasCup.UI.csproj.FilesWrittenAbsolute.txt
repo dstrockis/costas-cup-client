@@ -17,6 +17,7 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.LeaderboardPage.xaml.g.cs
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/obj/Debug/CostasCup.Controls.LeaderboardCellView.xaml.g.cs
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/obj/Debug/CostasCup.Pages.ScoreEntryPage.xaml.g.cs
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/Pages/TeamSelectPage.xaml
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.dll.mdb
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/obj/Debug/CostasCup.dll

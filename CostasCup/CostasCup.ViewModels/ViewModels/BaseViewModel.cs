@@ -7,13 +7,15 @@ using Xamarin.Forms;
 using System.Text;
 using CostasCup.DataModels.Interfaces;
 using CostasCup.DataModels;
+using CostasCup.Utils;
 
 namespace CostasCup.Logic
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{
 		public IDataStoreService DataStoreService { get; private set; }
-		public Team MainTeam { get; set;}
+		public Team MainTeam { get; set; }
+		public Course Course { get; set; }
 		private bool isBusy;
 		private bool isConnectionError;
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -22,12 +24,16 @@ namespace CostasCup.Logic
 		{
 			DataStoreService = DependencyService.Get<IDataStoreService>();
 			IsBusy = true;
+		}
 
+		public void InitStores(Course course)
+		{
+			Course = course;
 			object obj;
 			if (Application.Current.Properties.TryGetValue ("team", out obj)) 
 			{
 				MainTeam = (Team)obj;
-				DataStoreService.RoundStore.InitWithTeam (MainTeam);
+				DataStoreService.RoundStore.InitWithTeam (MainTeam, course);
 			}
 		}
 

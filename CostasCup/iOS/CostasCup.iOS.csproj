@@ -172,6 +172,15 @@
     <BundleResource Include="Resources\ic_chevron_right_48pt.png" />
     <BundleResource Include="Resources\ic_chevron_right_48pt%402x.png" />
     <BundleResource Include="Resources\ic_chevron_right_48pt%403x.png" />
+    <BundleResource Include="Resources\alex-brush.regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\aramis.italic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Resources\im-fell-french-canon.italic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

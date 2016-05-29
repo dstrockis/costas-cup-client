@@ -57,11 +57,14 @@
 		<string>Caslon Swash SSi Italic.ttf</string>
 		<string>Montserrat-Black.otf</string>
 		<string>Montserrat-UltraLight.otf</string>
+		<string>alex-brush.regular.ttf</string>
+		<string>aramis.italic.ttf</string>
+		<string>im-fell-french-canon.italic.ttf</string>
 	</array>
-       <key>NSAppTransportSecurity</key>
-       <dict>
-           <key>NSAllowsArbitraryLoads</key>
-           <true/>
-       </dict>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

@@ -13,6 +13,7 @@ namespace CostasCup.DataStore.Mock
 	{
 		Team _team;
 		IRoundLogger _logger;
+		Course _course;
 
 		private const string data = "{" +
 			"\"fake-course%%desai\":" +
@@ -73,16 +74,17 @@ namespace CostasCup.DataStore.Mock
 			MockData = data;
 		}
 
-		public void InitWithTeam (Team team)
+		public void InitWithTeam (Team team, Course course)
 		{
 			_store = _store ?? Serializer.Parse(MockData).ToList();
 			_logger = _logger ?? DependencyService.Get<IRoundLogger> ();
 			_team = team;
+			_course = course;
 		}
 			
 		public async Task<bool> PostScoreAsync(Score item)
 		{
-			ICollection<Score> scores = _store.FirstOrDefault (r => (r.CourseId.Equals (Constants.CourseId) && r.TeamId.Equals (_team.Id))).Scores;
+			ICollection<Score> scores = _store.FirstOrDefault (r => (r.CourseId.Equals (_course.Id) && r.TeamId.Equals (_team.Id))).Scores;
 			Score existing = scores.FirstOrDefault (s => s.HoleNumber.Equals (item.HoleNumber));
 			if (existing == null) 
 			{

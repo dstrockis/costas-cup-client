@@ -15,7 +15,7 @@
 				<Image Aspect="AspectFit" Source="ic_chevron_left_white.png" VerticalOptions="Center" />
 				<Label Text="Back" VerticalOptions="Center" FontSize="20" TextColor="White" />
 			</StackLayout>
-			<Label Text="COSTAS" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" FontSize="24" FontFamily="CaslonSwashSSiItalic" TextColor="{DynamicResource TitleColor}" LineBreakMode="NoWrap" FontAttributes="Bold" />			
+			<Label Text="Costas" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" FontSize="36" FontFamily="AlexBrush-Regular" TextColor="{DynamicResource TitleColor}" LineBreakMode="NoWrap" FontAttributes="Bold" />			
 		</Grid>
 	</ContentView.Content>
 </ContentView>

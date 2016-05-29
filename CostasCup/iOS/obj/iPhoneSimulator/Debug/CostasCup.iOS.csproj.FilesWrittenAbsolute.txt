@@ -52,6 +52,7 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_right_48pt@2x.png
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/ic_chevron_right_48pt@3x.png
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/bin/iPhoneSimulator/Debug/Pages/TeamSelectPage.xaml
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.iOS.exe.mdb
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.iOS.exe
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/CostasCup.iOS.exe

@@ -40,8 +40,9 @@ namespace CostasCup.Logic
 				IsConnectionError = false;
 
 				Settings settings = await DataStoreService.SettingsStore.GetAsync(Constants.SettingsId);
-
 				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
+				InitStores(course);
+
 				IEnumerable<Team> teams = await DataStoreService.TeamStore.GetAsync();
 				List<LeaderViewModel> newLeaders = new List<LeaderViewModel>();
 

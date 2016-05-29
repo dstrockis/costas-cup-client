@@ -49,9 +49,12 @@ namespace CostasCup.Logic
 			{
 				IsBusy = true;
 				IsConnectionError = false;
+
 				Teams = await DataStoreService.TeamStore.GetAsync ();
 				Settings settings = await DataStoreService.SettingsStore.GetAsync(Constants.SettingsId);
 				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
+				InitStores(course);
+
 				List<TeamViewModel> teams = new List<TeamViewModel> ();
 				foreach (Team team in Teams)
 				{

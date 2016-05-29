@@ -16,6 +16,7 @@ namespace CostasCup.DataStore.Firebase
 	{
 		IRoundLogger _logger;
 		Team _team;
+		Course _course;
 
 		public RoundStore()
 		{
@@ -24,21 +25,22 @@ namespace CostasCup.DataStore.Firebase
 			AcceptableStaleness = TimeSpan.FromSeconds (10);
 		}
 
-		public void InitWithTeam (Team team)
+		public void InitWithTeam (Team team, Course course)
 		{
 			_store = _store ?? new List<Round> ();
 			_logger = _logger ?? DependencyService.Get<IRoundLogger> ();
 			_team = team;
+			_course = course;
 		}
 
 		public async Task<bool> PostScoreAsync(Score item)
 		{
-			Round round = _store.FirstOrDefault (r => (r.CourseId.Equals (Constants.CourseId) && r.TeamId.Equals (_team.Id)));
+			Round round = _store.FirstOrDefault (r => (r.CourseId.Equals (_course.Id) && r.TeamId.Equals (_team.Id)));
 			if (round == null) 
 			{
 				round = new Round 
 				{
-					CourseId = Constants.CourseId,
+					CourseId = _course.Id,
 					TeamId = _team.Id,
 					Scores = new List<Score> ()
 				};
@@ -65,7 +67,7 @@ namespace CostasCup.DataStore.Firebase
 			try 
 			{
 
-				IEnumerable<Round> round = _store.Where(r => (r.CourseId.Equals (Constants.CourseId) && r.TeamId.Equals (_team.Id))).ToList();
+				IEnumerable<Round> round = _store.Where(r => (r.CourseId.Equals (_course.Id) && r.TeamId.Equals (_team.Id))).ToList();
 
 				HttpClient client = new HttpClient (new NativeMessageHandler());
 				HttpRequestMessage req = new HttpRequestMessage(new HttpMethod("PATCH"), Constants.DataStoreBaseUrl + DataStorePath);
