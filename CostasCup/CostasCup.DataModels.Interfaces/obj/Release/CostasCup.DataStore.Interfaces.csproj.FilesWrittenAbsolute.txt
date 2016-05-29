@@ -1,0 +1,11 @@
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/obj/Release/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Release/CostasCup.DataModels.Interfaces.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Release/CostasCup.DataModels.Interfaces.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/obj/Release/CostasCup.DataModels.Interfaces.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/obj/Release/CostasCup.DataModels.Interfaces.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Release/Xamarin.Forms.Core.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Release/Xamarin.Forms.Xaml.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Release/Xamarin.Forms.Platform.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Release/CostasCup.DataModels.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Release/CostasCup.DataModels.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels.Interfaces/bin/Release/Newtonsoft.Json.dll

@@ -1,0 +1,15 @@
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/obj/Release/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/CostasCup.DataStore.Mock.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/CostasCup.DataStore.Mock.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/obj/Release/CostasCup.DataStore.Mock.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/obj/Release/CostasCup.DataStore.Mock.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/Xamarin.Forms.Core.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/Xamarin.Forms.Xaml.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/Xamarin.Forms.Platform.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/CostasCup.DataModels.Interfaces.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/CostasCup.DataModels.Interfaces.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/CostasCup.DataModels.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/CostasCup.DataModels.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/CostasCup.Utils.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/CostasCup.Utils.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataStore.Mock/bin/Release/Newtonsoft.Json.dll

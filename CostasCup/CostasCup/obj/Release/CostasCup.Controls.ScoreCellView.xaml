@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:imagecircle="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin.Abstractions"
+	x:Class="CostasCup.UI.ScoreCellView">
+	<ContentView.Content>
+		<Grid Padding="16,5" ColumnSpacing="10">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+              <imagecircle:CircleImage FillColor="{Binding PlayerImageBg}"
+									   Source="{Binding PlayerImage}"
+                                       VerticalOptions="Center"
+                                       Aspect="AspectFill"
+                                       WidthRequest="44"
+                                       HeightRequest="44" />
+              <StackLayout Grid.Column="1" 
+                           VerticalOptions="Center"
+                           Spacing="5">
+              	<Label Text="{Binding HoleInfo}" FontFamily="Montserrat-UltraLight" FontSize="16" TextColor="Black" />
+              	<Label Text="{Binding SubmissionStatus}" FontFamily="Montserrat-UltraLight" FontSize="12" TextColor="Black"/>
+              </StackLayout>
+			  <Label Grid.Column="2" Text="{Binding ScoreToPar}" FontSize="24" TextColor="{Binding ScoreToParColor}" VerticalOptions="Center" />
+            </Grid>
+	</ContentView.Content>
+</ContentView>

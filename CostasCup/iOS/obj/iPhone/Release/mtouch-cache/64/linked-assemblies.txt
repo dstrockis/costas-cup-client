@@ -1,13 +1,25 @@
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.Runtime.Serialization.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Xamarin.Forms.Platform.iOS.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.Xml.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Xamarin.iOS.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.Core.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/mscorlib.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Xamarin.Forms.Core.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Newtonsoft.Json.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.iOS.exe
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.Net.Http.dll
-/Users/dastrock/Source/Personal/Costas Cup/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Mono.Dynamic.Interpreter.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.Runtime.Serialization.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.ServiceModel.Internals.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.DataModels.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Xamarin.Forms.Platform.iOS.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.DataModels.Interfaces.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/ImageCircle.Forms.Plugin.Abstractions.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Xamarin.Forms.Platform.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/ModernHttpClient.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.Utils.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.Xml.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Xamarin.iOS.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.Core.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Xamarin.Forms.Xaml.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/mscorlib.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Xamarin.Forms.Core.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Newtonsoft.Json.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.DataStore.Firebase.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/ImageCircle.Forms.Plugin.iOS.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.DataStore.Mock.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.iOS.exe
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/System.Net.Http.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/Mono.Dynamic.Interpreter.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhone/Release/mtouch-cache/64/Link/CostasCup.ViewModels.dll

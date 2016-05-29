@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="CostasCup.UI.LeaderboardPage"
+	xmlns:costas="clr-namespace:CostasCup.UI;assembly=CostasCup"
+	Title="Leaderboard"
+	Icon="ic_format_list_numbered.png"
+	BackgroundColor="{DynamicResource PrimaryBackground}">
+	<ContentPage.Content>
+		<StackLayout>
+			<costas:CustomNavBar></costas:CustomNavBar>
+			<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,0">
+		 		<ListView 
+			        x:Name="ListViewLeaders"
+			        ItemsSource="{Binding Leaders}"
+			        IsPullToRefreshEnabled="{Binding IsNotBusy}"
+			        RefreshCommand="{Binding RefreshCommand}"
+			        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
+			        HasUnevenRows ="true"
+			        CachingStrategy="RecycleElement"
+			        IsVisible="{Binding IsNotBusy}"
+			        BackgroundColor="{DynamicResource PrimaryBackground}"
+			        AbsoluteLayout.LayoutFlags="All" 
+			        AbsoluteLayout.LayoutBounds="0,0,1,1"
+			        SeparatorColor="#E1E1E1">
+				   <ListView.ItemTemplate>
+				    <DataTemplate>
+				      <ViewCell>
+				         <costas:LeaderboardCellView />
+				      </ViewCell>
+				    </DataTemplate>
+				  </ListView.ItemTemplate>
+				</ListView>
+				<StackLayout x:Name="LoadingView" IsVisible="{Binding IsBusy}"
+				       AbsoluteLayout.LayoutFlags="PositionProportional"
+				       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+				       Orientation="Horizontal">
+					<ActivityIndicator x:Name="LoadingIndicator" IsRunning="{Binding IsBusy}" Color="{DynamicResource TitleColor}" />
+					<Label Text="Loading Scores..." HorizontalOptions="Center" FontSize="16" TextColor="Black" FontFamily="Montserrat-UltraLight" />
+				</StackLayout>
+				<StackLayout x:Name="ErrorView" IsVisible="{Binding IsConnectionError}"
+				       AbsoluteLayout.LayoutFlags="PositionProportional"
+				       AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1"
+				       Orientation="Horizontal">
+					<Label x:Name="ErrorIndicator" TextColor="{DynamicResource TitleColor}" Text="!" FontSize="16" />
+					<Label Text="Error Loading Leaderboard" HorizontalOptions="Center" FontSize="16" TextColor="Black" FontFamily="Montserrat-UltraLight" />
+				</StackLayout>
+			</AbsoluteLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

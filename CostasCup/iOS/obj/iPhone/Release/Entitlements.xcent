@@ -8,5 +8,7 @@
 	<string>AC5Y5V87WK.com.strockisdev.costascup</string>
 	<key>com.apple.developer.team-identifier</key>
 	<string>AC5Y5V87WK</string>
+	<key>beta-reports-active</key>
+	<true/>
 </dict>
 </plist>

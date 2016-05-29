@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="CostasCup.TeamSelectPage"
+	Title="Select Team"
+	BackgroundColor="{DynamicResource SecondaryBackground}">
+	<ContentPage.Content>
+		<StackLayout Padding="0,20,0,20" Spacing="10">
+			<StackLayout Padding="0,0,0,40" Spacing="5">
+				<Label FontFamily="AlexBrush-Regular" FontSize="42" FontAttributes="Bold" HorizontalOptions="Center" TextColor="{DynamicResource TitleColor}" LineBreakMode="NoWrap">The Costas Cup</Label>
+				<Label FontFamily="Montserrat-UltraLight" FontSize="12" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryText}">A tradition unlike any other</Label>
+			</StackLayout>
+			<Label FontFamily="Montserrat-UltraLight" FontSize="16" HorizontalOptions="Center" TextColor="{DynamicResource SecondaryText}">Swipe to your team:</Label>
+
+			<AbsoluteLayout HorizontalOptions="Fill" VerticalOptions="Fill" Padding="0,0,0,0" HeightRequest="250">
+				<Grid HorizontalOptions="FillAndExpand" IsVisible="{Binding IsNotBusy}" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" x:Name="TeamGrid">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" /> 
+						<ColumnDefinition Width="*" /> 
+						<ColumnDefinition Width="Auto" /> 
+					</Grid.ColumnDefinitions>
+					<Image Grid.Column="0" Aspect="AspectFit" Source="ic_chevron_left_white_48pt.png" HorizontalOptions="End" VerticalOptions="Center"></Image>
+					<StackLayout Grid.Column="1" Spacing="10" Padding="10" HorizontalOptions="Center" x:Name="TeamBundle"></StackLayout>
+					<Image Grid.Column="2" Aspect="AspectFit" Source="ic_chevron_right_white_48pt.png" HorizontalOptions="End" VerticalOptions="Center"></Image>
+				</Grid>
+				<StackLayout x:Name="LoadingView" IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" Orientation="Horizontal">
+					<ActivityIndicator x:Name="LoadingIndicator" IsRunning="{Binding IsBusy}" Color="{DynamicResource TitleColor}" />
+					<Label Text="Loading Teams..." HorizontalOptions="Center" FontSize="16" TextColor="White" FontFamily="Montserrat-UltraLight" />
+				</StackLayout>
+				<StackLayout x:Name="ErrorView" IsVisible="{Binding IsConnectionError}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" Orientation="Horizontal">
+					<Label x:Name="ErrorIndicator" TextColor="{DynamicResource TitleColor}" Text="!" FontSize="16" />
+					<Label Text="Error Loading Teams" HorizontalOptions="Center" FontSize="16" TextColor="White" FontFamily="Montserrat-UltraLight" />
+				</StackLayout>
+			</AbsoluteLayout>
+			
+			<Button FontSize="16" BorderWidth="1" WidthRequest="150" HeightRequest="60" TextColor="{DynamicResource PrimaryText}" BackgroundColor="{DynamicResource SecondaryButtonColor}" HorizontalOptions="CenterAndExpand" Clicked="OnSelectClicked" Text="Select"></Button>
+		</StackLayout>
+
+	</ContentPage.Content>
+</ContentPage>

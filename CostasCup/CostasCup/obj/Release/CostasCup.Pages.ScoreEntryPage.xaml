@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:costas="clr-namespace:CostasCup.UI;assembly=CostasCup"
+	x:Class="CostasCup.ScoreEntryPage"
+	Title="Enter Score"
+	BackgroundColor="{DynamicResource PrimaryBackground}">
+	<ContentPage.Content>
+		<StackLayout>
+				<costas:CustomNavBar></costas:CustomNavBar>
+				<StackLayout Padding="0,50,0,20" Spacing="10">
+					<Label FontFamily="Montserrat-UltraLight" FontSize="24" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryText}" Text="{Binding HoleInfo}" />
+
+					<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0,0,0,0">
+						<Grid HorizontalOptions="FillAndExpand" HeightRequest="200" IsVisible="{Binding IsNotBusy}" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0,0,1,1" x:Name="PlayerGrid">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" /> 
+								<ColumnDefinition Width="*" /> 
+								<ColumnDefinition Width="Auto" /> 
+							</Grid.ColumnDefinitions>
+							<Image Grid.Column="0" Aspect="AspectFit" Source="ic_chevron_left_48pt.png" HorizontalOptions="End" VerticalOptions="Center" x:Name="LeftArrow" Opacity="0" Margin="0,50,0,0"></Image>
+							<StackLayout Grid.Column="1" Spacing="10" Padding="10" HorizontalOptions="Center" x:Name="PlayerBundle"></StackLayout>
+							<Image Grid.Column="2" Aspect="AspectFit" Source="ic_chevron_right_48pt.png" HorizontalOptions="End" VerticalOptions="Center" x:Name="RightArrow" Opacity="0" Margin="0,50,0,0"></Image>
+						</Grid>
+						<StackLayout x:Name="LoadingView" IsVisible="{Binding IsBusy}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" Orientation="Horizontal">
+							<ActivityIndicator x:Name="LoadingIndicator" IsRunning="{Binding IsBusy}" Color="{DynamicResource TitleColor}" />
+							<Label Text="Just a second..." HorizontalOptions="Center" FontSize="16" TextColor="Black" FontFamily="Montserrat-UltraLight" />
+						</StackLayout>
+						<StackLayout x:Name="ErrorView" IsVisible="{Binding IsConnectionError}" AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.5,0.5,-1,-1" Orientation="Horizontal">
+							<Label x:Name="ErrorIndicator" TextColor="{DynamicResource TitleColor}" Text="!" FontSize="16" />
+							<Label Text="Error" HorizontalOptions="Center" FontSize="16" TextColor="Black" FontFamily="Montserrat-UltraLight" />
+						</StackLayout>
+					</AbsoluteLayout>
+					<Picker Title="Select Score..." HorizontalOptions="Center" WidthRequest="200" HeightRequest="40" x:Name="ScorePicker" BackgroundColor="#E1E1E1" IsEnabled="false" />
+					<Label HeightRequest="20" FontFamily="Montserrat-UltraLight" FontSize="14" HorizontalOptions="Center" TextColor="{DynamicResource PrimaryText}" Text="{Binding SubmissionStatus}" />
+					<Button FontSize="16" BorderWidth="1" WidthRequest="200" HeightRequest="60" TextColor="{DynamicResource PrimaryText}" BackgroundColor="{DynamicResource PrimaryButtonColor}" HorizontalOptions="CenterAndExpand" Clicked="OnEditClicked" Text="Edit Score" x:Name="EditButton" IsVisible="true" Opacity="1"></Button>
+					<Button FontSize="16" BorderWidth="1" WidthRequest="200" HeightRequest="60" TextColor="{DynamicResource PrimaryText}" BackgroundColor="{DynamicResource SecondaryButtonColor}" HorizontalOptions="CenterAndExpand" Clicked="OnSaveClicked" Text="Submit Score" x:Name="SaveButton" IsVisible="false" Opacity="0"></Button>
+				</StackLayout>
+			</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

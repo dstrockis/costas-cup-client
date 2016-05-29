@@ -1,0 +1,6 @@
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels/obj/Release/.NETPortable,Version=v4.5,Profile=Profile78.AssemblyAttribute.cs
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels/bin/Release/CostasCup.DataModels.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels/bin/Release/CostasCup.DataModels.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels/obj/Release/CostasCup.DataModels.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels/obj/Release/CostasCup.DataModels.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup.DataModels/bin/Release/Newtonsoft.Json.dll
