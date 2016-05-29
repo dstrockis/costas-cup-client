@@ -1,4 +1,20 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/MonoAndroid,Version=v6.0.AssemblyAttribute.cs
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/CostasCup.Droid.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/CostasCup.Droid.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/com.strockisdev.costas_cup.apk
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/android/bin/com.strockisdev.costas_cup.apk
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/res/drawable/icon.png
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/res/drawable-hdpi/icon.png
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/res/drawable-xhdpi/icon.png
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/res/drawable-xxhdpi/icon.png
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/res/drawable/chambers.jpg
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/res/drawable/indian.jpg
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/res/drawable/cove.jpg
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/R.cs.flag
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/com.strockisdev.costas_cup-Signed.apk
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/uploadflags.txt
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/CostasCup.Droid.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Debug/CostasCup.Droid.dll.mdb
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/Xamarin.Android.Support.v4.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/Xamarin.Forms.Platform.Android.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/FormsViewGroup.dll
@@ -21,3 +37,4 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/CostasCup.DataStore.Firebase.dll.mdb
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/CostasCup.Utils.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/CostasCup.Utils.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/ModernHttpClient.dll

@@ -15,8 +15,10 @@ namespace CostasCup.Logic
 	public class ScorecardViewModel : BaseViewModel
 	{
 		private Team _team;
+		private int teamScoreToPar;
+		private string teamScoreToParString;
 
-		public ScorecardViewModel (Team team, INavigation navigation = null) : base(navigation) 
+		public ScorecardViewModel (Team team)
 		{
 			Scores = new ObservableCollection<ScoreViewModel> (new ScoreViewModel[18]);
 			_team = team;
@@ -27,8 +29,6 @@ namespace CostasCup.Logic
 			get { return _team.Name; }
 		}
 
-		private int teamScoreToPar;
-		private string teamScoreToParString;
 		public string TeamScoreToPar
 		{
 			get { return teamScoreToParString; }
@@ -42,7 +42,6 @@ namespace CostasCup.Logic
 				return Golf.NetScoreToColor (teamScoreToPar, "White");
 			}
 		}
-
 
 		public ImageSource TeamImage
 		{
@@ -67,22 +66,16 @@ namespace CostasCup.Logic
 				IsBusy = true;
 				IsConnectionError = false;
 
-				Settings settings = await DataStoreService.SettingsStore.GetAsync();
+				Settings settings = await DataStoreService.SettingsStore.GetAsync(Constants.SettingsId);
 
-				object obj;
-				Team mainTeam;
-				if (Application.Current.Properties.TryGetValue ("team", out obj)) 
-				{
-					mainTeam = obj as Team;
-				}
-				else 
+				if (MainTeam == null)
 				{
 					throw new TeamNotSelectedException();
 				}
 
 				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
 				IEnumerable<Round> allRounds = await DataStoreService.RoundStore.GetAsync();
-				Round mainRound = allRounds.FirstOrDefault(r => r.CourseId == settings.CourseId && r.TeamId == mainTeam.Id);
+				Round mainRound = allRounds.FirstOrDefault(r => r.CourseId == settings.CourseId && r.TeamId == MainTeam.Id);
 
 				int numScoresToShow = settings.NumHolesCeiling ?? 18;
 				int mainTeamUpperLimit = (mainRound != null && mainRound.Scores != null) ? mainRound.Scores.Count : 0;
@@ -102,11 +95,11 @@ namespace CostasCup.Logic
 						if (_team.StartingHole != null) // Use starting hole to limit shown scores
 						{
 							int adjustedHoleNumber = scores[i].HoleNumber < _team.StartingHole ? (scores[i].HoleNumber + 18) : scores[i].HoleNumber;
-							if ((adjustedHoleNumber >= (_team.StartingHole + numScoresToShow)) && (_team.Id != mainTeam.Id)) continue;
+							if ((adjustedHoleNumber >= (_team.StartingHole + numScoresToShow)) && (_team.Id != MainTeam.Id)) continue;
 						}
 						else // Use timestamp to limit shown scores
 						{
-							if (((i+1) > numScoresToShow) && _team.Id != mainTeam.Id) break;
+							if (((i+1) > numScoresToShow) && _team.Id != MainTeam.Id) break;
 						}
 
 						netScore += Golf.EvaluateScoreToPar(scores[i].NumStrokes, course.Holes.FirstOrDefault(h => h.Number.Equals(scores[i].HoleNumber))?.Par) ?? 0;
@@ -194,11 +187,6 @@ namespace CostasCup.Logic
 		{
 			return HoleNumber.CompareTo (other.HoleNumber);
 		}
-	}
-
-	public class TeamNotSelectedException : Exception
-	{
-		
 	}
 }
 

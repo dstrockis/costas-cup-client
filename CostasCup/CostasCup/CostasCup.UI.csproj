@@ -33,7 +33,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\Globals.cs" />
     <Compile Include="Utils\ISaveAndLoad.cs" />
-    <Compile Include="Pages\LeaderboardPage.cs" />
     <Compile Include="Pages\HomePage.cs" />
     <Compile Include="Pages\TeamSelectPage.xaml.cs">
       <DependentUpon>TeamSelectPage.xaml</DependentUpon>
@@ -87,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Utils\" />
-    <Folder Include="Models\" />
     <Folder Include="Pages\" />
     <Folder Include="Controls\" />
   </ItemGroup>

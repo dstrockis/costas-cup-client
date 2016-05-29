@@ -2,37 +2,23 @@
 using CostasCup.DataModels;
 using System.Threading.Tasks;
 using CostasCup.DataModels.Interfaces;
+using CostasCup.Utils;
 
 namespace CostasCup.DataStore.Mock
 {
-	public class SettingsStore : ISettingsStore
+	public class SettingsStore : BaseStore<Settings>, ISettingsStore
 	{
-		Settings settings;
-
-		public async Task<Settings> GetAsync()
-		{
-			await SyncAsync();
-			return settings;
-		}
-
-		private async Task SyncAsync()
-		{
-			settings = MockSettingsStore.Get ();
-		}
-	}
-
-	public static class MockSettingsStore
-	{
-		public static Settings Get()
-		{
-			return CostasCup.Utils.Json.ParseSettings (settings);
-		}
-
-		readonly static string settings = "{" +
+		private const string data = "{" +
 			"\"numHolesCeiling\": 16, " +
 			"\"hideFutureScores\": true, " +
 			"\"courseId\": \"fake-course\"" +
 			"}";
+
+		public SettingsStore()
+		{
+			Serializer = new SettingsSerializer ();
+			MockData = data;
+		}
 	}
 }
 

@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace CostasCup.DataModels
 {
-	public class Settings
+	public class Settings : BaseDataModel
 	{
 		[JsonProperty("numHolesCeiling")]
 		public int? NumHolesCeiling { get; set; }

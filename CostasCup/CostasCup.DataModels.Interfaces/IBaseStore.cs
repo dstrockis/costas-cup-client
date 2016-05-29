@@ -8,11 +8,7 @@ namespace CostasCup.DataStore.Interfaces
 	{
 		Task<IEnumerable<T>> GetAsync();
 		Task<T> GetAsync(string id);
-		Task<bool> PostAsync(T item);
-		Task<bool> PatchAsync(T item);
-		Task<bool> DeleteAsync(T item);
 		Task<bool> SyncAsync();
-		void Drop();
 	}
 
 	public class StoreNotInitializedException : Exception {}

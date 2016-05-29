@@ -6,59 +6,47 @@ using System.Linq;
 
 namespace CostasCup.Utils
 {
-	public static class Json
+	public interface IJsonSerializer<T>
 	{
-		public static IEnumerable<Team> ParseTeams(string json)
+		IEnumerable<T> Parse (string json);
+		string Serialize (IEnumerable<T> list);
+	}
+
+	public class BaseObjectSerializer<T> : IJsonSerializer<T>
+	{
+		public virtual IEnumerable<T> Parse (string json)
 		{
-			return JsonConvert.DeserializeObject<IEnumerable<Team>>(json);
+			return JsonConvert.DeserializeObject<IEnumerable<T>>(json);
 		}
 
-		public static string SerializeTeams(IEnumerable<Team> teams)
+		public virtual string Serialize(IEnumerable<T> list)
 		{
-			return JsonConvert.SerializeObject (teams, typeof(IEnumerable<Team>), new JsonSerializerSettings ());
+			return JsonConvert.SerializeObject (list, typeof(IEnumerable<T>), new JsonSerializerSettings ());
 		}
+	}
 
-		public static IEnumerable<Course> ParseCourses(string json)
-		{
-			return JsonConvert.DeserializeObject<IEnumerable<Course>>(json);
-		}
+	public class TeamSerializer : BaseObjectSerializer<Team> {}
 
-		public static string SerializeCourses(IEnumerable<Course> courses)
-		{
-			return JsonConvert.SerializeObject (courses, typeof(IEnumerable<Course>), new JsonSerializerSettings ());
-		}
+	public class CourseSerializer : BaseObjectSerializer<Course> {}
 
-		public static List<Round> ParseRounds(string json)
+	public class SettingsSerializer : BaseObjectSerializer<Settings> {}
+
+	public class RoundSerializer : BaseObjectSerializer<Round>
+	{
+		public override IEnumerable<Round> Parse(string json)
 		{
 			Dictionary<string, Round> rounds = (Dictionary<string, Round>) JsonConvert.DeserializeObject (json, typeof(Dictionary<string, Round>), new JsonSerializerSettings ());
 			return rounds.Values.ToList();
 		}
 
-		public static string SerializeRounds(IEnumerable<Round> rounds)
+		public override string Serialize (IEnumerable<Round> list)
 		{
 			string keyTemplate = "{0}%%{1}";
 			Dictionary<string, Round> json = new Dictionary<string, Round> ();
-			foreach (Round round in rounds) {
+			foreach (Round round in list) {
 				json [String.Format (keyTemplate, round.CourseId, round.TeamId)] = round;
 			}
 			return JsonConvert.SerializeObject(json, typeof(Dictionary<string, Round>), new JsonSerializerSettings());
-		}
-
-		public static string SerializeRound(Round round)
-		{
-			string keyTemplate = "{0}%%{1}";
-			Dictionary<string, Round> json = new Dictionary<string, Round> ();
-			if (round != null) 
-			{
-				json [String.Format (keyTemplate, round.CourseId, round.TeamId)] = round;
-			}
-			return JsonConvert.SerializeObject(json, typeof(Dictionary<string, Round>), new JsonSerializerSettings());
-		}
-
-
-		public static Settings ParseSettings(string json)
-		{
-			return JsonConvert.DeserializeObject<Settings>(json);
 		}
 	}
 }

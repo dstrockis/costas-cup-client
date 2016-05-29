@@ -15,7 +15,7 @@ namespace CostasCup.Logic
 	{
 		private Team _team;
 
-		public LeaderboardViewModel (Team team, INavigation navigation = null) : base(navigation) 
+		public LeaderboardViewModel (Team team)
 		{
 			Leaders = new ObservableCollection<LeaderViewModel> (new List<LeaderViewModel>());
 			_team = team;
@@ -39,7 +39,7 @@ namespace CostasCup.Logic
 				IsBusy = true;
 				IsConnectionError = false;
 
-				Settings settings = await DataStoreService.SettingsStore.GetAsync();
+				Settings settings = await DataStoreService.SettingsStore.GetAsync(Constants.SettingsId);
 
 				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
 				IEnumerable<Team> teams = await DataStoreService.TeamStore.GetAsync();

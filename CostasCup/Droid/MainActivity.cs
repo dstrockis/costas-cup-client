@@ -19,7 +19,7 @@ namespace CostasCup.Droid
 
 			global::Xamarin.Forms.Forms.Init (this, bundle);
 
-			LoadApplication (new CostasCup.UI.CostasCup.App ());
+			LoadApplication (new CostasCup.UI.App());
 		}
 	}
 }

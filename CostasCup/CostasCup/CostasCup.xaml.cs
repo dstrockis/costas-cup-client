@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 
 using Xamarin.Forms;
-using CostasCup.ViewModels;
 using CostasCup.DataModels;
 using CostasCup.Logic;
 

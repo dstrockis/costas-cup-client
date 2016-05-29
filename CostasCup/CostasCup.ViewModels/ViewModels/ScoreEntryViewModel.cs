@@ -6,6 +6,7 @@ using System.Linq;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using CostasCup.DataStore.Interfaces;
+using CostasCup.Utils;
 
 namespace CostasCup.Logic
 {
@@ -14,17 +15,8 @@ namespace CostasCup.Logic
 		private string _teamId;
 		private int _holeNumber;
 		private Score _score;
-
-		public IEnumerable<Player> Players { get; private set; }
-
-		public string HoleInfo { get; private set; }
-		public string SubmissionStatus 
-		{ 
-			get
-			{ 
-				return _score == null ? string.Empty : ("Score submitted at " + ((DateTime)(_score.Timestamp)).ToLocalTime ().ToString ("HH:mm:ss"));
-			}
-		}
+		IEnumerable<PlayerViewModel> _pages;
+		PlayerViewModel _currentPage;
 
 		public ScoreEntryViewModel (string teamId, int holeToPar, int holeNumber, Score score) 
 		{
@@ -34,7 +26,18 @@ namespace CostasCup.Logic
 			HoleInfo = String.Format("Hole {0} | Par {1}", holeNumber, holeToPar);
 		}
 
-		IEnumerable<PlayerViewModel> _pages;
+		public IEnumerable<Player> Players { get; private set; }
+
+		public string HoleInfo { get; private set; }
+
+		public string SubmissionStatus 
+		{ 
+			get
+			{ 
+				return _score == null ? string.Empty : ("Score submitted at " + ((DateTime)(_score.Timestamp)).ToLocalTime ().ToString ("HH:mm:ss"));
+			}
+		}
+
 		public IEnumerable<PlayerViewModel> Pages {
 			get 
 			{
@@ -47,7 +50,6 @@ namespace CostasCup.Logic
 			}
 		}
 
-		PlayerViewModel _currentPage;
 		public PlayerViewModel CurrentPage {
 			get 
 			{
@@ -123,8 +125,8 @@ namespace CostasCup.Logic
 					Timestamp = DateTime.UtcNow,
 					HoleNumber = _holeNumber
 				};
-				Settings settings = await DataStoreService.SettingsStore.GetAsync();
-				await DataStoreService.RoundStore.PostScoreAsync(score, settings.CourseId, _teamId);
+				Settings settings = await DataStoreService.SettingsStore.GetAsync(Constants.SettingsId);
+				await DataStoreService.RoundStore.PostScoreAsync(score);
 			}
 			catch (StoreNotInitializedException ex) 
 			{

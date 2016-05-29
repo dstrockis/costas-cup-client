@@ -19,7 +19,7 @@ namespace CostasCup.UI
 		{
 			InitializeComponent ();
 			NavigationPage.SetHasNavigationBar (this, false);
-			BindingContext = vm = new ScorecardViewModel (team, Navigation);
+			BindingContext = vm = new ScorecardViewModel (team);
 			ListViewScores.ItemSelected += OnScoreSelected;
 			_isMainTeam = isMainTeam;
 			teamId = team.Id;

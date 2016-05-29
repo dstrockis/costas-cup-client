@@ -4,9 +4,6 @@ using CostasCup.DataModels;
 
 namespace CostasCup.DataModels.Interfaces
 {
-	public interface ICourseStore : IBaseStore<Course>
-	{
-		
-	}
+	public interface ICourseStore : IBaseStore<Course> {}
 }
 

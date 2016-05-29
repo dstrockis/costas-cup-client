@@ -1,0 +1,7 @@
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/UITests/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/UITests/bin/Debug/CostasCup.UITests.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/UITests/bin/Debug/CostasCup.UITests.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/UITests/obj/Debug/CostasCup.UITests.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/UITests/obj/Debug/CostasCup.UITests.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/UITests/bin/Debug/nunit.framework.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/UITests/bin/Debug/Xamarin.UITest.dll

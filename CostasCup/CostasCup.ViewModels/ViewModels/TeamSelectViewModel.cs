@@ -7,16 +7,19 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using CostasCup.DataModels.Interfaces;
 using CostasCup.DataStore.Interfaces;
+using CostasCup.Utils;
 
 namespace CostasCup.Logic
 {
 	public class TeamSelectViewModel : BaseViewModel
 	{
-		public IEnumerable<Team> Teams { get; private set; }
+		IEnumerable<TeamViewModel> _pages;
+		TeamViewModel _currentPage;
 
 		public TeamSelectViewModel () {}
 
-		IEnumerable<TeamViewModel> _pages;
+		public IEnumerable<Team> Teams { get; private set; }
+
 		public IEnumerable<TeamViewModel> Pages {
 			get 
 			{
@@ -29,7 +32,6 @@ namespace CostasCup.Logic
 			}
 		}
 
-		TeamViewModel _currentPage;
 		public TeamViewModel CurrentPage {
 			get 
 			{
@@ -48,7 +50,7 @@ namespace CostasCup.Logic
 				IsBusy = true;
 				IsConnectionError = false;
 				Teams = await DataStoreService.TeamStore.GetAsync ();
-				Settings settings = await DataStoreService.SettingsStore.GetAsync();
+				Settings settings = await DataStoreService.SettingsStore.GetAsync(Constants.SettingsId);
 				Course course = await DataStoreService.CourseStore.GetAsync(settings.CourseId);
 				List<TeamViewModel> teams = new List<TeamViewModel> ();
 				foreach (Team team in Teams)

@@ -17,7 +17,7 @@ namespace CostasCup.UI
 		public LeaderboardPage (Team team)
 		{
 			InitializeComponent ();
-			BindingContext = vm = new LeaderboardViewModel (team, Navigation);
+			BindingContext = vm = new LeaderboardViewModel (team);
 			ListViewLeaders.ItemSelected += OnTeamSelected;
 			_team = team;
 

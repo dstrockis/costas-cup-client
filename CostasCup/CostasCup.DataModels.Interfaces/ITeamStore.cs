@@ -5,14 +5,6 @@ using Xamarin.Forms;
 
 namespace CostasCup.DataModels.Interfaces
 {
-	public interface ITeamStore : IBaseStore<Team>
-	{
-
-	}
-
-	public interface IImageConverter : IValueConverter
-	{
-		
-	}
+	public interface ITeamStore : IBaseStore<Team> {}
 }
 

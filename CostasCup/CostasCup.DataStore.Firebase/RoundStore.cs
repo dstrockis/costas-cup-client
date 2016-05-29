@@ -12,49 +12,37 @@ using Xamarin.Forms;
 
 namespace CostasCup.DataStore.Firebase
 {
-	public class RoundStore : IRoundStore
+	public class RoundStore : BaseStore<Round>, IRoundStore 
 	{
-		List<Round> rounds;
-		DateTime lastSuccessfulSyncTime;
-		IRoundLogger logger;
+		IRoundLogger _logger;
+		Team _team;
 
-		public RoundStore ()
+		public RoundStore()
 		{
-			rounds = new List<Round> ();
-			logger = DependencyService.Get<IRoundLogger> ();
+			DataStorePath = "/rounds.json";
+			Serializer = new RoundSerializer ();
+			AcceptableStaleness = TimeSpan.FromSeconds (10);
 		}
 
-		public async Task<IEnumerable<Round>> GetAsync ()
+		public void InitWithTeam (Team team)
 		{
-			if (lastSuccessfulSyncTime != null && ((DateTime.UtcNow - lastSuccessfulSyncTime) > TimeSpan.FromSeconds (10))) 
-			{
-				await SyncAsync ();
-			}
-			return rounds;
+			_store = _store ?? new List<Round> ();
+			_logger = _logger ?? DependencyService.Get<IRoundLogger> ();
+			_team = team;
 		}
 
-		public async Task<Round> GetAsync (string id)
+		public async Task<bool> PostScoreAsync(Score item)
 		{
-			throw new NotImplementedException ();
-		}
-
-		public Task<bool> PostAsync(Round item)
-		{
-			throw new NotImplementedException ();
-		}
-
-		public async Task<bool> PostScoreAsync(Score item, string courseId, string teamId)
-		{
-			Round round = rounds.FirstOrDefault (r => (r.CourseId.Equals (courseId) && r.TeamId.Equals (teamId)));
+			Round round = _store.FirstOrDefault (r => (r.CourseId.Equals (Constants.CourseId) && r.TeamId.Equals (_team.Id)));
 			if (round == null) 
 			{
 				round = new Round 
 				{
-					CourseId = courseId,
-					TeamId = teamId,
+					CourseId = Constants.CourseId,
+					TeamId = _team.Id,
 					Scores = new List<Score> ()
 				};
-				rounds.Add (round);
+				_store.Add(round);
 			}
 			ICollection<Score> scores = round.Scores;
 			Score existing = scores.FirstOrDefault (s => s.HoleNumber.Equals (item.HoleNumber));
@@ -69,34 +57,20 @@ namespace CostasCup.DataStore.Firebase
 				existing.Timestamp = item.Timestamp;
 			}
 
-			return await SyncAsync(courseId, teamId);
+			return await SyncAsync();
 		}
 
-		public Task<bool> PatchAsync(Round item)
+		public override async Task<bool> SyncAsync ()
 		{
-			throw new NotImplementedException ();
-		}
-
-		public Task<bool> DeleteAsync(Round item)
-		{
-			throw new NotImplementedException ();
-		}
-
-		public void Drop()
-		{
-			throw new NotImplementedException ();
-		}
-
-		public async Task<bool> SyncAsync (string courseId, string teamId)
-		{
-			Round round = rounds.FirstOrDefault (r => (r.CourseId.Equals (courseId) && r.TeamId.Equals (teamId)));
-
 			try 
 			{
+
+				IEnumerable<Round> round = _store.Where(r => (r.CourseId.Equals (Constants.CourseId) && r.TeamId.Equals (_team.Id))).ToList();
+
 				HttpClient client = new HttpClient (new NativeMessageHandler());
-				HttpRequestMessage req = new HttpRequestMessage(new HttpMethod("PATCH"), Constants.DataStoreBaseUrl + "/rounds.json");
-				string json = Json.SerializeRound(round);
-				logger.SaveTextAsync(Constants.LogFileName, json);
+				HttpRequestMessage req = new HttpRequestMessage(new HttpMethod("PATCH"), Constants.DataStoreBaseUrl + DataStorePath);
+				string json = Serializer.Serialize(round);
+				_logger.SaveTextAsync(Constants.LogFileName, json);
 				req.Content = new StringContent (json, Encoding.UTF8, "application/json");
 				HttpResponseMessage resp = await client.SendAsync(req);
 
@@ -105,30 +79,16 @@ namespace CostasCup.DataStore.Firebase
 					return false;
 				}
 
-				return await SyncAsync();
-			}
-			catch (Exception ex) 
-			{
-				return false;
-			}
-
-		}
-
-		public async Task<bool> SyncAsync ()
-		{
-			try 
-			{
-				HttpClient client = new HttpClient (new NativeMessageHandler());
-				HttpRequestMessage req = new HttpRequestMessage(HttpMethod.Get, Constants.DataStoreBaseUrl + "/rounds.json");
-				HttpResponseMessage resp = await client.SendAsync(req);
+				req = new HttpRequestMessage(HttpMethod.Get, Constants.DataStoreBaseUrl + DataStorePath);
+				resp = await client.SendAsync(req);
 
 				if (!resp.IsSuccessStatusCode)
 				{
 					return false;
 				}
 
-				rounds = Json.ParseRounds(resp.Content.ReadAsStringAsync().Result);
-				lastSuccessfulSyncTime = DateTime.UtcNow;
+				_store = Serializer.Parse(resp.Content.ReadAsStringAsync().Result).ToList();
+				_lastSuccessfulSyncTime = DateTime.UtcNow;
 				return true;
 			}
 			catch (Exception ex) 

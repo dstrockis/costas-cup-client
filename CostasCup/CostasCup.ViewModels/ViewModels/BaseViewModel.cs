@@ -6,23 +6,72 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Text;
 using CostasCup.DataModels.Interfaces;
+using CostasCup.DataModels;
 
 namespace CostasCup.Logic
 {
 	public class BaseViewModel : INotifyPropertyChanged
 	{
-		public INavigation Navigation { get; set; }
-
 		public IDataStoreService DataStoreService { get; private set; }
+		public Team MainTeam { get; set;}
+		private bool isBusy;
+		private bool isConnectionError;
+		public event PropertyChangedEventHandler PropertyChanged;
 
-		public BaseViewModel(INavigation navigation = null)
+		public BaseViewModel()
 		{
-			Navigation = navigation;
 			DataStoreService = DependencyService.Get<IDataStoreService>();
 			IsBusy = true;
+
+			object obj;
+			if (Application.Current.Properties.TryGetValue ("team", out obj)) 
+			{
+				MainTeam = (Team)obj;
+				DataStoreService.RoundStore.InitWithTeam (MainTeam);
+			}
 		}
 
-		protected void OnPropertyChanged(string propertyName) {
+		public static void Init(bool mock = true)
+		{
+			if (mock) 
+			{
+				DependencyService.Register<ICourseStore, CostasCup.DataStore.Mock.CourseStore> ();
+				DependencyService.Register<IRoundStore, CostasCup.DataStore.Mock.RoundStore> ();
+				DependencyService.Register<ITeamStore, CostasCup.DataStore.Mock.TeamStore> ();
+				DependencyService.Register<IDataStoreService, CostasCup.DataStore.Mock.DataStoreService> ();
+				DependencyService.Register<IImageConverter, CostasCup.DataStore.Mock.ImageConverter> ();
+				DependencyService.Register<ISettingsStore, CostasCup.DataStore.Mock.SettingsStore> ();
+			} 
+			else 
+			{
+				DependencyService.Register<ICourseStore, CostasCup.DataStore.Firebase.CourseStore> ();
+				DependencyService.Register<IRoundStore, CostasCup.DataStore.Firebase.RoundStore> ();
+				DependencyService.Register<IDataStoreService, CostasCup.DataStore.Firebase.DataStoreService> ();
+				DependencyService.Register<IImageConverter, CostasCup.DataStore.Firebase.ImageConverter> ();
+				DependencyService.Register<ITeamStore, CostasCup.DataStore.Firebase.TeamStore> ();
+				DependencyService.Register<ISettingsStore, CostasCup.DataStore.Firebase.SettingsStore> ();
+			}
+		}
+
+		public bool	 IsBusy 
+		{ 
+			get { return isBusy; } 
+			set { this.SetObservableProperty (ref isBusy, value); }
+		}
+
+		public bool IsNotBusy 
+		{
+			get { return !isBusy; }
+		}
+
+		public bool	IsConnectionError 
+		{ 
+			get { return isConnectionError; } 
+			set { this.SetObservableProperty (ref isConnectionError, value); }
+		}
+
+		protected void OnPropertyChanged(string propertyName) 
+		{
 			if (PropertyChanged == null) return;
 			PropertyChanged (this, new PropertyChangedEventArgs (propertyName));
 		}
@@ -34,46 +83,11 @@ namespace CostasCup.Logic
 			OnPropertyChanged (propertyName);
 		}
 
-		private bool isBusy;
-		public bool	 IsBusy 
-		{ 
-			get { return isBusy; } 
-			set { this.SetObservableProperty (ref isBusy, value); }
-		}
-		public bool IsNotBusy {
-			get { return !isBusy; }
-		}
+	}
 
-		private bool isConnectionError;
-		public bool	IsConnectionError 
-		{ 
-			get { return isConnectionError; } 
-			set { this.SetObservableProperty (ref isConnectionError, value); }
-		}
+	public class TeamNotSelectedException : Exception
+	{
 
-		public event PropertyChangedEventHandler PropertyChanged;
-
-		public static void Init(bool mock = true)
-		{
-			if (mock) 
-			{
-				DependencyService.Register<ICourseStore, CostasCup.DataStore.Mock.CourseStore> ();
-				DependencyService.Register<IRoundStore, CostasCup.DataStore.Mock.RoundStore> ();
-				DependencyService.Register<ITeamStore, CostasCup.DataStore.Mock.TeamStore> ();
-				DependencyService.Register<IDataStoreService, CostasCup.DataStore.Mock.DataStoreService> ();
-				DependencyService.Register<IImageConverter, CostasCup.DataStore.Mock.PlayerImageConverter> ();
-				DependencyService.Register<ISettingsStore, CostasCup.DataStore.Mock.SettingsStore> ();
-			} 
-			else 
-			{
-				DependencyService.Register<ICourseStore, CostasCup.DataStore.Firebase.CourseStore> ();
-				DependencyService.Register<IRoundStore, CostasCup.DataStore.Firebase.RoundStore> ();
-				DependencyService.Register<IDataStoreService, CostasCup.DataStore.Firebase.DataStoreService> ();
-				DependencyService.Register<IImageConverter, CostasCup.DataStore.Firebase.PlayerImageConverter> ();
-				DependencyService.Register<ITeamStore, CostasCup.DataStore.Firebase.TeamStore> ();
-				DependencyService.Register<ISettingsStore, CostasCup.DataStore.Firebase.SettingsStore> ();
-			}
-		}
 	}
 }
 
