@@ -54,7 +54,7 @@ namespace CostasCup.Logic
 
 				foreach (Team team in teams)
 				{
-					DateTime? mostRecentSubmission;
+					DateTime? mostRecentSubmission = null;
 					int numHolesComplete = 0;
 					int netScore = 0;
 					Round round = allRounds.FirstOrDefault(r => r.CourseId.Equals(settings.CourseId) && r.TeamId.Equals(team.Id));

@@ -81,3 +81,12 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.DataStore.Firebase.dll.mdb
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.Utils.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/bin/iPhoneSimulator/Debug/CostasCup.Utils.dll.mdb
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/actool/asset-manifest.plist
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/actool/_PartialAppManifest.items
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/actool/_BundleResourceWithLogicalName.items
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon-60.png
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/icon-57.png
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/Icon@2x.png
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/launch-320.png
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/launch-640.png
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/optimized/launch-1136.png

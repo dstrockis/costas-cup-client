@@ -12,11 +12,11 @@ namespace CostasCup.DataStore.Firebase
 {
 	public class ImageConverter : IImageConverter
 	{
-		Dictionary<string, Stream> images;
+		Dictionary<string, byte[]> images;
 
 		public ImageConverter()
 		{
-			images = new Dictionary<string, Stream> ();
+			images = new Dictionary<string, byte[]> ();
 		}
 
 		public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
@@ -26,7 +26,13 @@ namespace CostasCup.DataStore.Firebase
 			{
 				return null;
 			}
-				
+
+			byte[] bytes;
+			if (images.TryGetValue (val, out bytes)) 
+			{
+				return ImageSource.FromStream(() => new MemoryStream(bytes));
+			}
+
 			try 
 			{
 				HttpClient client = new HttpClient (new NativeMessageHandler());
@@ -38,9 +44,9 @@ namespace CostasCup.DataStore.Firebase
 					return ImageSource.FromFile("users-icon.png");
 				}
 
-				Stream stream = resp.Content.ReadAsStreamAsync().Result;
-				images[val] = stream;
-				return ImageSource.FromStream(() => {return stream;});
+				bytes = resp.Content.ReadAsByteArrayAsync().Result;
+				images[val] = bytes;
+				return ImageSource.FromStream(() => new MemoryStream(bytes));
 			}
 			catch (Exception ex) 
 			{

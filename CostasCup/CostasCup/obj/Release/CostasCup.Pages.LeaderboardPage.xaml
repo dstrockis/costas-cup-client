@@ -14,9 +14,7 @@
 		 		<ListView 
 			        x:Name="ListViewLeaders"
 			        ItemsSource="{Binding Leaders}"
-			        IsPullToRefreshEnabled="{Binding IsNotBusy}"
 			        RefreshCommand="{Binding RefreshCommand}"
-			        IsRefreshing="{Binding IsBusy, Mode=OneWay}"
 			        HasUnevenRows ="true"
 			        CachingStrategy="RecycleElement"
 			        IsVisible="{Binding IsNotBusy}"

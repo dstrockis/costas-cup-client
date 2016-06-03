@@ -24,7 +24,7 @@ namespace CostasCup.UI
 			// Workaround for Xam Forms Bug (I think)
 			vm.PropertyChanged += OnBusyChange;
 		}
-
+			
 		public async void OnTeamSelected(object sender, EventArgs e)
 		{
 			LeaderViewModel selected = ((ListView)sender).SelectedItem as LeaderViewModel;
