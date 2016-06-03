@@ -100,6 +100,12 @@
     <Reference Include="ModernHttpClient">
       <HintPath>..\packages\modernhttpclient.2.4.2\lib\Xamarin.iOS10\ModernHttpClient.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Identity.Client">
+      <HintPath>..\packages\Microsoft.Identity.Client.1.0.304142221-alpha\lib\Xamarin.iOS10\Microsoft.Identity.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Identity.Client.Platform">
+      <HintPath>..\packages\Microsoft.Identity.Client.1.0.304142221-alpha\lib\Xamarin.iOS10\Microsoft.Identity.Client.Platform.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CostasCup\CostasCup.UI.csproj">
@@ -203,6 +209,7 @@
     <Compile Include="Utils\SaveAndLoad_iOS.cs" />
     <Compile Include="CarouselLayoutRenderer.cs" />
     <Compile Include="RoundLogger_iOS.cs" />
+    <Compile Include="AuthHelper_iOS.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />

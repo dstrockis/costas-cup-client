@@ -45,6 +45,10 @@
 	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/packages/modernhttpclient.2.4.2/lib/Xamarin.iOS10/ModernHttpClient.dll \
 	-r \
+	/Users/strockis/Source/costas/costas-cup-client/CostasCup/packages/Microsoft.Identity.Client.1.0.304142221-alpha/lib/Xamarin.iOS10/Microsoft.Identity.Client.dll \
+	-r \
+	/Users/strockis/Source/costas/costas-cup-client/CostasCup/packages/Microsoft.Identity.Client.1.0.304142221-alpha/lib/Xamarin.iOS10/Microsoft.Identity.Client.Platform.dll \
+	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
 	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.dll \
@@ -162,6 +166,10 @@
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/packages/Newtonsoft.Json.8.0.3/lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll \
 	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/packages/modernhttpclient.2.4.2/lib/Xamarin.iOS10/ModernHttpClient.dll \
+	-r \
+	/Users/strockis/Source/costas/costas-cup-client/CostasCup/packages/Microsoft.Identity.Client.1.0.304142221-alpha/lib/Xamarin.iOS10/Microsoft.Identity.Client.dll \
+	-r \
+	/Users/strockis/Source/costas/costas-cup-client/CostasCup/packages/Microsoft.Identity.Client.1.0.304142221-alpha/lib/Xamarin.iOS10/Microsoft.Identity.Client.Platform.dll \
 	-r \
 	/Users/strockis/Source/costas/costas-cup-client/CostasCup/CostasCup/bin/Debug/CostasCup.dll \
 	-r \
