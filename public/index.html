@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.css">
+</head>
+<body>
+
+        <table id="table"></table>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/bootstrap-table.min.js"></script>
+<!-- Latest compiled and minified Locales -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.12.1/locale/bootstrap-table-zh-CN.min.js"></script>
+
+
+<script>
+
+    $.getJSON( "https://costascup.firebaseio.com/rounds.json", function( data ) {
+        var courses = {};
+
+        for (var key in data) {
+            if (data.hasOwnProperty(key)) {
+                round = data[key];
+                if (courses[round.courseId] === undefined) {
+                    courses[round.courseId] = []
+                }
+                
+                round["total"] = 0
+                round.scores.forEach(function(score) {
+                    round["hole-" + score.holeNumber] = score.numStrokes + " - " + score.playerId;
+                    round["total"] += score.numStrokes;
+                });
+
+                courses[round.courseId].push(round);
+            }
+        }
+
+        for (var key in courses) {
+            if (courses.hasOwnProperty(key)) {
+                $( "<table></table>", {
+                    "id": key,
+                }).appendTo( "body" );
+            }
+        }
+
+        for (var key in courses) {
+            if (courses.hasOwnProperty(key)) {
+
+                console.log(courses[key])
+
+                $(('#' + key)).bootstrapTable({
+                    columns: [{
+                        field: 'teamId',
+                        title: key
+                    }, {
+                        field: 'hole-1',
+                        title: '1'
+                    }, {
+                        field: 'hole-2',
+                        title: '2'
+                    },
+                    {
+                        field: 'hole-3',
+                        title: '3'
+                    },
+                    {
+                        field: 'hole-4',
+                        title: '4'
+                    },
+                    {
+                        field: 'hole-5',
+                        title: '5'
+                    },
+                    {
+                        field: 'hole-6',
+                        title: '6'
+                    },
+                    {
+                        field: 'hole-7',
+                        title: '7'
+                    },
+                    {
+                        field: 'hole-8',
+                        title: '8'
+                    },
+                    {
+                        field: 'hole-9',
+                        title: '9'
+                    },
+                    {
+                        field: 'hole-10',
+                        title: '10'
+                    },
+                    {
+                        field: 'hole-11',
+                        title: '11'
+                    },
+                    {
+                        field: 'hole-12',
+                        title: '12'
+                    },
+                    {
+                        field: 'hole-13',
+                        title: '13'
+                    },
+                    {
+                        field: 'hole-14',
+                        title: '14'
+                    },{
+                        field: 'hole-15',
+                        title: '15'
+                    },{
+                        field: 'hole-16',
+                        title: '16'
+                    },{
+                        field: 'hole-17',
+                        title: '17'
+                    },{
+                        field: 'hole-18',
+                        title: '18'
+                    },{
+                        field: 'total',
+                        title: 'Total'
+                    }],
+                    data: courses[key]
+                });
+            }
+        }
+
+    });
+
+</script>
+
+</body>
+</html>
