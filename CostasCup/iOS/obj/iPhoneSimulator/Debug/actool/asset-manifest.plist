@@ -12,10 +12,22 @@
 		<dict>
 			<key>affected-items</key>
 			<array>
+				<string>./LaunchImage.launchimage/[iphone][retina4][2x][portrait][full-screen][]</string>
+			</array>
+			<key>catalog</key>
+			<string>/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/actool/cloned-assets/Resources/Images.xcassets</string>
+			<key>message</key>
+			<string>LaunchImage.launchimage/Default-568h@2x.png is 518x640 but should be 640x1136.</string>
+			<key>type</key>
+			<string>Ambiguous Content</string>
+		</dict>
+		<dict>
+			<key>affected-items</key>
+			<array>
 				<string>./LaunchImage.launchimage/[iphone][][2x][portrait][full-screen][]</string>
 			</array>
 			<key>catalog</key>
-			<string>/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/Resources/Images.xcassets</string>
+			<string>/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/actool/cloned-assets/Resources/Images.xcassets</string>
 			<key>message</key>
 			<string>LaunchImage.launchimage/Default@2x.png is 518x640 but should be 640x960.</string>
 			<key>type</key>
@@ -27,21 +39,9 @@
 				<string>./LaunchImage.launchimage/[iphone][][1x][portrait][full-screen][]</string>
 			</array>
 			<key>catalog</key>
-			<string>/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/Resources/Images.xcassets</string>
+			<string>/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/obj/iPhoneSimulator/Debug/actool/cloned-assets/Resources/Images.xcassets</string>
 			<key>message</key>
 			<string>LaunchImage.launchimage/Default.png is 518x640 but should be 320x480.</string>
-			<key>type</key>
-			<string>Ambiguous Content</string>
-		</dict>
-		<dict>
-			<key>affected-items</key>
-			<array>
-				<string>./LaunchImage.launchimage/[iphone][retina4][2x][portrait][full-screen][]</string>
-			</array>
-			<key>catalog</key>
-			<string>/Users/strockis/Source/costas/costas-cup-client/CostasCup/iOS/Resources/Images.xcassets</string>
-			<key>message</key>
-			<string>LaunchImage.launchimage/Default-568h@2x.png is 518x640 but should be 640x1136.</string>
 			<key>type</key>
 			<string>Ambiguous Content</string>
 		</dict>

@@ -34,7 +34,7 @@
                 
                 round["total"] = 0
                 round.scores.forEach(function(score) {
-                    round["hole-" + score.holeNumber] = score.numStrokes + " - " + score.playerId;
+                    round["hole-" + score.holeNumber] = score.numStrokes + " - " + score.playerId  + "<br />" + (new Date(score.timestamp)).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'});
                     round["total"] += score.numStrokes;
                 });
 

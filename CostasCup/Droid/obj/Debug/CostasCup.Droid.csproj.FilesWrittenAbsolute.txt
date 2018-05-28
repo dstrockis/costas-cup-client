@@ -39,3 +39,5 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/CostasCup.Utils.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/CostasCup.Utils.dll.mdb
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/ModernHttpClient.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/System.Net.Requests.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Debug/System.Net.Primitives.dll

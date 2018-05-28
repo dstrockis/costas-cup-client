@@ -17,10 +17,20 @@ public class MonoPackageManager {
 	static Object lock = new Object ();
 	static boolean initialized;
 
+	static android.content.Context Context;
+
 	public static void LoadApplication (Context context, ApplicationInfo runtimePackage, String[] apks)
 	{
 		synchronized (lock) {
+			if (context instanceof android.app.Application) {
+				Context = context;
+			}
 			if (!initialized) {
+				android.content.IntentFilter timezoneChangedFilter  = new android.content.IntentFilter (
+						android.content.Intent.ACTION_TIMEZONE_CHANGED
+				);
+				context.registerReceiver (new mono.android.app.NotifyTimeZoneChanges (), timezoneChangedFilter);
+				
 				System.loadLibrary("monodroid");
 				Locale locale       = Locale.getDefault ();
 				String language     = locale.getLanguage () + "-" + locale.getCountry ();
@@ -28,6 +38,13 @@ public class MonoPackageManager {
 				String cacheDir     = context.getCacheDir ().getAbsolutePath ();
 				String dataDir      = getNativeLibraryPath (context);
 				ClassLoader loader  = context.getClassLoader ();
+				java.io.File external0 = android.os.Environment.getExternalStorageDirectory ();
+				String externalDir = new java.io.File (
+							external0,
+							"Android/data/" + context.getPackageName () + "/files/.__override__").getAbsolutePath ();
+				String externalLegacyDir = new java.io.File (
+							external0,
+							"../legacy/Android/data/" + context.getPackageName () + "/files/.__override__").getAbsolutePath ();
 
 				Runtime.init (
 						language,
@@ -39,14 +56,23 @@ public class MonoPackageManager {
 							dataDir,
 						},
 						loader,
-						new java.io.File (
-							android.os.Environment.getExternalStorageDirectory (),
-							"Android/data/" + context.getPackageName () + "/files/.__override__").getAbsolutePath (),
+						new String[] {
+							externalDir,
+							externalLegacyDir
+						},
 						MonoPackageManager_Resources.Assemblies,
 						context.getPackageName ());
+				
+				mono.android.app.ApplicationRegistration.registerApplications ();
+				
 				initialized = true;
 			}
 		}
+	}
+
+	public static void setContext (Context context)
+	{
+		// Ignore; vestigial
 	}
 
 	static String getNativeLibraryPath (Context context)
@@ -79,66 +105,33 @@ public class MonoPackageManager {
 
 class MonoPackageManager_Resources {
 	public static final String[] Assemblies = new String[]{
+		/* We need to ensure that "CostasCup.Droid.dll" comes first in this list. */
 		"CostasCup.Droid.dll",
-		"Xamarin.Android.Support.v4.dll",
-		"Xamarin.Forms.Platform.Android.dll",
-		"FormsViewGroup.dll",
-		"Xamarin.Forms.Core.dll",
-		"Xamarin.Forms.Xaml.dll",
-		"Newtonsoft.Json.dll",
 		"CostasCup.dll",
-		"System.Collections.Concurrent.dll",
-		"System.Collections.dll",
-		"System.ComponentModel.Annotations.dll",
-		"System.ComponentModel.EventBasedAsync.dll",
-		"System.ComponentModel.dll",
-		"System.Diagnostics.Contracts.dll",
-		"System.Diagnostics.Debug.dll",
-		"System.Diagnostics.Tools.dll",
-		"System.Diagnostics.Tracing.dll",
-		"System.Dynamic.Runtime.dll",
-		"System.Globalization.dll",
-		"System.IO.dll",
-		"System.Linq.Expressions.dll",
-		"System.Linq.Parallel.dll",
-		"System.Linq.Queryable.dll",
-		"System.Linq.dll",
-		"System.Net.NetworkInformation.dll",
-		"System.Net.Primitives.dll",
-		"System.Net.Requests.dll",
-		"System.ObjectModel.dll",
-		"System.Reflection.Emit.ILGeneration.dll",
-		"System.Reflection.Emit.Lightweight.dll",
-		"System.Reflection.Emit.dll",
-		"System.Reflection.Extensions.dll",
-		"System.Reflection.Primitives.dll",
-		"System.Reflection.dll",
-		"System.Resources.ResourceManager.dll",
-		"System.Runtime.Extensions.dll",
-		"System.Runtime.InteropServices.WindowsRuntime.dll",
-		"System.Runtime.InteropServices.dll",
-		"System.Runtime.Numerics.dll",
-		"System.Runtime.Serialization.Json.dll",
-		"System.Runtime.Serialization.Primitives.dll",
-		"System.Runtime.Serialization.Xml.dll",
-		"System.Runtime.dll",
-		"System.Security.Principal.dll",
-		"System.ServiceModel.Http.dll",
-		"System.ServiceModel.Primitives.dll",
-		"System.ServiceModel.Security.dll",
-		"System.Text.Encoding.Extensions.dll",
-		"System.Text.Encoding.dll",
-		"System.Text.RegularExpressions.dll",
-		"System.Threading.Tasks.Parallel.dll",
-		"System.Threading.Tasks.dll",
-		"System.Threading.Timer.dll",
-		"System.Threading.dll",
-		"System.Xml.ReaderWriter.dll",
-		"System.Xml.XDocument.dll",
-		"System.Xml.XmlSerializer.dll",
-		"System.ServiceModel.Internals.dll",
-		"CostasCup.DataModels.dll",
+		"FormsViewGroup.dll",
+		"Newtonsoft.Json.dll",
+		"Xamarin.Android.Support.Animated.Vector.Drawable.dll",
+		"Xamarin.Android.Support.Annotations.dll",
+		"Xamarin.Android.Support.Compat.dll",
+		"Xamarin.Android.Support.Core.UI.dll",
+		"Xamarin.Android.Support.Core.Utils.dll",
+		"Xamarin.Android.Support.Design.dll",
+		"Xamarin.Android.Support.Fragment.dll",
+		"Xamarin.Android.Support.Media.Compat.dll",
+		"Xamarin.Android.Support.Transition.dll",
+		"Xamarin.Android.Support.v4.dll",
+		"Xamarin.Android.Support.v7.AppCompat.dll",
+		"Xamarin.Android.Support.v7.CardView.dll",
+		"Xamarin.Android.Support.v7.MediaRouter.dll",
+		"Xamarin.Android.Support.v7.Palette.dll",
+		"Xamarin.Android.Support.v7.RecyclerView.dll",
+		"Xamarin.Android.Support.Vector.Drawable.dll",
+		"Xamarin.Forms.Core.dll",
+		"Xamarin.Forms.Platform.Android.dll",
+		"Xamarin.Forms.Platform.dll",
+		"Xamarin.Forms.Xaml.dll",
 		"CostasCup.ViewModels.dll",
+		"CostasCup.DataModels.dll",
 		"CostasCup.DataModels.Interfaces.dll",
 		"CostasCup.DataStore.Mock.dll",
 		"CostasCup.Utils.dll",
@@ -148,5 +141,5 @@ class MonoPackageManager_Resources {
 	};
 	public static final String[] Dependencies = new String[]{
 	};
-	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_23";
+	public static final String ApiPackageName = "Mono.Android.Platform.ApiLevel_27";
 }

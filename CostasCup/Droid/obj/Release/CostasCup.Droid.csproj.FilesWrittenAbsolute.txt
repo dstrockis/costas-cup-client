@@ -1,6 +1,5 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Release/MonoAndroid,Version=v6.0.AssemblyAttribute.cs
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/Pages/TeamSelectPage.xaml
-/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/CostasCup.Droid.dll.mdb
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/CostasCup.Droid.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/com.strockisdev.costas_cup.apk
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Release/android/bin/com.strockisdev.costas_cup.apk
@@ -15,7 +14,6 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/com.strockisdev.costas_cup-Signed.apk
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Release/uploadflags.txt
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Release/CostasCup.Droid.dll
-/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/obj/Release/CostasCup.Droid.dll.mdb
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/Xamarin.Android.Support.v4.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/Xamarin.Forms.Platform.Android.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/FormsViewGroup.dll
@@ -39,3 +37,5 @@
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/CostasCup.Utils.dll
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/CostasCup.Utils.dll.mdb
 /Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/ModernHttpClient.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/System.Net.Requests.dll
+/Users/strockis/Source/costas/costas-cup-client/CostasCup/Droid/bin/Release/System.Net.Primitives.dll

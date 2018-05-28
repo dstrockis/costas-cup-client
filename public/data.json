@@ -1,0 +1,30 @@
+{
+    "indian-springs%%dellanno": {
+      "Id": "6c6996e9-9eee-49a1-aff7-a38b792a3e7a",
+      "courseId": "indian-springs",
+      "scores": [
+        {
+          "Id": "651697a7-5637-442c-9da9-cf3514e54a92",
+          "holeNumber": 1,
+          "numStrokes": 5,
+          "playerId": "joeydellanno",
+          "timestamp": "2017-06-24T22:41:52.994455Z"
+        }
+      ],
+      "teamId": "dellanno"
+    },
+    "indian-springs%%wardell": {
+      "Id": "5bb9f441-138e-4ff7-b007-1e8aae21e835",
+      "courseId": "indian-springs",
+      "scores": [
+        {
+          "Id": "5ca2efc6-ca3b-4aae-8c17-4c2fc200bf51",
+          "holeNumber": 6,
+          "numStrokes": 12,
+          "playerId": "davewardell",
+          "timestamp": "2016-06-23T19:52:01.069839Z"
+        }
+      ],
+      "teamId": "wardell"
+    }
+  }
